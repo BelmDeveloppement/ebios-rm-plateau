@@ -1362,5 +1362,3866 @@
    "PP2",
    "PP7"
   ]
- }
+ },
+ "guide": [
+  {
+   "id": "intro",
+   "title": "Présentation",
+   "blocks": [
+    [
+     "p",
+     "t",
+     "OPÉRATION SYNAPTIS"
+    ],
+    [
+     "p",
+     "st",
+     "Jeu de plateau d'acculturation à EBIOS RM · scénario prestataire informatique : accès chez les clients et chaîne d'approvisionnement"
+    ],
+    [
+     "p",
+     "st",
+     "CONSIGNES DES JOUEURS"
+    ],
+    [
+     "t",
+     [
+      [
+       "Public",
+       "Master 2 cybersécurité (adaptable à des cadres en entreprise)"
+      ],
+      [
+       "Durée",
+       "Journée de cours de 7 heures, pauses comprises : présentation (30 min), quiz (45 min), puis jeu de plateau (4 h 45)"
+      ],
+      [
+       "Joueurs",
+       "4 à 5 par table (5 rôles au maximum)"
+      ],
+      [
+       "Méthode",
+       "EBIOS Risk Manager (ANSSI, Club EBIOS) : les 5 ateliers"
+      ],
+      [
+       "Entreprise",
+       "Synaptis Services, cas fictif : aucun lien avec une entreprise réelle"
+      ],
+      [
+       "Ce document",
+       "Règles, dossier de scénario et une fiche par atelier (chaque atelier commence sur une nouvelle page, vous pouvez les imprimer séparément). Il ne contient aucune réponse."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "© 2026 BEL'M DEVELOPPEMENT – Tous droits réservés. Création originale, indépendante du Club EBIOS et de l'ANSSI ; EBIOS Risk Manager est une méthode publiée par l'ANSSI avec le Club EBIOS."
+    ]
+   ]
+  },
+  {
+   "id": "s1",
+   "title": "1. Le jeu en bref",
+   "blocks": [
+    [
+     "p",
+     "b",
+     "Vous formez la cellule d'analyse de risque de Synaptis Services, un infogérant de 450 salariés qui exploite les systèmes d'information d'une cinquantaine de clients et automatise ses interventions. Dans ce scénario, vous jouez le prestataire : l'enjeu n'est pas seulement de protéger votre propre SI, mais d'éviter qu'il serve de porte d'entrée vers vos clients. À chaque atelier vous <b>lisez des cartes</b>, <b>posez des cartes sur le plateau</b>, <b>calculez</b>, <b>débattez</b> et remplissez une <b>feuille de travail</b>. L'animateur valide votre travail avant que vous avanciez. Les 5 ateliers du jeu sont les 5 ateliers de la méthode EBIOS RM : vous allez dérouler une analyse complète, des valeurs métier jusqu'à l'acceptation des risques."
+    ],
+    [
+     "p",
+     "h2",
+     "Ce que vous saurez faire à la fin de la journée"
+    ],
+    [
+     "p",
+     "bl",
+     "Situer les 5 ateliers d'EBIOS RM et leur enchaînement."
+    ],
+    [
+     "p",
+     "bl",
+     "Distinguer valeur métier, bien support, événement redouté, source de risque, partie prenante, scénario stratégique et scénario opérationnel."
+    ],
+    [
+     "p",
+     "bl",
+     "Coter une gravité, une pertinence, un niveau de menace et une vraisemblance, et justifier chaque cotation."
+    ],
+    [
+     "p",
+     "bl",
+     "Arbitrer un plan de traitement sous contrainte de budget et formaliser l'acceptation d'un risque résiduel."
+    ],
+    [
+     "p",
+     "bl",
+     "Travailler en équipe pluridisciplinaire, comme dans une entreprise."
+    ],
+    [
+     "p",
+     "h2",
+     "Le matériel, en un coup d'œil"
+    ],
+    [
+     "t",
+     [
+      [
+       "Élément",
+       "À quoi il sert"
+      ],
+      [
+       "Plateau A1 du scénario",
+       "Moitié gauche : emplacements des cartes (ateliers 3, 4 et 5). Moitié droite : les 4 feuilles de travail du scénario, imprimées sur le plateau. On écrit directement dessus (feutre effaçable sur support lisse, ou stylo)."
+      ],
+      [
+       "Cartes (6 couleurs)",
+       "Bleu ENTREPRISE (atelier 1) · rouge MENACE (2) · vert ÉCOSYSTÈME et vert foncé MESURE ÉCOSYSTÈME (3) · noir OPÉRATION (4) · orange MESURE (5) · jaune RÔLE (avant le jeu). Les cartes violettes ALÉA appartiennent à l'animateur. Les cartes se lisent, puis se <b>posent sur les emplacements</b> du plateau aux ateliers 3, 4 et 5."
+      ],
+      [
+       "Feuilles du plateau",
+       "Feuille 1 : atelier 1 · feuille 2 : atelier 2 (haut) et atelier 4 (bas) · feuille 3 : atelier 3 · feuille 4 : atelier 5 et débrief. La version 1 n'est <b>jamais effacée</b> : après un aléa, vous écrivez la version 2 dans le bloc « Après l'aléa ». Des exemplaires A4 de réserve existent."
+      ],
+      [
+       "Jetons (21)",
+       "14 jetons jaunes = budget de l'atelier 5 · 2 bleus, 2 rouges, 2 verts = marqueurs SS1, SS2, SS3 dans la matrice (avant, après) · 1 jeton noir = veto sécurité."
+      ],
+      [
+       "Stylos, calculatrice",
+       "Les calculs sont écrits ligne par ligne, à côté du résultat, sur la feuille."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2",
+     "Les rôles (4 à 5 joueurs)"
+    ],
+    [
+     "p",
+     "b",
+     "Il y a <b>5 rôles</b> ; chaque joueur reçoit une carte <b>Rôle</b> et sa fiche. Un rôle donne un point de vue et une responsabilité. Deux responsabilités s'ajoutent à la carte : le <b>DG (R10) tient les 14 jetons de budget</b> (il fait aussi le rôle de la finance) et le <b>responsable technique (R03) joue l'attaquant</b> (Red Team) pour contester les scénarios. À quatre joueurs, le joueur R02 joue aussi R06 (veto sécurité). Au-delà de cinq joueurs, formez plusieurs tables."
+    ],
+    [
+     "t",
+     [
+      [
+       "Carte",
+       "Rôle",
+       "Expertise",
+       "Mission dans le jeu"
+      ],
+      [
+       "R01",
+       "RSSI",
+       "Animateur de l'analyse",
+       "Garant de la méthode. Tient la synthèse, relit les cotations, veille au temps."
+      ],
+      [
+       "R02",
+       "Directeur des opérations et de l'exploitation",
+       "Valeurs métier",
+       "Défend la continuité du service rendu aux clients et arbitre les gravités. Connaît le coût d'un jour d'arrêt."
+      ],
+      [
+       "R03",
+       "Architecte de la plateforme et des accès clients",
+       "Plateforme et accès",
+       "Connaît supervision, coffre, tunnels, cloud. Décrit les modes opératoires crédibles."
+      ],
+      [
+       "R06",
+       "Responsable conformité et engagements clients",
+       "Engagements contractuels",
+       "Porte l'événement redouté de compromission des clients. Peut imposer un veto sur l'acceptation."
+      ],
+      [
+       "R10",
+       "Directeur général (DG)",
+       "Décision",
+       "Arbitre en fin d'atelier 5. Accepte ou refuse les risques résiduels."
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "Joueurs",
+       "Répartition (cartes de rôle, « + » = même joueur)"
+      ],
+      [
+       "5",
+       "R01 | R02 | R03 | R06 | R10"
+      ],
+      [
+       "4",
+       "R01 | R02 + R06 | R03 | R10"
+      ]
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "2. Règles du jeu",
+   "blocks": [
+    [
+     "p",
+     "h2",
+     "Déroulement d'un atelier"
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Brief de méthode</b> (5 minutes) : l'animateur rappelle les notions et les échelles. Vous retrouvez ce rappel dans votre fiche d'atelier."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Première version</b> : vous lisez les cartes, posez les cartes sur leurs emplacements, calculez et remplissez la feuille du plateau."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Aléa à mi-parcours</b> : quand votre première version est posée, l'animateur lit <b>une</b> carte Aléa. Elle change une donnée ou une contrainte. Vous <b>révisez</b> votre travail comme lors d'une revue en entreprise : ce qui change, le recalcul, la justification, dans le bloc « Après l'aléa » de la feuille."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Validation</b> : vous appelez l'animateur. Il contrôle, annonce « Validé » ou « À revoir » et attribue les points."
+    ],
+    [
+     "p",
+     "h2",
+     "Règles de table"
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Le RSSI conduit</b> la discussion et tient la feuille, mais ne décide pas seul : toute cotation est justifiée à voix haute en une phrase."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Droit de contestation</b> : chaque joueur peut, une fois par atelier, contester une cotation. L'équipe la justifie ou la modifie. Le responsable technique (R03), qui joue l'attaquant, conteste en priorité les scénarios peu plausibles."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Veto sécurité</b> : le responsable conformité et engagements clients peut, avec le jeton noir VETO SÉCURITÉ, refuser qu'un risque mettant en cause la sécurité des clients, les engagements contractuels ou la conformité soit accepté. Le DG doit alors choisir une mesure supplémentaire."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Décision du DG</b> : le directeur général tranche les désaccords à l'atelier 5 et signe l'acceptation des risques résiduels."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Calculs écrits</b> : un résultat sans calcul n'est pas validé."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Vos résultats peuvent différer de ceux de l'animateur.</b> Le corrigé est une référence, pas l'unique réponse possible. Les <b>calculs</b> (Σ, niveau de menace, G × V, coût en jetons) doivent être exacts. Les <b>choix</b> (couples retenus, partie prenante du chemin, mesures, cotations subjectives comme M, R, A ou les freins) peuvent différer d'un niveau, ou suivre un autre chemin, à condition d'être <b>justifiés par écrit</b> avec le vocabulaire de la méthode. L'animateur ne cherche pas à retrouver mot pour mot sa réponse : il vérifie que votre raisonnement tient."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Temps</b> : à la fin du temps imparti, l'animateur peut valider un travail incomplet avec des points partiels. Si vous finissez avant, demandez les défis flash (2 points de bonus au maximum par atelier)."
+    ],
+    [
+     "p",
+     "h2",
+     "Score"
+    ],
+    [
+     "p",
+     "b",
+     "Chaque atelier est noté : A1 sur 20, A2 sur 15, A3 sur 20, A4 sur 20, A5 sur 20, cohésion et temps sur 5, soit <b>100 points</b>. Chaque atelier valorise le raisonnement (calculs, justifications) et 2 points récompensent la qualité de la <b>révision après aléa</b>. Les points servent à comparer les tables et à repérer les notions fragiles, pas à classer les personnes."
+    ]
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "3. La journée",
+   "blocks": [
+    [
+     "t",
+     [
+      [
+       "Repère depuis le début du cours",
+       "Durée",
+       "Séquence"
+      ],
+      [
+       "0 h 00 – 0 h 30",
+       "30 min",
+       "Présentation EBIOS RM (PowerPoint)"
+      ],
+      [
+       "0 h 30 – 1 h 15",
+       "45 min",
+       "Quiz EBIOS RM (jeu de cartes)"
+      ],
+      [
+       "1 h 15 – 1 h 30",
+       "15 min",
+       "Prologue : objectifs, rôles, découverte de Synaptis"
+      ],
+      [
+       "1 h 30 – 2 h 20",
+       "50 min",
+       "Atelier 1 · Cadrage et socle"
+      ],
+      [
+       "2 h 20 – 2 h 50",
+       "—",
+       "Pause de 30 minutes"
+      ],
+      [
+       "2 h 50 – 3 h 30",
+       "40 min",
+       "Atelier 2 · Sources de risque"
+      ],
+      [
+       "Coupure",
+       "—",
+       "Déjeuner (hors des 7 h)"
+      ],
+      [
+       "3 h 30 – 4 h 25",
+       "55 min",
+       "Atelier 3 · Écosystème et scénarios stratégiques"
+      ],
+      [
+       "4 h 25 – 4 h 55",
+       "—",
+       "Pause de 30 minutes"
+      ],
+      [
+       "4 h 55 – 5 h 50",
+       "55 min",
+       "Atelier 4 · Scénarios opérationnels"
+      ],
+      [
+       "5 h 50 – 6 h 30",
+       "40 min",
+       "Atelier 5 · Traitement du risque"
+      ],
+      [
+       "6 h 30 – 7 h 00",
+       "30 min",
+       "Débrief : comparaison des tables, scores"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "Journée de 7 heures pauses comprises : présentation 30 + quiz 45 + jeu de plateau (15 + 50 + 40 + 55 + 55 + 40 + 30 = 285) = 360 minutes de travail, plus 2 pauses de 30 minutes. La coupure déjeuner n'est pas comptée. Les repères partent du début du cours : ils ne dépendent pas de l'heure de début de l'école."
+    ]
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "4. Dossier de scénario : Synaptis Services",
+   "blocks": [
+    [
+     "p",
+     "h2",
+     "Fiche entreprise"
+    ],
+    [
+     "t",
+     [
+      [
+       "Raison sociale",
+       "Synaptis Services (infogérant et ESN fictif)"
+      ],
+      [
+       "Activité",
+       "Infogérance et exploitation des systèmes d'information d'une cinquantaine de clients (collectivités, industriels, santé) : supervision, support et interventions à distance 24 h sur 24"
+      ],
+      [
+       "Taille",
+       "450 salariés, chiffre d'affaires de 66 M€, soit environ 180 k€ par jour d'arrêt total (66 M€ ÷ 365)"
+      ],
+      [
+       "Sites",
+       "Siège, centre de supervision (24 h sur 24) et salle serveurs ; plateforme de supervision en partie hébergée chez un fournisseur cloud"
+      ],
+      [
+       "Partenaires",
+       "Une cinquantaine de clients dont des PME et ETI à la maturité cyber hétérogène, les éditeurs de la supervision et du coffre de mots de passe, des sous-traitants techniques et des freelances, un centre de support externalisé"
+      ],
+      [
+       "Contrôles",
+       "Certification ISO 27001, audits de sécurité des clients, engagements de niveau de service et de confidentialité, déclaration des violations de données"
+      ],
+      [
+       "Projet stratégique",
+       "« Plateforme d'automatisation » : automatiser les interventions chez les clients et migrer la supervision vers le cloud"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2",
+     "Système d'information et accès chez les clients"
+    ],
+    [
+     "p",
+     "bl",
+     "Une plateforme de supervision et d'automatisation et un coffre de mots de passe permettent d'intervenir à distance sur les systèmes d'information des clients."
+    ],
+    [
+     "p",
+     "bl",
+     "Environ 300 postes de techniciens et d'ingénieurs fonctionnent sous un système hérité, aux mises à jour limitées."
+    ],
+    [
+     "p",
+     "bl",
+     "La plateforme de supervision et la gestion des tickets tournent en partie chez le fournisseur cloud. La base de configurations stocke les inventaires, les schémas et les documents d'architecture d'une cinquantaine de clients."
+    ],
+    [
+     "p",
+     "bl",
+     "Un pare-feu et une passerelle assurent une segmentation partielle entre le SI interne, la plateforme de supervision et les tunnels vers les réseaux des clients."
+    ],
+    [
+     "p",
+     "bl",
+     "Les éditeurs de la supervision et du coffre de mots de passe et des sous-traitants techniques se connectent par VPN pour la télémaintenance."
+    ],
+    [
+     "p",
+     "bl",
+     "Des intérimaires, des sous-traitants et des techniciens indépendants accèdent au centre de supervision avec des badges temporaires ; des sous-traitants disposent de comptes dans le coffre de mots de passe."
+    ],
+    [
+     "p",
+     "h2",
+     "Constats de l'audit interne sur le socle de sécurité (atelier 1 (socle))"
+    ],
+    [
+     "p",
+     "note",
+     "L'audit décrit la situation sans la noter : c'est à vous d'attribuer un état à chaque règle (Conforme, Partiel, Écart)."
+    ],
+    [
+     "t",
+     [
+      [
+       "Règle",
+       "Constat de l'audit interne (sans notation)"
+      ],
+      [
+       "R1 Cloisonnement SI interne, plateforme et tunnels clients",
+       "Un pare-feu et une passerelle séparent le SI interne, la plateforme de supervision et les réseaux des clients, mais plusieurs tunnels permanents arrivent directement sur la plateforme, sans zone démilitarisée."
+      ],
+      [
+       "R2 Accès privilégiés et télémaintenance",
+       "Le coffre de mots de passe contient des comptes partagés ; les accès aux clients se font par VPN avec sessions permanentes et aucun second facteur d'authentification."
+      ],
+      [
+       "R3 Sauvegardes",
+       "Plateforme et base de configurations sauvegardées hors ligne pour environ 60 % des serveurs ; la restauration complète n'a jamais été testée."
+      ],
+      [
+       "R4 Postes et serveurs",
+       "Environ 300 postes de techniciens sous un système hérité : correctifs non appliqués depuis deux ans, durcissement inexistant."
+      ],
+      [
+       "R5 Sensibilisation",
+       "80 % des salariés formés ; intérimaires, freelances et sous-traitants non formés."
+      ],
+      [
+       "R6 Journalisation et détection",
+       "Aucune journalisation ni détection sur la plateforme ni sur les sessions d'intervention chez les clients."
+      ],
+      [
+       "R7 Plan de continuité",
+       "Bascule du centre de supervision sur le site de secours testée chaque année."
+      ],
+      [
+       "R8 Clauses contractuelles",
+       "Des clauses de sécurité figurent dans 3 contrats sur 8 avec les sous-traitants et éditeurs critiques ; aucune avec les freelances."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h3",
+     "Contexte réglementaire (à discuter, non à affirmer)"
+    ],
+    [
+     "p",
+     "note",
+     "Selon son activité et sa taille, Synaptis peut relever de la directive NIS 2 (prestataire de services gérés), du RGPD (Synaptis est sous-traitant des données de ses clients), de la certification ISO 27001 et des exigences de sécurité imposées contractuellement par les clients. Votre animateur vous dira ce qu'il faut en retenir."
+    ]
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "5. Échelles et règles de calcul du jeu",
+   "blocks": [
+    [
+     "p",
+     "note",
+     "Ces règles sont des <b>simplifications pédagogiques</b>. À la fin de la journée, vous les comparerez aux échelles du guide officiel de l'ANSSI."
+    ],
+    [
+     "t",
+     [
+      [
+       "Gravité",
+       "Définition"
+      ],
+      [
+       "G1 Mineure",
+       "Perte inférieure à 20 k€, gêne passagère sans impact sur les clients"
+      ],
+      [
+       "G2 Significative",
+       "20 à 200 k€, service perturbé quelques heures, aucun engagement de niveau de service rompu"
+      ],
+      [
+       "G3 Grave",
+       "0,2 à 2 M€, services indisponibles chez des clients, pénalités, données touchées, certification menacée"
+      ],
+      [
+       "G4 Critique",
+       "Plus de 2 M€, ou compromission d'un client à travers nos accès, ou survie de l'entreprise en jeu, ou mise en cause pénale des responsables"
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "Vraisemblance",
+       "Définition"
+      ],
+      [
+       "V1 Peu vraisemblable",
+       "Nécessite des moyens très importants ou plusieurs conditions rares"
+      ],
+      [
+       "V2 Vraisemblable",
+       "Réalisable par une source motivée avec des moyens courants"
+      ],
+      [
+       "V3 Très vraisemblable",
+       "Facilement réalisable, déjà observé dans le secteur"
+      ],
+      [
+       "V4 Quasi certaine",
+       "Pratiquement garanti si la source le décide"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h3",
+     "Atelier 2 : coter la motivation, les ressources et l'activité (de 1 à 4)"
+    ],
+    [
+     "t",
+     [
+      [
+       "Niveau",
+       "Motivation (M)",
+       "Ressources (R)",
+       "Activité (A)"
+      ],
+      [
+       "1",
+       "Faible : intérêt marginal, opportuniste",
+       "Très limitées : une personne isolée, outils publics",
+       "Rarement observée dans le secteur"
+      ],
+      [
+       "2",
+       "Moyenne : intérêt réel mais pas prioritaire",
+       "Limitées : outils courants, compétences moyennes",
+       "Occasionnelle : quelques cas par an dans le secteur"
+      ],
+      [
+       "3",
+       "Forte : objectif clair, prêt à investir du temps",
+       "Importantes : équipe organisée, outils spécialisés ou accès légitimes",
+       "Régulière : attaques observées chaque mois"
+      ],
+      [
+       "4",
+       "Très forte : objectif prioritaire, détermination durable",
+       "Très importantes : organisation structurée, moyens élevés",
+       "Très fréquente : attaques quasi quotidiennes"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h3",
+     "Atelier 3 : les quatre variables d'une partie prenante (D, P, M, C)"
+    ],
+    [
+     "t",
+     [
+      [
+       "Variable",
+       "Définition",
+       "Valeur 1",
+       "Valeur 4",
+       "Effet sur le niveau de menace"
+      ],
+      [
+       "D · Dépendance",
+       "À quel point l'organisation a besoin de cette partie prenante pour fonctionner. Peut-on la remplacer vite ?",
+       "Remplaçable en quelques jours, sans conséquence",
+       "Indispensable, aucune solution de repli",
+       "D monte : la menace monte"
+      ],
+      [
+       "P · Pénétration",
+       "Jusqu'où la partie prenante entre dans nos systèmes et nos locaux : VPN, comptes, badge, clés USB, accès physique.",
+       "Aucun accès, simples échanges de documents",
+       "Accès permanent et privilégié (administration, VPN toujours ouvert)",
+       "P monte : la menace monte"
+      ],
+      [
+       "M · Maturité cyber",
+       "Capacité de la partie prenante à se protéger et à gérer un incident : organisation, outils, certification, sensibilisation de son personnel.",
+       "Aucune démarche de sécurité",
+       "Démarche structurée, certifiée et testée",
+       "M monte : la menace baisse"
+      ],
+      [
+       "C · Confiance",
+       "Confiance que l'on peut accorder à ses intentions et à ses engagements : contrat, historique, transparence, droit d'audit.",
+       "Doutes, intérêts divergents, aucun engagement",
+       "Relation éprouvée, engagements opposables, intérêts alignés",
+       "C monte : la menace baisse"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h3",
+     "Atelier 3 : les mesures d'écosystème (ME), leviers pour réduire le niveau de menace d'une partie prenante"
+    ],
+    [
+     "p",
+     "note",
+     "Les cartes ME (vert foncé) sont les <b>mesures d'écosystème</b> : chacune agit sur une variable de la partie prenante. Leur but : faire sortir de la zone danger les parties prenantes qui sont des rebonds faciles. Après chaque mesure, recalculez le niveau et la zone."
+    ],
+    [
+     "t",
+     [
+      [
+       "Variable",
+       "Ce qu'elle mesure",
+       "Comment la faire évoluer",
+       "Cartes ME"
+      ],
+      [
+       "D · Dépendance",
+       "À quel point Synaptis a besoin de la partie prenante",
+       "Prévoir un second prestataire ou un plan B (D baisse)",
+       "ME6"
+      ],
+      [
+       "P · Pénétration",
+       "Accès de la partie prenante à nos systèmes et à nos locaux",
+       "Accès à la demande, cloisonnement, accompagnement sur site (P baisse)",
+       "ME3, ME4, ME5"
+      ],
+      [
+       "M · Maturité cyber",
+       "Niveau de sécurité de la partie prenante",
+       "Audit, sensibilisation du prestataire (M monte)",
+       "ME1, ME7"
+      ],
+      [
+       "C · Confiance",
+       "Engagements opposables et relation éprouvée",
+       "Clauses contractuelles, revue annuelle, exercice commun (C monte)",
+       "ME2, ME8"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h3",
+     "Atelier 4 : les freins qui rendent une étape plus difficile"
+    ],
+    [
+     "t",
+     [
+      [
+       "Frein",
+       "Question à se poser sur l'étape",
+       "Effet"
+      ],
+      [
+       "F1 · Compétences ou moyens",
+       "La source doit-elle disposer de compétences ou de moyens qu'elle n'a pas naturellement (par exemple connaître la plateforme de supervision et ses interfaces) ?",
+       "−1"
+      ],
+      [
+       "F2 · Règle du socle",
+       "Une règle du socle qui couvre cette étape est-elle Conforme ou Partielle ? (Écart : aucun frein)",
+       "−1"
+      ],
+      [
+       "F3 · Conditions cumulatives",
+       "Faut-il réunir plusieurs conditions indépendantes (complicité d'un sous-traitant et contournement d'un contrôle de validation, par exemple) ?",
+       "−1"
+      ],
+      [
+       "F4 · Détection probable",
+       "Quelqu'un ou quelque chose a-t-il de bonnes chances de remarquer l'action ?",
+       "−1"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h3",
+     "Récapitulatif des règles du jeu"
+    ],
+    [
+     "t",
+     [
+      [
+       "Notion",
+       "Règle"
+      ],
+      [
+       "Pertinence d'un couple source / objectif (atelier 2)",
+       "Σ = M + R + A. Σ ≥ 8 : retenu · 6 à 7 : à surveiller · ≤ 5 : écarté"
+      ],
+      [
+       "Niveau de menace d'une partie prenante (atelier 3)",
+       "(D × P) ÷ (M × C). Danger ≥ 3 · Contrôle de 1,5 à moins de 3 · Veille moins de 1,5"
+      ],
+      [
+       "Vraisemblance d'un scénario stratégique (atelier 3)",
+       "Nombre de critères remplis, minimum V1 : A. Σ de la source ≥ 9 ; B. une partie prenante du chemin est en zone danger ; C. une règle du socle sur le chemin est en Écart ou Partielle"
+      ],
+      [
+       "Vraisemblance d'une étape (atelier 4)",
+       "V étape = 4 − nombre de freins (F1 à F4), minimum V1"
+      ],
+      [
+       "Vraisemblance d'un scénario opérationnel (atelier 4)",
+       "La plus faible des quatre étapes. Elle remplace la V de l'atelier 3 pour la matrice de l'atelier 5"
+      ],
+      [
+       "Niveau de risque (atelier 5)",
+       "G × V. Faible ≤ 3 · Moyen 4 à 6 · Élevé 8 à 9 · Critique ≥ 12"
+      ],
+      [
+       "Seuil d'acceptation (atelier 5)",
+       "G × V ≤ 6. Après traitement, chaque scénario doit être à 6 ou moins ; au-dessus, il faut une mesure en plus ou une dérogation signée du DG"
+      ]
+     ]
+    ]
+   ]
+  },
+  {
+   "id": "a1",
+   "title": "Atelier 1 · Cadrage et socle de sécurité · 0 h 50",
+   "blocks": [
+    [
+     "t",
+     [
+      [
+       "CE DONT VOUS AVEZ BESOIN",
+       ""
+      ],
+      [
+       "<b>Plateau</b>",
+       "Zone ① : la feuille 1, imprimée sur le plateau (moitié droite, en haut à gauche) : valeurs métier, biens supports, gravité, socle."
+      ],
+      [
+       "<b>Jetons</b>",
+       "Aucun."
+      ],
+      [
+       "<b>Cartes</b>",
+       "Deck bleu ENTREPRISE (21 cartes) : à lire pour le détail. Rien ne se pose sur le plateau à cet atelier : vous cochez les tableaux."
+      ],
+      [
+       "<b>Où écrire</b>",
+       "Directement sur le plateau, feuille 1 : tableau biens supports × valeurs métier, gravité des ER, socle et taux de conformité."
+      ],
+      [
+       "<b>Autres</b>",
+       "Dossier de scénario (échelle de gravité, constats d'audit du socle) · calculatrice · stylo ou feutre effaçable."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c1",
+     "Objectif"
+    ],
+    [
+     "p",
+     "b",
+     "Cadrer l'étude : identifier ce qui compte pour l'entreprise (valeurs métier) et ce qui le supporte (biens supports), définir les événements redoutés et leur gravité, puis mesurer l'écart au socle de sécurité."
+    ],
+    [
+     "p",
+     "h2c1",
+     "Rappel de méthode"
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Valeur métier</b> : ce qui est essentiel à la mission (un processus, une information, un savoir-faire). Test : « si on change de technologie, cela existe-t-il encore ? »"
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Bien support</b> : composante du SI, des équipements, des locaux ou des personnes sur laquelle repose une valeur métier. <b>Remplissez le tableau bien support par bien support</b> (ligne par ligne) : « si ce bien disparaît, quelle valeur métier est touchée ? ». Un bien peut soutenir plusieurs valeurs métier ; chaque bien doit en soutenir au moins une."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Événement redouté (ER)</b> : atteinte à une valeur métier selon un critère (disponibilité, intégrité, confidentialité), avec son impact. On ne décrit jamais l'attaque."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Gravité</b> : cotation de chaque ER sur l'échelle G1 à G4, avec un calcul d'impact lorsque c'est possible (jours d'arrêt × 180 k€)."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Socle de sécurité</b> : liste de règles de base. On note pour chacune Conforme (1 point), Partielle (0,5) ou Écart (0), puis on calcule le taux de conformité."
+    ],
+    [
+     "p",
+     "h2c1",
+     "Pas à pas"
+    ],
+    [
+     "t",
+     [
+      [
+       "Minutes",
+       "Ce que vous faites",
+       "Où"
+      ],
+      [
+       "0–5",
+       "Brief de méthode",
+       "—"
+      ],
+      [
+       "5–18",
+       "Lire les cartes bleues <b>sauf les 6 cartes ER : laissez-les face cachée</b>. Remplir la feuille 1 <b>bien support par bien support</b> : pour chacun des 10 biens supports, cocher la ou les valeurs métier qu'il soutient",
+       "Zone ① haut ; feuille 1"
+      ],
+      [
+       "18–20",
+       "Aléa lu à mi-parcours par l'animateur. Écrire la version 2 dans le bloc violet",
+       "Feuille 1"
+      ],
+      [
+       "20–24",
+       "<b>Pari de gravité (étape 1)</b> : cartes ER toujours face cachée, chacun écrit en silence son pari G1 à G4 pour les 6 ER à partir des seuls titres de la feuille et de l'échelle du dossier ; comparez les paris à voix haute",
+       "Zone ① colonne « Pari »"
+      ],
+      [
+       "24–38",
+       "<b>Calcul (étape 2)</b> : retournez les cartes ER, calculez avec le dossier (jours × coût par jour), cochez G1 à G4. Pour chaque ER dont le résultat diffère du pari, écrivez en une phrase ce que le titre ne montrait pas",
+       "Zone ① grille ; feuille 1"
+      ],
+      [
+       "38–46",
+       "Noter l'état des 8 règles du socle d'après les constats d'audit, calculer le taux",
+       "Zone ① socle ; feuille 1 (socle)"
+      ],
+      [
+       "46–50",
+       "Appeler l'animateur pour la validation",
+       "—"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "<b>Pourquoi un pari avant le calcul ?</b> Les cartes ER indiquent déjà l'impact chiffré : si vous les lisez d'abord, il ne reste qu'à recopier. Le pari vous oblige à raisonner sur la nature de l'événement (durée, sécurité des personnes, clients, réglementation) <b>avant</b> de voir les chiffres. L'écart entre votre pari et le calcul est ce que vous apprenez : sous-estimation de la durée, oubli des pénalités, ER de sécurité (G4 par nature)…"
+    ],
+    [
+     "p",
+     "h2c1",
+     "Livrables"
+    ],
+    [
+     "p",
+     "b",
+     "Feuille 1 complétées (versions 1 et 2), tableaux cochés, taux de conformité du socle, écart prioritaire désigné."
+    ],
+    [
+     "p",
+     "h2c1",
+     "Avant d'appeler l'animateur : auto-contrôle"
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque valeur métier est reliée à au moins un bien support, et chaque bien support à une valeur métier."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Aucun événement redouté ne décrit une attaque."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque ER a un pari écrit <b>avant</b> le calcul, un calcul écrit, et une phrase explique chaque écart entre les deux."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Les 8 règles du socle sont notées, le taux est calculé."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Le bloc « Après l'aléa » est rempli."
+    ],
+    [
+     "p",
+     "h3",
+     "Conseils de vos rôles pendant cet atelier"
+    ],
+    [
+     "p",
+     "note",
+     "Chaque joueur a une fiche de rôle. Pour cet atelier, voici <b>la question que chaque rôle doit poser</b>. Si la table hésite, le rôle concerné lit sa ligne « Atelier 1 » dans sa fiche, ou scanne le QR code ci-dessous. Ces repères aident à positionner un choix ; ils ne remplacent jamais la justification de l'équipe."
+    ],
+    [
+     "t",
+     [
+      [
+       "Rôle",
+       "Question que ce rôle pose à la table à l'atelier 1"
+      ],
+      [
+       "<b>R01</b><br/>RSSI",
+       "Chaque valeur métier a-t-elle au moins un bien support, chaque bien support une valeur métier ? L'ER décrit-il l'atteinte, pas l'attaque ?"
+      ],
+      [
+       "<b>R02</b><br/>Directeur des opérations et de l'exploitation",
+       "Combien de jours peut-on tenir en mode dégradé ? À partir de quand l'indisponibilité devient-elle inacceptable ?"
+      ],
+      [
+       "<b>R03</b><br/>Architecte de la plateforme et des accès clients",
+       "Quels biens supports portent l'activité ? Quel équipement n'a pas de valeur métier derrière lui ?"
+      ],
+      [
+       "<b>R06</b><br/>Responsable conformité et engagements clients",
+       "Quel événement redouté touche à ce qui ne se négocie pas (sécurité, conformité, solvabilité) ? Y a-t-il une atteinte qui reste invisible pendant des heures ?"
+      ],
+      [
+       "<b>R10</b><br/>Directeur général (DG)",
+       "Quelles sont nos obligations légales, nos engagements envers nos clients ou usagers ? Qu'est-ce qui ne doit jamais s'arrêter ?"
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "",
+       "<b>Scannez : conseils complets des 5 rôles pour l'atelier 1</b><br/>Questions, repères pour positionner vos choix, position à défendre, piège à éviter. Le même contenu figure dans le tableau « atelier par atelier » de votre fiche de rôle.",
+       "",
+       "<b>Scannez : fiche de définitions</b><br/>Tous les termes de la méthode, avec la carte qui les porte. Une version papier est dans votre pochette."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c1",
+     "Défis flash de l'atelier 1 (bonus de 2 points au maximum, si vous avez fini avant le temps)"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 1.1 · Valeur métier ou bien support ?.</b> Classez : a) base de configurations des clients ; b) serveur de la plateforme de supervision ; c) rétablissement des incidents des clients dans les délais contractuels ; d) outil d'automatisation des interventions ; e) confiance des clients ; f) centre de supervision ; g) certification ISO 27001 ; h) technicien d'astreinte."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 1.2 · Gravité.</b> Cotez : a) arrêt d'un quart des services numériques pendant 6 heures ; b) arrêt total des services numériques pendant 5 jours ; c) arrêt total de 12 jours."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 1.3 · Priorités du socle.</b> Parmi R1 à R8, lesquelles traiteriez-vous en premier, et pourquoi ?"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 1.4 · Impact chiffré.</b> Chiffrez un arrêt de la plateforme de 12 jours et placez-le sur l'échelle. À partir de quel jour le seuil de G4 est-il franchi ?"
+    ]
+   ]
+  },
+  {
+   "id": "a2",
+   "title": "Atelier 2 · Sources de risque · 0 h 40",
+   "blocks": [
+    [
+     "t",
+     [
+      [
+       "CE DONT VOUS AVEZ BESOIN",
+       ""
+      ],
+      [
+       "<b>Plateau</b>",
+       "Zone ② : feuille 2, partie haute : tableau de cotation M / R / A / Σ avec les trois zones (rouge écartée, jaune à surveiller, vert retenue) et contrôle de couverture des ER."
+      ],
+      [
+       "<b>Jetons</b>",
+       "Aucun."
+      ],
+      [
+       "<b>Cartes</b>",
+       "Deck rouge MENACE (6 cartes SR : profil et objectif visé). Aucune cotation n'est imprimée : c'est à vous de coter."
+      ],
+      [
+       "<b>Où écrire</b>",
+       "Directement sur le plateau, feuille 2 (haut) ; révision après l'aléa dans le bandeau « Après l'aléa »."
+      ],
+      [
+       "<b>Autres</b>",
+       "Échelle M / R / A du dossier de scénario · calculatrice · stylo ou feutre effaçable."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c2",
+     "Objectif"
+    ],
+    [
+     "p",
+     "b",
+     "Identifier qui pourrait s'en prendre à Synaptis et pour quel objectif, évaluer la pertinence de chaque couple source de risque / objectif visé et décider lesquels vous analyserez dans la suite."
+    ],
+    [
+     "p",
+     "h2c2",
+     "Rappel de méthode"
+    ],
+    [
+     "p",
+     "bl",
+     "Une <b>source de risque</b> est une personne ou un groupe qui peut porter atteinte à l'organisation : État, cybercriminel, hacktiviste, concurrent, initié malveillant, amateur…"
+    ],
+    [
+     "p",
+     "bl",
+     "Un <b>objectif visé</b> est ce que la source cherche à obtenir : espionnage, gain financier, atteinte à l'image, vengeance, défi. Ce n'est pas un événement redouté : l'objectif est ce que veut l'attaquant, l'ER est ce que redoute l'entreprise."
+    ],
+    [
+     "p",
+     "bl",
+     "La <b>pertinence</b> du couple dépend de la <b>motivation</b> (M), des <b>ressources</b> (R) et de l'<b>activité</b> (A) de la source dans le secteur. Vous cotez chacun de 1 à 4 avec l'échelle du dossier de scénario, puis calculez Σ = M + R + A."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Règle du jeu</b> : Σ ≥ 8 retenu · 6 à 7 à surveiller · ≤ 5 écarté. Une source qui a plusieurs objectifs donne plusieurs couples évalués séparément."
+    ],
+    [
+     "p",
+     "h2c2",
+     "Pas à pas"
+    ],
+    [
+     "t",
+     [
+      [
+       "Minutes",
+       "Ce que vous faites",
+       "Où"
+      ],
+      [
+       "0–5",
+       "Brief de méthode",
+       "—"
+      ],
+      [
+       "5–15",
+       "Lire les 6 cartes rouges. Discuter du profil de chaque source",
+       "Cartes rouges"
+      ],
+      [
+       "15–26",
+       "Première version : coter M, R, A pour chaque source, entourer Σ (rouge : écartée · jaune : à surveiller · vert : retenue)",
+       "Zone ② ; feuille 2"
+      ],
+      [
+       "26–29",
+       "Aléa lu à mi-parcours : recoter la source concernée, justifier le maintien ou le changement de décision",
+       "Feuille 2, bloc violet"
+      ],
+      [
+       "29–35",
+       "Contrôle de couverture : chaque ER de gravité G3 ou G4 est-il atteint par au moins un couple retenu ? Compléter le tableau",
+       "Zone ② bas"
+      ],
+      [
+       "35–40",
+       "Validation",
+       "—"
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "Comment remplir le contrôle de couverture"
+      ],
+      [
+       "<b>① Repérez les couples retenus</b> : ceux dont Σ est entouré en vert (Σ ≥ 8). Eux seuls comptent. Une source à surveiller (jaune) ou écartée (rouge) ne couvre rien."
+      ],
+      [
+       "<b>② Pour chaque ER G3 ou G4</b> : quel couple retenu peut l'atteindre ? Écrivez la source et son objectif dans la colonne « Couple(s) retenu(s) »."
+      ],
+      [
+       "<b>③ Entourez OUI</b> si au moins un couple retenu mène à cet ER ; <b>entourez NON</b> sinon."
+      ],
+      [
+       "<b>④ Si NON</b> : la sélection est trop restrictive. Écrivez dans la dernière colonne ce que vous changez (retenir une source de plus, ou revoir une cotation) et corrigez la feuille."
+      ],
+      [
+       "Les ER de gravité G1 ou G2 ne sont pas exigés : laissez la ligne en blanc."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c2",
+     "Livrables"
+    ],
+    [
+     "p",
+     "b",
+     "Feuille 2 complétée, Σ entouré pour les 6 sources, tableau de couverture des ER, révision après aléa."
+    ],
+    [
+     "p",
+     "h2c2",
+     "Avant d'appeler l'animateur : auto-contrôle"
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque cotation M, R, A est justifiée en une phrase et le calcul de Σ est écrit."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Σ est entouré dans la colonne qui correspond au total."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque ER G3 ou G4 a un OUI ou un NON entouré et le couple retenu qui l'atteint ; aucune source à surveiller n'est comptée comme couvrant."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Si un ER grave n'est atteint par aucun couple retenu, vous avez revu votre sélection."
+    ],
+    [
+     "p",
+     "h3",
+     "Conseils de vos rôles pendant cet atelier"
+    ],
+    [
+     "p",
+     "note",
+     "Chaque joueur a une fiche de rôle. Pour cet atelier, voici <b>la question que chaque rôle doit poser</b>. Si la table hésite, le rôle concerné lit sa ligne « Atelier 2 » dans sa fiche, ou scanne le QR code ci-dessous. Ces repères aident à positionner un choix ; ils ne remplacent jamais la justification de l'équipe."
+    ],
+    [
+     "t",
+     [
+      [
+       "Rôle",
+       "Question que ce rôle pose à la table à l'atelier 2"
+      ],
+      [
+       "<b>R01</b><br/>RSSI",
+       "Quelle phrase de la carte justifie ce M, ce R, ce A ? Tous les ER G3 et G4 sont-ils couverts ?"
+      ],
+      [
+       "<b>R02</b><br/>Directeur des opérations et de l'exploitation",
+       "Quelle source de risque s'attaquerait à mon activité ? Laquelle a un intérêt à nous mettre sous pression ?"
+      ],
+      [
+       "<b>R03</b><br/>Architecte de la plateforme et des accès clients",
+       "Un technicien interne a-t-il des moyens ? Que sait-il faire sans outils ?"
+      ],
+      [
+       "<b>R06</b><br/>Responsable conformité et engagements clients",
+       "Quelle source viserait cet enjeu ? Qui a assez de moyens et d'accès pour le faire ?"
+      ],
+      [
+       "<b>R10</b><br/>Directeur général (DG)",
+       "Pourquoi retenir cette source et pas celle-là ? Ai-je tous les ER graves couverts ?"
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "",
+       "<b>Scannez : conseils complets des 5 rôles pour l'atelier 2</b><br/>Questions, repères pour positionner vos choix, position à défendre, piège à éviter. Le même contenu figure dans le tableau « atelier par atelier » de votre fiche de rôle.",
+       "",
+       "<b>Scannez : fiche de définitions</b><br/>Tous les termes de la méthode, avec la carte qui les porte. Une version papier est dans votre pochette."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c2",
+     "Défis flash de l'atelier 2 (bonus de 2 points au maximum, si vous avez fini avant le temps)"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 2.1.</b> Un hacktiviste voit son activité passer de 2 à 4 après une campagne médiatique visant l'un des clients du prestataire. Recalculez et décidez."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 2.2.</b> Donnez pour chaque source de risque un exemple d'objectif visé différent de celui de la carte."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 2.3.</b> Pourquoi la ressource (R) de SR4 est-elle de 3 alors qu'il est seul ?"
+    ]
+   ]
+  },
+  {
+   "id": "a3",
+   "title": "Atelier 3 · Écosystème et scénarios stratégiques · 0 h 55",
+   "blocks": [
+    [
+     "t",
+     [
+      [
+       "CE DONT VOUS AVEZ BESOIN",
+       ""
+      ],
+      [
+       "<b>Plateau</b>",
+       "Zone ③ : trois couloirs SS1 à SS3 à gauche (cartes SR → PP → ER ; le second emplacement PP est facultatif), cadre des mesures d'écosystème (ME), et la feuille 3 : radar des parties prenantes, scénarios stratégiques."
+      ],
+      [
+       "<b>Jetons</b>",
+       "Aucun."
+      ],
+      [
+       "<b>Cartes</b>",
+       "Deck vert ÉCOSYSTÈME (8 cartes PP : D, P, M, C sont imprimés) et deck vert foncé MESURE ÉCOSYSTÈME (8 cartes ME). Réutilisés : les cartes SR retenues (atelier 2) et les cartes ER (atelier 1), à poser dans les couloirs."
+      ],
+      [
+       "<b>Où écrire</b>",
+       "Directement sur le plateau, feuille 3 : niveaux de menace avant et après mesures, tableau des scénarios stratégiques, critères A, B, C."
+      ],
+      [
+       "<b>Autres</b>",
+       "Calculatrice · stylo ou feutre effaçable · définitions de D, P, M, C et tableau des mesures d'écosystème (section 5 du dossier de scénario)."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c3",
+     "Objectif"
+    ],
+    [
+     "p",
+     "b",
+     "Cartographier l'écosystème de Synaptis Services, calculer le <b>niveau de menace</b> de chaque partie prenante, construire les <b>scénarios stratégiques</b> qui relient une source de risque retenue à un événement redouté, puis choisir des <b>mesures d'écosystème (ME)</b> qui font sortir de la zone danger les parties prenantes les plus exposées."
+    ],
+    [
+     "p",
+     "h2c3",
+     "Rappel de méthode"
+    ],
+    [
+     "p",
+     "bl",
+     "Une <b>partie prenante</b> (PP) est une entité extérieure en relation avec l'organisation (fournisseur, prestataire, partenaire). Elle peut servir de <b>rebond</b> : la source d'attaque la compromet, puis passe par elle pour atteindre l'organisation."
+    ],
+    [
+     "p",
+     "bl",
+     "Chaque PP est décrite par <b>quatre variables de 1 à 4</b>, déjà imprimées sur sa carte : <b>D</b> dépendance, <b>P</b> pénétration, <b>M</b> maturité cyber, <b>C</b> confiance (définitions ci-dessous)."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Niveau de menace = (D × P) ÷ (M × C).</b> D et P sont au numérateur : elles font monter la menace. M et C sont au dénominateur : elles la font baisser."
+    ],
+    [
+     "p",
+     "bl",
+     "Le <b>radar</b> classe chaque PP selon son niveau : <b>danger</b> si le niveau est ≥ 3 · <b>contrôle</b> de 1,5 à moins de 3 · <b>veille</b> en dessous de 1,5. Un niveau de 3,0 pile est en danger, un niveau de 1,5 pile est en contrôle."
+    ],
+    [
+     "p",
+     "bl",
+     "Un <b>scénario stratégique</b> est un chemin d'attaque : <b>source de risque → partie prenante (relais) → événement redouté</b>. Sa gravité est <b>celle de l'ER visé</b>. Sa vraisemblance se cote avec trois critères (A, B, C)."
+    ],
+    [
+     "p",
+     "h3",
+     "Les quatre variables d'une partie prenante"
+    ],
+    [
+     "t",
+     [
+      [
+       "Variable",
+       "Définition",
+       "Valeur 1",
+       "Valeur 4",
+       "Effet sur le niveau de menace"
+      ],
+      [
+       "D · Dépendance",
+       "À quel point l'organisation a besoin de cette partie prenante pour fonctionner. Peut-on la remplacer vite ?",
+       "Remplaçable en quelques jours, sans conséquence",
+       "Indispensable, aucune solution de repli",
+       "D monte : la menace monte"
+      ],
+      [
+       "P · Pénétration",
+       "Jusqu'où la partie prenante entre dans nos systèmes et nos locaux : VPN, comptes, badge, clés USB, accès physique.",
+       "Aucun accès, simples échanges de documents",
+       "Accès permanent et privilégié (administration, VPN toujours ouvert)",
+       "P monte : la menace monte"
+      ],
+      [
+       "M · Maturité cyber",
+       "Capacité de la partie prenante à se protéger et à gérer un incident : organisation, outils, certification, sensibilisation de son personnel.",
+       "Aucune démarche de sécurité",
+       "Démarche structurée, certifiée et testée",
+       "M monte : la menace baisse"
+      ],
+      [
+       "C · Confiance",
+       "Confiance que l'on peut accorder à ses intentions et à ses engagements : contrat, historique, transparence, droit d'audit.",
+       "Doutes, intérêts divergents, aucun engagement",
+       "Relation éprouvée, engagements opposables, intérêts alignés",
+       "C monte : la menace baisse"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "Les valeurs sont déjà sur les cartes : vous n'avez pas à les coter, mais à savoir les lire. Si deux PP ont le même niveau, c'est la variable qui explique ce niveau qui guide le choix de la mesure."
+    ],
+    [
+     "p",
+     "h3",
+     "Exemple fil rouge, hors du jeu : un prestataire de maintenance du parc de postes de travail"
+    ],
+    [
+     "p",
+     "b",
+     "D 3, P 4, M 1, C 3. D × P = 12 ; M × C = 3 ; niveau = 12 ÷ 3 = <b>4,0</b> : zone <b>danger</b>. Ce qui explique le niveau : une pénétration forte (accès permanent) avec une maturité minimale."
+    ],
+    [
+     "p",
+     "h2c3",
+     "Méthode : construire un scénario stratégique en 5 étapes"
+    ],
+    [
+     "t",
+     [
+      [
+       "Étape",
+       "Question",
+       "Où trouver la réponse",
+       "Où écrire"
+      ],
+      [
+       "① Couple",
+       "Quel couple source / objectif avez-vous retenu à l'atelier 2 (Σ ≥ 8) ?",
+       "Feuille 2, colonne Σ",
+       "Feuille 3 (scénarios), colonne « Couple »"
+      ],
+      [
+       "② ER visé",
+       "Quel événement redouté cet objectif menace-t-il ? Faites le lien entre l'objectif de la source et la valeur métier qu'il menace : gain financier → disponibilité des services ou intégrité des opérations ; revente de données → confidentialité ; sabotage → sécurité ou intégrité.",
+       "Feuille 1 (6 ER) · cartes bleues ER",
+       "Colonne « ER visé »"
+      ],
+      [
+       "③ Relais",
+       "Par quelle partie prenante la source peut-elle entrer ? Cherchez la PP qui a un accès (pénétration) au bien support qui conduit à l'ER, en priorité en zone danger ou contrôle. <b>Une seule PP suffit.</b>",
+       "Radar (feuille 3) · description au dos des cartes PP",
+       "Couloir SS du plateau (SR → PP → ER) · colonne « Événements intermédiaires »"
+      ],
+      [
+       "④ Gravité",
+       "Quelle est la gravité de cet ER ? Reprenez-la telle quelle : elle n'est jamais inventée pour le scénario.",
+       "Feuille 1 (gravité des ER)",
+       "Colonne G"
+      ],
+      [
+       "⑤ Vraisemblance",
+       "Quels critères A, B, C sont remplis ? V = nombre de ✓, avec un minimum de V1.",
+       "Tableau des critères ci-dessous",
+       "Colonnes A B C, V et justification"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "<b>Le couloir a 4 emplacements, mais vous posez 3 cartes.</b> Il comporte : une carte SR, une carte PP, un <b>second emplacement PP facultatif</b>, une carte ER. Dans la solution de référence, chaque scénario passe par <b>une seule</b> partie prenante : le second emplacement PP reste vide et vous posez donc <b>3 cartes par scénario</b> (SR, PP, ER). Vous ne l'utilisez que pour un second relais que vous pouvez justifier par une phrase ; ce n'est jamais obligatoire. Deux sources qui mènent au même ER par le même relais donnent <b>un seul</b> scénario (pour le critère A, retenez la source la plus pertinente). Vous devez obtenir <b>trois</b> scénarios (SS1 à SS3), pas quatre. La ligne « bis » de la feuille 3 est facultative."
+    ],
+    [
+     "p",
+     "h3",
+     "Lire un scénario comme une phrase"
+    ],
+    [
+     "p",
+     "b",
+     "« [Source] cherche [objectif]. Elle compromet [partie prenante], qui a un accès à [bien support]. Cela lui permet d'atteindre [événement redouté]. » Si vous ne pouvez pas dire cette phrase à voix haute sans hésiter, le chemin n'est pas encore solide."
+    ],
+    [
+     "p",
+     "h3",
+     "Les trois critères de vraisemblance A, B, C"
+    ],
+    [
+     "t",
+     [
+      [
+       "Critère",
+       "Question à se poser",
+       "Où regarder",
+       "Il est rempli (✓) quand…",
+       "Exemple hors jeu"
+      ],
+      [
+       "A · Source pertinente",
+       "La source qui part sur ce chemin est-elle très motivée, bien outillée et active ?",
+       "Feuille 2 : le Σ de la source du chemin",
+       "Σ ≥ 9",
+       "SR2 : Σ = 11. ✓"
+      ],
+      [
+       "B · Relais facile",
+       "La partie prenante du chemin est-elle déjà en zone danger sur le radar ?",
+       "Feuille 3 : le niveau de menace de la PP du chemin",
+       "Niveau ≥ 3",
+       "PP8 : 1,5, zone contrôle. ✗"
+      ],
+      [
+       "C · Terrain favorable",
+       "Une règle du socle qui protège un maillon de ce chemin est-elle mal tenue ?",
+       "Feuille 1 : état des 8 règles ; la règle doit concerner une étape du chemin",
+       "La règle est en Écart ou Partielle",
+       "R2 (accès d'administration externes) est en Écart. ✓"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "<b>V = nombre de ✓, avec un minimum de V1</b> : 0 ou 1 critère → V1 · 2 critères → V2 · 3 critères → V3. Écrivez pour chaque critère la preuve (« Σ de SR2 = 11 », « niveau de PP8 = 1,5 », « R2 en Écart ») : un ✓ sans preuve n'est pas validé."
+    ],
+    [
+     "p",
+     "h3",
+     "Exemple résolu hors du jeu (il ne fait pas partie des trois scénarios attendus)"
+    ],
+    [
+     "t",
+     [
+      [
+       "Couple",
+       "ER visé",
+       "Chemin (SR → PP → ER)",
+       "G",
+       "A",
+       "B",
+       "C",
+       "V"
+      ],
+      [
+       "SR2 cybercriminel / gain financier",
+       "ER6 Altération de la facturation des prestations",
+       "SR2 compromet l'accès d'administration de PP8 (prestataire de comptabilité et de facturation), puis modifie des données de facturation ou de paiement → ER6",
+       "G2",
+       "✓",
+       "✗",
+       "✓",
+       "V2"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "Risque avant traitement : G2 × V2 = 4, moyen."
+    ],
+    [
+     "p",
+     "h2c3",
+     "Méthode : choisir des mesures d'écosystème (ME)"
+    ],
+    [
+     "t",
+     [
+      [
+       "À quoi servent les mesures d'écosystème ?"
+      ],
+      [
+       "Vous ne pouvez pas rendre un prestataire plus sûr par décret. Une ME agit sur ce que l'organisation <b>peut</b> faire : auditer, former, limiter les accès, encadrer par contrat, prévoir un plan B."
+      ],
+      [
+       "<b>But</b> : faire redescendre le niveau de menace d'une partie prenante <b>sous le seuil de danger (3)</b>, pour qu'elle ne soit plus un rebond facile."
+      ],
+      [
+       "Les ME sont les cartes <b>vert foncé</b> (ME1 à ME8). Elles se rangent dans le cadre « mesures d'écosystème » du plateau, et leur coût sera pris sur les 14 jetons de l'atelier 5."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h3",
+     "Catalogue des mesures d'écosystème et de leur coût"
+    ],
+    [
+     "t",
+     [
+      [
+       "Carte",
+       "Mesure",
+       "Agit sur",
+       "Effet",
+       "Coût (jetons)"
+      ],
+      [
+       "ME1",
+       "Audit de sécurité d'un prestataire",
+       "M · maturité",
+       "M +1",
+       "<b>1</b>"
+      ],
+      [
+       "ME2",
+       "Clauses contractuelles : notification d'incident, comptes nominatifs, droit d'audit",
+       "C · confiance",
+       "C +1",
+       "<b>1</b>"
+      ],
+      [
+       "ME3",
+       "Accès à la demande avec validation et enregistrement des sessions",
+       "P · pénétration",
+       "P −1",
+       "<b>2</b>"
+      ],
+      [
+       "ME4",
+       "Cloisonnement du réseau accessible au prestataire",
+       "P · pénétration",
+       "P −1",
+       "<b>2</b>"
+      ],
+      [
+       "ME5",
+       "Badge nominatif et accompagnement sur site",
+       "P · pénétration",
+       "P −1",
+       "<b>1</b>"
+      ],
+      [
+       "ME6",
+       "Second prestataire ou plan B de continuité",
+       "D · dépendance",
+       "D −1",
+       "<b>2</b>"
+      ],
+      [
+       "ME7",
+       "Sensibilisation et formation des équipes du prestataire",
+       "M · maturité",
+       "M +1",
+       "<b>1</b>"
+      ],
+      [
+       "ME8",
+       "Revue annuelle et exercice de crise commun",
+       "C · confiance",
+       "C +1",
+       "<b>1</b>"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "<b>Le coût est imprimé sur chaque carte ME.</b> Additionnez le coût des cartes que vous posez et reportez le total dans la zone « mesures d'écosystème » de la feuille 3. Ce total sera <b>retiré des 14 jetons de budget</b> de l'atelier 5 : une mesure à 2 jetons est donc deux fois plus chère à l'atelier 5 qu'une mesure à 1 jeton. Cherchez la solution la moins chère qui fait passer la partie prenante sous le seuil de danger (3)."
+    ],
+    [
+     "t",
+     [
+      [
+       "Étape",
+       "Ce que vous faites"
+      ],
+      [
+       "① Repérer",
+       "Pour chaque PP en zone danger, quelle variable (D, P, M ou C) explique le niveau élevé ? Appuyez-vous sur le tableau des leviers (section 5)."
+      ],
+      [
+       "② Choisir",
+       "Choisissez une ou plusieurs cartes ME qui agissent sur cette variable. Une ME change <b>une seule variable de 1</b> (D ou P : −1 ; M ou C : +1)."
+      ],
+      [
+       "③ Recalculer",
+       "Réécrivez D, P, M, C, puis (D × P) ÷ (M × C) dans la colonne « Après mesures » de la feuille 3 ; cochez la nouvelle zone."
+      ],
+      [
+       "④ Contrôler",
+       "La PP est-elle sortie de la zone danger (niveau < 3) ? Sinon, ajoutez ou changez de mesure."
+      ],
+      [
+       "⑤ Compter le coût et noter les conséquences",
+       "Additionnez le <b>coût en jetons</b> des cartes ME posées (imprimé sur chaque carte) et reportez le total sur la feuille 3 : il sera retiré des 14 jetons de l'atelier 5. Notez aussi, à côté du scénario concerné, si le critère B (PP en zone danger) n'est plus rempli : la vraisemblance du scénario baisserait alors d'un cran."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "<b>Ce qu'il faut recalculer après une ME :</b> le nouveau niveau de la PP et sa zone · le critère B des scénarios qui passent par cette PP · le coût total des ME. La matrice de l'atelier 5 utilise toutefois la V de l'atelier 4 (scénario opérationnel), pas celle de l'atelier 3."
+    ],
+    [
+     "p",
+     "b",
+     "Exemple fil rouge, suite : ME7 (sensibilisation et formation des équipes du prestataire, M +1) : M passe de 1 à 2 ; niveau = 12 ÷ (2 × 3) = <b>2,0</b> : zone contrôle, coût 1. ME3 (accès à la demande, P −1) : 9 ÷ (1 × 3) = <b>3,0</b> : encore en danger, il faudrait une seconde mesure."
+    ],
+    [
+     "p",
+     "h2c3",
+     "Pas à pas"
+    ],
+    [
+     "t",
+     [
+      [
+       "Minutes",
+       "Ce que vous faites",
+       "Où"
+      ],
+      [
+       "0–5",
+       "Brief de méthode",
+       "—"
+      ],
+      [
+       "5–18",
+       "Première version : calculer le niveau de menace des 8 parties prenantes (feuille 3, radar), cocher la zone de chaque PP",
+       "Zone ③ radar ; feuille 3 (radar)"
+      ],
+      [
+       "18–21",
+       "Aléa lu à mi-parcours : recalculer la partie prenante concernée, la replacer, en tirer les conséquences",
+       "Feuille 3 (radar), bloc violet"
+      ],
+      [
+       "21–40",
+       "Construire les 3 scénarios stratégiques par la méthode en 5 étapes : cartes SR, PP, ER posées dans le couloir SS, tableau rempli",
+       "Zone ③ couloirs ; feuille 3 (scénarios stratégiques)"
+      ],
+      [
+       "40–50",
+       "Choisir au moins une mesure d'écosystème par PP en zone danger, recalculer",
+       "Zone ③ mesures ; feuille 3 (mesures ME)"
+      ],
+      [
+       "50–55",
+       "Validation",
+       "—"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c3",
+     "Livrables"
+    ],
+    [
+     "p",
+     "b",
+     "Feuille 3 complétée ; 8 zones cochées sur le radar ; 3 scénarios dans les couloirs avec G, critères A B C et V ; mesures d'écosystème posées avec nouveau niveau calculé."
+    ],
+    [
+     "p",
+     "h2c3",
+     "Avant d'appeler l'animateur : auto-contrôle"
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque niveau de menace est calculé par écrit (D × P, M × C, quotient) et la zone est cochée."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque scénario part d'une source retenue, passe par une partie prenante et se termine sur un ER ; la gravité est celle de l'ER."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Pour chaque V, vous pouvez dire quels critères A, B, C sont remplis, avec la preuve."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque partie prenante en danger a une mesure d'écosystème avec recalcul, et vous savez ce qu'elle change."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Le bloc « Après l'aléa » est rempli."
+    ],
+    [
+     "p",
+     "h3",
+     "Conseils de vos rôles pendant cet atelier"
+    ],
+    [
+     "p",
+     "note",
+     "Chaque joueur a une fiche de rôle. Pour cet atelier, voici <b>la question que chaque rôle doit poser</b>. Si la table hésite, le rôle concerné lit sa ligne « Atelier 3 » dans sa fiche, ou scanne le QR code ci-dessous. Ces repères aident à positionner un choix ; ils ne remplacent jamais la justification de l'équipe."
+    ],
+    [
+     "t",
+     [
+      [
+       "Rôle",
+       "Question que ce rôle pose à la table à l'atelier 3"
+      ],
+      [
+       "<b>R01</b><br/>RSSI",
+       "Pouvons-nous dire à voix haute la phrase « source → partie prenante → événement redouté » ? Les critères A, B, C ont-ils chacun leur preuve ?"
+      ],
+      [
+       "<b>R02</b><br/>Directeur des opérations et de l'exploitation",
+       "Quelle partie prenante, si elle tombe ou est compromise, arrête mon activité ? Combien de temps pour la remplacer ?"
+      ],
+      [
+       "<b>R03</b><br/>Architecte de la plateforme et des accès clients",
+       "Quel prestataire a un accès permanent à nos systèmes ? Lequel entre dans les locaux avec un badge ou un compte partenaire ?"
+      ],
+      [
+       "<b>R06</b><br/>Responsable conformité et engagements clients",
+       "Qui entre physiquement ou logiquement dans les zones sensibles ? Avec quel contrôle ?"
+      ],
+      [
+       "<b>R10</b><br/>Directeur général (DG)",
+       "Ces mesures d'écosystème sont-elles réalistes avec nos prestataires ? Combien coûtent-elles ?"
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "",
+       "<b>Scannez : conseils complets des 5 rôles pour l'atelier 3</b><br/>Questions, repères pour positionner vos choix, position à défendre, piège à éviter. Le même contenu figure dans le tableau « atelier par atelier » de votre fiche de rôle.",
+       "",
+       "<b>Scannez : fiche de définitions</b><br/>Tous les termes de la méthode, avec la carte qui les porte. Une version papier est dans votre pochette."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c3",
+     "Défis flash de l'atelier 3 (bonus de 2 points au maximum, si vous avez fini avant le temps)"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 3.1.</b> Calculez et classez : société de gardiennage des locaux (D 2, P 3, M 1, C 2) ; éditeur du logiciel de gestion des tickets (D 3, P 3, M 3, C 3) ; prestataire de nettoyage (D 1, P 2, M 2, C 3)."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 3.2.</b> Mesurez l'effet de la mesure M5 (maturité +1) sur PP2 et PP7."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 3.3.</b> Un étudiant propose : « SR1 → autorités et organismes de certification (PP3) → ER3 ». Cotez le scénario par les critères A, B, C."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 3.4.</b> Pourquoi le niveau de menace d'une partie prenante peut-il baisser sans toucher à la partie prenante elle-même ?"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 3.5.</b> Cotez le scénario : SR3 hacktiviste (Σ 6) → PP4 centre de support externalisé de niveau 1 (niveau 0,67) → ER6. Aucune règle du socle en écart ou partielle ne se trouve sur ce chemin."
+    ]
+   ]
+  },
+  {
+   "id": "a4",
+   "title": "Atelier 4 · Scénarios opérationnels · 0 h 55",
+   "blocks": [
+    [
+     "t",
+     [
+      [
+       "CE DONT VOUS AVEZ BESOIN",
+       ""
+      ],
+      [
+       "<b>Plateau</b>",
+       "Zone ④ : 3 chaînes de 4 emplacements (Connaître, Rentrer, Trouver, Exploiter) à gauche, et la feuille 2 (partie basse) : cotation des étapes, actions écartées, tests T1 à T4, ligne « Biens supports critiques »."
+      ],
+      [
+       "<b>Jetons</b>",
+       "Aucun."
+      ],
+      [
+       "<b>Cartes</b>",
+       "<b>Cartes noires = cartes OPÉRATION</b> (15 cartes : phase, action, bien visé), mélangées : certaines ne servent à rien. Posez 4 cartes par chaîne (12 au total), les 3 autres restent à côté. <b>Cartes bleues BS</b> (les 10 biens supports de l'atelier 1) : à garder sous la main pour vérifier le bien visé de chaque action (test T1) et repérer les biens supports critiques. Vos scénarios de l'atelier 3 (cartes SR, PP, ER) restent posés dans les couloirs."
+      ],
+      [
+       "<b>Où écrire</b>",
+       "Directement sur le plateau, feuille 2 (bas) : V et freins de chaque étape, V du scénario, actions écartées. Gardez sous la main la feuille 3 et la feuille 1."
+      ],
+      [
+       "<b>Autres</b>",
+       "Tableau des freins (dossier de scénario, section 5) · cartes BS ou liste des 10 biens supports · stylo ou feutre effaçable."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c4",
+     "Objectif"
+    ],
+    [
+     "p",
+     "b",
+     "Détailler, pour chacun de vos 3 scénarios stratégiques, le mode opératoire de l'attaquant sur les biens supports, en 4 phases, coter sa vraisemblance, puis <b>identifier les biens supports critiques</b> (ceux par où l'attaquant entre ou frappe)."
+    ],
+    [
+     "p",
+     "h2c4",
+     "Rappel de méthode"
+    ],
+    [
+     "p",
+     "bl",
+     "Un <b>scénario opérationnel</b> enchaîne quatre actions sur des biens supports : <b>Connaître</b> (reconnaissance), <b>Rentrer</b> (accès initial), <b>Trouver</b> (déplacement, découverte), <b>Exploiter</b> (atteinte de l'objectif)."
+    ],
+    [
+     "p",
+     "bl",
+     "Seuls les scénarios stratégiques retenus sont détaillés."
+    ],
+    [
+     "p",
+     "bl",
+     "Un scénario opérationnel décrit des <b>actions sur les biens supports</b>. Il ne décrit pas l'impact (c'est l'ER) ni la partie prenante en général (c'est le scénario stratégique)."
+    ],
+    [
+     "p",
+     "bl",
+     "On peut s'inspirer de bases de connaissance d'attaques (MITRE ATT&amp;CK, CAPEC)."
+    ],
+    [
+     "p",
+     "bl",
+     "Les <b>cartes noires sont les cartes Opération</b> : chacune décrit une action, sa phase (Connaître, Rentrer, Trouver ou Exploiter) et le bien support visé."
+    ],
+    [
+     "p",
+     "bl",
+     "Les actions décrites montrent aussi quels <b>biens supports sont critiques</b> : ceux qui servent de vecteur d'entrée ou d'exploitation. Ils guideront l'atelier 5."
+    ],
+    [
+     "p",
+     "h2c4",
+     "Méthode : construire une chaîne de 4 actions"
+    ],
+    [
+     "t",
+     [
+      [
+       "Étape",
+       "Ce que vous faites"
+      ],
+      [
+       "① Partir de la fin",
+       "Reprenez le scénario stratégique (source, partie prenante, ER). Quel bien support l'attaquant doit-il toucher pour provoquer l'ER ? C'est la cible de l'action <b>Exploiter</b>."
+      ],
+      [
+       "② Remonter",
+       "<b>Trouver</b> : que doit-il découvrir ou cartographier pour atteindre cette cible ? <b>Rentrer</b> : par quel accès (souvent la partie prenante en rebond) obtient-il l'entrée ? <b>Connaître</b> : que doit-il savoir au préalable ?"
+      ],
+      [
+       "③ Choisir les cartes",
+       "Dans la réserve de 15 cartes noires (cartes Opération), choisissez pour chaque phase la carte qui correspond à votre scénario et posez-la sur l'emplacement de la chaîne. Plusieurs cartes paraissent plausibles : <b>le bien visé et la partie prenante du scénario tranchent</b>."
+      ],
+      [
+       "④ Vérifier chaque maillon",
+       "Pour chaque action écrivez sur la feuille 2 (chaînes) <b>pourquoi elle suit la précédente</b> : le résultat de l'une doit rendre l'autre possible. Si vous ne pouvez pas l'écrire, l'action n'est pas à sa place."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c4",
+     "Méthode : écarter les actions qui n'ont rien à faire là"
+    ],
+    [
+     "p",
+     "b",
+     "Les 15 cartes ne servent pas toutes. Testez chaque carte que vous n'utilisez pas : elle est <b>écartée</b> dès qu'elle échoue à l'un des tests suivants, et vous écrivez pourquoi (feuille 2 (actions écartées))."
+    ],
+    [
+     "t",
+     [
+      [
+       "Test",
+       "Question"
+      ],
+      [
+       "T1 · Bien connu",
+       "Le bien visé est-il l'un des 10 biens supports de l'atelier 1 ?"
+      ],
+      [
+       "T2 · Valeur métier",
+       "Ce bien soutient-il une valeur métier de votre étude ?"
+      ],
+      [
+       "T3 · Chemin vers un ER",
+       "L'action peut-elle contribuer à l'un de vos 3 scénarios stratégiques ?"
+      ],
+      [
+       "T4 · Enchaînement",
+       "Son résultat permet-il l'action suivante d'une chaîne ?"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c4",
+     "Méthode : coter les étapes puis le scénario"
+    ],
+    [
+     "t",
+     [
+      [
+       "Comprendre un frein"
+      ],
+      [
+       "Un <b>frein</b> est un <b>obstacle réel</b> que la source rencontre à cette étape. Il ne bloque pas l'attaque : il la rend plus difficile, donc <b>moins vraisemblable</b>."
+      ],
+      [
+       "On part de <b>V4</b> (étape facile). Pour chaque frein qui s'applique <b>vraiment</b>, on retire 1. Il y a 4 freins possibles (F1 à F4), la V ne descend jamais sous V1."
+      ],
+      [
+       "Pour chaque étape, mettez-vous à la place de l'attaquant et répondez <b>oui ou non</b> aux quatre questions, dans l'ordre. Écrivez le frein retenu et la raison en une phrase."
+      ],
+      [
+       "<b>Piège classique</b> : une règle du socle en <b>Écart</b> n'est <b>pas</b> un frein (il n'y a aucune protection). Seule une règle <b>Conforme ou Partielle</b> peut freiner (F2)."
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "Frein",
+       "Question de l'attaquant",
+       "Exemple dans votre scénario",
+       "Exemple de réponse « non »"
+      ],
+      [
+       "F1 · Compétences ou moyens",
+       "Ai-je besoin de savoir-faire ou d'outils que je n'ai pas déjà ?",
+       "Altérer les systèmes visés demande de connaître leurs protocoles et leur architecture.",
+       "Un initié connaît déjà les systèmes : pas de F1."
+      ],
+      [
+       "F2 · Règle du socle",
+       "Une protection existe-t-elle (règle Conforme ou Partielle) qui couvre cette étape ?",
+       "La sensibilisation (R5) est partielle : un hameçonnage réussit moins souvent.",
+       "Postes jamais mis à jour (R4 en Écart) : pas de F2."
+      ],
+      [
+       "F3 · Conditions cumulatives",
+       "Faut-il réunir plusieurs conditions indépendantes en même temps ?",
+       "Être sur place ET avoir un accès valide ET une cible accessible.",
+       "Un seul mot de passe réutilisé suffit : pas de F3."
+      ],
+      [
+       "F4 · Détection probable",
+       "Quelqu'un ou quelque chose a-t-il de bonnes chances de me remarquer ?",
+       "Le prestataire ou l'hébergeur surveille les connexions d'administration.",
+       "Aucune journalisation (R6 en Écart) : l'action passe inaperçue, pas de F4."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "Calcul de l'étape : V = 4 − (nombre de freins retenus), minimum V1. Exemple : 2 freins retenus → V2. La V du scénario est la <b>plus petite</b> des 4 étapes : une chaîne est aussi difficile que son maillon le plus dur."
+    ],
+    [
+     "p",
+     "b",
+     "Pour chaque action : commencez à <b>V4</b>, retirez 1 par frein applicable (tableau des freins, section 5), sans descendre sous V1. Écrivez sur la feuille 2 (chaînes) les freins retenus et la V de l'étape. La vraisemblance du scénario est celle de <b>l'étape la plus difficile</b> (la plus petite V). Elle <b>remplace</b> celle de l'atelier 3 pour la matrice de l'atelier 5 ; si les deux diffèrent, expliquez pourquoi sur la feuille 2 (actions écartées)."
+    ],
+    [
+     "p",
+     "h3",
+     "Exemple résolu hors du jeu (même scénario que l'exemple de l'atelier 3)"
+    ],
+    [
+     "t",
+     [
+      [
+       "Phase",
+       "Action",
+       "Bien",
+       "Pourquoi elle suit",
+       "Freins",
+       "V"
+      ],
+      [
+       "Connaître",
+       "Recherche en sources ouvertes sur le prestataire de facturation et ses outils",
+       "BS5",
+       "Point de départ",
+       "Aucun",
+       "V4"
+      ],
+      [
+       "Rentrer",
+       "Hameçonnage d'un administrateur du prestataire, vol de ses identifiants",
+       "BS5",
+       "Il faut connaître les personnes et les outils pour cibler",
+       "F2 : sensibilisation partielle des prestataires (R5)",
+       "V3"
+      ],
+      [
+       "Trouver",
+       "Repérage des tables de facturation et des coordonnées bancaires d'encaissement",
+       "BS5",
+       "Les identifiants donnent accès au logiciel de facturation, il faut y repérer les données utiles",
+       "F1 : connaître la structure du logiciel de facturation",
+       "V3"
+      ],
+      [
+       "Exploiter",
+       "Modification des coordonnées bancaires d'encaissement des prestations",
+       "BS5",
+       "Les données repérées peuvent être modifiées",
+       "F4 : le contrôle de gestion peut remarquer l'écart d'encaissement",
+       "V3"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "La plus faible des 4 étapes est V3 : le scénario est <b>V3</b>. Il était V2 à l'atelier 3 : la précision des actions a montré que chaque étape était accessible. C'est la V3 qui entre dans la matrice (G2 × V3 = 6, risque moyen)."
+    ],
+    [
+     "p",
+     "h2c4",
+     "Méthode : repérer les biens supports critiques"
+    ],
+    [
+     "t",
+     [
+      [
+       "Biens supports critiques : où l'attaquant passe le plus"
+      ],
+      [
+       "Dans la méthode EBIOS RM, l'atelier 4 ne sert pas seulement à décrire des attaques : il permet aussi d'identifier les <b>biens supports critiques</b>, ceux qui servent de <b>vecteur d'entrée</b> (Rentrer) ou de <b>point d'exploitation</b> (Exploiter) dans les scénarios."
+      ],
+      [
+       "Ce sont eux que l'atelier 5 devra protéger en priorité : une mesure sur un bien support critique réduit plusieurs scénarios à la fois."
+      ],
+      [
+       "<b>Règle du jeu</b> : un bien support est <b>critique</b> s'il est visé par <b>au moins 2 actions</b> de vos 12 cartes posées, dont <b>au moins un Rentrer ou un Exploiter</b>."
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "Bien support",
+       "Nombre d'actions de vos chaînes qui le visent",
+       "Une de ces actions est-elle un Rentrer ou un Exploiter ?",
+       "Critique ?"
+      ],
+      [
+       "BS1",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS2",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS3",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS4",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS5",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS6",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS7",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS8",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS9",
+       "",
+       "",
+       ""
+      ],
+      [
+       "BS10",
+       "",
+       "",
+       ""
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "Comptez uniquement les cartes posées dans vos 3 chaînes (pas les cartes écartées). Reportez la liste des biens supports critiques sur la feuille 2, ligne « Biens supports critiques »."
+    ],
+    [
+     "p",
+     "h2c4",
+     "Pas à pas"
+    ],
+    [
+     "t",
+     [
+      [
+       "Minutes",
+       "Ce que vous faites",
+       "Où"
+      ],
+      [
+       "0–5",
+       "Brief de méthode",
+       "—"
+      ],
+      [
+       "5–15",
+       "Lire les 15 cartes noires (cartes Opération) et vérifier les 3 scénarios stratégiques de la feuille 3 (scénarios stratégiques)",
+       "Cartes noires ; feuille 3 (scénarios stratégiques)"
+      ],
+      [
+       "15–32",
+       "Première version : poser les actions dans les 3 chaînes, écrire pourquoi chaque action suit la précédente",
+       "Zone ④ chaînes ; feuille 2 (chaînes)"
+      ],
+      [
+       "32–35",
+       "Aléa lu à mi-parcours : réexaminer vos chaînes et votre vraisemblance",
+       "Feuille 2 (actions écartées), bloc violet"
+      ],
+      [
+       "35–46",
+       "Écarter les actions inutiles (tests T1 à T4), coter chaque étape puis chaque scénario",
+       "Zones ④ ; feuille 2 (atelier 4)"
+      ],
+      [
+       "46–51",
+       "Compter les actions par bien support et noter les biens supports critiques",
+       "Feuille 2, ligne « Biens supports critiques »"
+      ],
+      [
+       "51–55",
+       "Validation",
+       "—"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c4",
+     "Livrables"
+    ],
+    [
+     "p",
+     "b",
+     "Feuille 2 (atelier 4) complétées ; 3 chaînes de 4 actions posées dans l'ordre Connaître → Rentrer → Trouver → Exploiter ; actions écartées justifiées ; V de chaque étape et de chaque scénario ; comparaison avec la V de l'atelier 3 ; liste des biens supports critiques."
+    ],
+    [
+     "p",
+     "h2c4",
+     "Avant d'appeler l'animateur : auto-contrôle"
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque chaîne a exactement 4 actions, une par phase, dans le bon ordre."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque action indique son bien support et pourquoi elle suit la précédente."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque carte écartée est justifiée par un test échoué."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque étape a sa V et ses freins ; la V du scénario est la plus petite."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque bien support critique est noté, avec le décompte de ses actions."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Le bloc « Après l'aléa » est rempli."
+    ],
+    [
+     "p",
+     "h3",
+     "Conseils de vos rôles pendant cet atelier"
+    ],
+    [
+     "p",
+     "note",
+     "Chaque joueur a une fiche de rôle. Pour cet atelier, voici <b>la question que chaque rôle doit poser</b>. Si la table hésite, le rôle concerné lit sa ligne « Atelier 4 » dans sa fiche, ou scanne le QR code ci-dessous. Ces repères aident à positionner un choix ; ils ne remplacent jamais la justification de l'équipe."
+    ],
+    [
+     "t",
+     [
+      [
+       "Rôle",
+       "Question que ce rôle pose à la table à l'atelier 4"
+      ],
+      [
+       "<b>R01</b><br/>RSSI",
+       "Chaque action suit-elle logiquement la précédente ? Quels biens supports reviennent le plus souvent dans les chaînes ?"
+      ],
+      [
+       "<b>R02</b><br/>Directeur des opérations et de l'exploitation",
+       "Quels biens supports l'attaquant doit-il toucher pour provoquer l'ER1 ? Que vous manque-t-il pour rester en mode dégradé ?"
+      ],
+      [
+       "<b>R03</b><br/>Architecte de la plateforme et des accès clients",
+       "Pour atteindre coffre de mots de passe et comptes à privilèges des clients, que doit savoir faire l'attaquant ? Quel accès lui faut-il ? Qui peut le remarquer ?"
+      ],
+      [
+       "<b>R06</b><br/>Responsable conformité et engagements clients",
+       "Combien de personnes ou de conditions faut-il réunir pour modifier une consigne sans être vu ? Quelle alerte remarquerait-on ?"
+      ],
+      [
+       "<b>R10</b><br/>Directeur général (DG)",
+       "Que retenez-vous de cet atelier pour ma décision ? Quels sont les biens supports critiques ?"
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "",
+       "<b>Scannez : conseils complets des 5 rôles pour l'atelier 4</b><br/>Questions, repères pour positionner vos choix, position à défendre, piège à éviter. Le même contenu figure dans le tableau « atelier par atelier » de votre fiche de rôle.",
+       "",
+       "<b>Scannez : fiche de définitions</b><br/>Tous les termes de la méthode, avec la carte qui les porte. Une version papier est dans votre pochette."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c4",
+     "Défis flash de l'atelier 4 (bonus de 2 points au maximum, si vous avez fini avant le temps)"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 4.1.</b> Remettez dans l'ordre : O1 exfiltration, O9 veille sur l'hébergeur, O13 repérage des volumes, O4 compte administrateur compromis."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 4.2.</b> Citez un bien support et une mesure de détection pour chaque phase de SS1."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 4.3.</b> Le bastion d'accès avec second facteur (M2) est déployé : R2 devient Conforme. Recotez « Rentrer » de SS1 par le VPN, puis cherchez une autre étape Rentrer et donnez la vraisemblance de SS1."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 4.5.</b> Dans vos trois chaînes, quels biens supports sont visés par au moins deux actions, dont un Rentrer ou un Exploiter ? Lequel protégeriez-vous en premier, et pourquoi ?"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 4.4.</b> Une publication décrit comment cartographier une plateforme de supervision et ses accès clients sans en connaître l'architecture (AL8). Que devient le frein F1 de « Trouver » en SS1 ? Quelle est la vraisemblance de SS1 ?"
+    ]
+   ]
+  },
+  {
+   "id": "a5",
+   "title": "Atelier 5 · Traitement du risque · 0 h 40",
+   "blocks": [
+    [
+     "t",
+     [
+      [
+       "CE DONT VOUS AVEZ BESOIN",
+       ""
+      ],
+      [
+       "<b>Plateau</b>",
+       "Zone ⑤ : emplacements des mesures ME et M (colonne de droite de la partie gauche) et feuille 4 : matrice G × V, budget, avant / après traitement, décision du DG, risque résiduel et acceptation."
+      ],
+      [
+       "<b>Jetons</b>",
+       "14 jetons jaunes de budget · 2 jetons bleus (SS1), 2 rouges (SS2), 2 verts (SS3) pour la matrice : le premier posé = avant traitement, le second = après · 1 jeton noir VETO SÉCURITÉ."
+      ],
+      [
+       "<b>Cartes</b>",
+       "Deck orange MESURE (12 cartes : coût et effet) et cartes ME retenues à l'atelier 3 : à poser sur les emplacements."
+      ],
+      [
+       "<b>Où écrire</b>",
+       "Directement sur le plateau, feuille 4 : avant / après, décision du DG, risque résiduel, cadre de suivi."
+      ],
+      [
+       "<b>Autres</b>",
+       "Calculatrice · stylo ou feutre effaçable."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c5",
+     "Objectif"
+    ],
+    [
+     "p",
+     "b",
+     "Synthétiser les risques, choisir un plan de traitement sous contrainte de budget, formuler les risques résiduels et faire accepter formellement ces risques par le décideur."
+    ],
+    [
+     "p",
+     "h2c5",
+     "Rappel de méthode"
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Synthèse</b> : chaque scénario est placé dans la matrice gravité × vraisemblance, avec la V de l'atelier 4."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Stratégies de traitement</b> : réduire, éviter, partager (transférer) ou accepter."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>PACS</b> : plan d'amélioration continue de la sécurité (mesures, responsables, échéances)."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Seuil d'acceptation</b> : la direction accepte un risque jusqu'à <b>G × V = 6</b> (niveau Moyen au plus). <b>Votre objectif : amener chaque scénario stratégique à 6 ou moins</b>, avec le moins de jetons possible. Un scénario qui reste au-dessus de 6 doit recevoir une mesure en plus ou une dérogation écrite du DG, avec responsable, indicateur et date de revue ; le veto sécurité reste possible."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Risque résiduel</b> : ce qui reste après traitement ; il est accepté <b>formellement</b> par le décideur (responsable, date de revue, indicateur)."
+    ],
+    [
+     "p",
+     "bl",
+     "<b>Mesures</b> : chaque carte orange indique un coût en jetons et un effet (par exemple « SS1 : vraisemblance −1 »). Les mesures d'écosystème (ME) choisies à l'atelier 3 rejoignent ce plan et coûtent aussi des jetons ; une mesure M et une mesure ME qui font la même chose ne se cumulent pas (c'est le cas de M5 et de ME1 + ME7)."
+    ],
+    [
+     "p",
+     "h3",
+     "D'où viennent G et V de chaque scénario ?"
+    ],
+    [
+     "t",
+     [
+      [
+       "Scénario",
+       "G vient de…",
+       "V vient de…",
+       "À reporter dans la matrice"
+      ],
+      [
+       "SS1, SS2, SS3 (chacun)",
+       "La <b>gravité de l'événement redouté</b> visé par le scénario (feuille 1, repris dans la feuille 3, colonne G). Jamais modifiée sans mesure.",
+       "La <b>vraisemblance du scénario opérationnel</b> : la plus petite V de ses 4 étapes (feuille 2, atelier 4). Elle <b>remplace</b> la V de l'atelier 3.",
+       "Risque avant = G × V. Placez le premier jeton de la couleur du scénario."
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "Scénario",
+       "ER visé",
+       "G (feuille 1)",
+       "V de l'atelier 3",
+       "V de l'atelier 4 (retenue)",
+       "G × V avant"
+      ],
+      [
+       "SS1",
+       "ER__",
+       "G__",
+       "V__",
+       "V__",
+       "__"
+      ],
+      [
+       "SS2",
+       "ER__",
+       "G__",
+       "V__",
+       "V__",
+       "__"
+      ],
+      [
+       "SS3",
+       "ER__",
+       "G__",
+       "V__",
+       "V__",
+       "__"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "note",
+     "Après une mesure : lisez l'effet sur la carte (« vraisemblance −1 » ou « gravité −1 »), recalculez G × V par écrit, puis posez le second jeton."
+    ],
+    [
+     "p",
+     "h2c5",
+     "Pas à pas"
+    ],
+    [
+     "t",
+     [
+      [
+       "Minutes",
+       "Ce que vous faites",
+       "Où"
+      ],
+      [
+       "0–5",
+       "Brief de méthode",
+       "—"
+      ],
+      [
+       "5–8",
+       "Placer SS1 à SS3 dans la matrice : un jeton de la couleur du scénario (avant traitement)",
+       "Zone ⑤ matrice ; feuille 4"
+      ],
+      [
+       "8–22",
+       "Première version du plan : choisir les mesures dans la limite de 14 jetons pour que chaque scénario passe <b>à G × V ≤ 6</b> (seuil d'acceptation), recalculer G et V, poser le second jeton de la même couleur (après traitement)",
+       "Zone ⑤ PACS et budget"
+      ],
+      [
+       "22–28",
+       "Aléa lu à mi-parcours : refaire le plan sous la nouvelle contrainte",
+       "Feuille 4, bloc violet"
+      ],
+      [
+       "28–35",
+       "Formuler le risque résiduel, remplir le cadre de suivi, décision du DG, veto du responsable conformité et engagements clients si nécessaire",
+       "Zone ⑤ acceptation"
+      ],
+      [
+       "35–40",
+       "Validation",
+       "—"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c5",
+     "Livrables"
+    ],
+    [
+     "p",
+     "b",
+     "Feuille 4 complétée ; matrice avec jetons avant et après ; PACS posé (cartes M et ME sur leurs emplacements) ; budget respecté ; risques résiduels formulés ; décision d'acceptation signée par le DG (et co-signée par le responsable conformité et engagements clients si ER4 est concerné) ; cadre de suivi."
+    ],
+    [
+     "p",
+     "h2c5",
+     "Avant d'appeler l'animateur : auto-contrôle"
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Le total des coûts ne dépasse pas le budget."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque scénario est à G × V ≤ 6 après traitement, ou une dérogation signée du DG est écrite (responsable, indicateur, date de revue)."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Pour chaque mesure, vous avez recalculé G ou V par écrit."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque risque résiduel est situé dans la matrice."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque risque accepté a un responsable, une date de revue et un indicateur."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Votre plan s'appuie sur les écarts du socle de l'atelier 1."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Pour chaque scénario, vous pouvez dire d'où viennent son G et sa V."
+    ],
+    [
+     "p",
+     "bl",
+     "☐ Chaque bien support critique (atelier 4) est protégé par une mesure, ou son risque est accepté explicitement."
+    ],
+    [
+     "p",
+     "h3",
+     "Conseils de vos rôles pendant cet atelier"
+    ],
+    [
+     "p",
+     "note",
+     "Chaque joueur a une fiche de rôle. Pour cet atelier, voici <b>la question que chaque rôle doit poser</b>. Si la table hésite, le rôle concerné lit sa ligne « Atelier 5 » dans sa fiche, ou scanne le QR code ci-dessous. Ces repères aident à positionner un choix ; ils ne remplacent jamais la justification de l'équipe."
+    ],
+    [
+     "t",
+     [
+      [
+       "Rôle",
+       "Question que ce rôle pose à la table à l'atelier 5"
+      ],
+      [
+       "<b>R01</b><br/>RSSI",
+       "Le budget est-il respecté ? Chaque risque accepté a-t-il un responsable, un indicateur et une date de revue ?"
+      ],
+      [
+       "<b>R02</b><br/>Directeur des opérations et de l'exploitation",
+       "Quelle mesure me rend le plus de jours de service ? Que peut-on laisser accepter sans mettre l'activité en danger ?"
+      ],
+      [
+       "<b>R03</b><br/>Architecte de la plateforme et des accès clients",
+       "Quelle mesure est applicable dans mes équipes en moins de six mois ? Laquelle suppose un arrêt de service ?"
+      ],
+      [
+       "<b>R06</b><br/>Responsable conformité et engagements clients",
+       "Le risque touchant mon périmètre est-il revenu à un niveau que j'accepte ? Sinon, quelle mesure supplémentaire ?"
+      ],
+      [
+       "<b>R10</b><br/>Directeur général (DG)",
+       "Quel risque résiduel j'accepte ? Qui en est responsable ? Quand le revoit-on ?"
+      ]
+     ]
+    ],
+    [
+     "t",
+     [
+      [
+       "",
+       "<b>Scannez : conseils complets des 5 rôles pour l'atelier 5</b><br/>Questions, repères pour positionner vos choix, position à défendre, piège à éviter. Le même contenu figure dans le tableau « atelier par atelier » de votre fiche de rôle.",
+       "",
+       "<b>Scannez : fiche de définitions</b><br/>Tous les termes de la méthode, avec la carte qui les porte. Une version papier est dans votre pochette."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c5",
+     "Défis flash de l'atelier 5 (bonus de 2 points au maximum, si vous avez fini avant le temps)"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 5.1.</b> Placez dans la matrice un risque G2 × V4, un risque G4 × V1 et un risque G3 × V3. Donnez leur niveau."
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 5.2.</b> Avec 6 jetons, quelle priorité pour SS1 seul (12) ?"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 5.3.</b> Pourquoi la cyber-assurance (M12) n'apparaît-elle pas dans le plan de référence ?"
+    ],
+    [
+     "p",
+     "b",
+     "<b>Défi 5.4.</b> Rédigez une décision d'acceptation pour SS1 résiduel (G3 × V2 = 6)."
+    ]
+   ]
+  },
+  {
+   "id": "deb",
+   "title": "Débrief et bilan · 0 h 30",
+   "blocks": [
+    [
+     "t",
+     [
+      [
+       "CE DONT VOUS AVEZ BESOIN",
+       ""
+      ],
+      [
+       "<b>Plateau</b>",
+       "Bas de la feuille 4 : bilan de la journée et questions de débrief."
+      ],
+      [
+       "<b>Jetons</b>",
+       "Aucun."
+      ],
+      [
+       "<b>Cartes</b>",
+       "Aucune."
+      ],
+      [
+       "<b>Où écrire</b>",
+       "Sur le plateau (débrief) et votre dossier d'analyse."
+      ],
+      [
+       "<b>Autres</b>",
+       "Votre dossier d'analyse complet, un stylo."
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c6",
+     "Pas à pas"
+    ],
+    [
+     "t",
+     [
+      [
+       "Minutes",
+       "Ce que vous faites",
+       "Où"
+      ],
+      [
+       "0–5",
+       "Chaque table présente son résultat : score, risque le plus critique, plus grande divergence avec les autres tables",
+       "Colonne débrief"
+      ],
+      [
+       "5–17",
+       "Comparaison des tables : valeurs métier, couples retenus, plan de traitement",
+       "Dossiers"
+      ],
+      [
+       "17–25",
+       "Retour sur la méthode officielle : écarts entre les échelles du jeu et celles du guide de l'ANSSI",
+       "Guide ANSSI"
+      ],
+      [
+       "25–30",
+       "« Ce que je fais lundi » : engagement individuel écrit",
+       "Colonne débrief"
+      ]
+     ]
+    ],
+    [
+     "p",
+     "h2c6",
+     "Questions à préparer"
+    ],
+    [
+     "p",
+     "bl",
+     "Quelle cotation a le plus divisé votre équipe, et comment l'avez-vous tranchée ?"
+    ],
+    [
+     "p",
+     "bl",
+     "Qu'a changé l'aléa dans votre analyse ?"
+    ],
+    [
+     "p",
+     "bl",
+     "La vraisemblance fixée à l'atelier 3 a-t-elle survécu à l'atelier 4 ? Pourquoi ?"
+    ],
+    [
+     "p",
+     "bl",
+     "Si Synaptis était un hôpital ou un assureur, que changeriez-vous aux ateliers 1 et 3 ?"
+    ],
+    [
+     "p",
+     "bl",
+     "Qui signe l'acceptation d'un risque dans votre entreprise ou votre stage ?"
+    ],
+    [
+     "p",
+     "bl",
+     "Que ferez-vous lundi ?"
+    ],
+    [
+     "p",
+     "note",
+     "© 2026 BEL'M DEVELOPPEMENT – Tous droits réservés."
+    ]
+   ]
+  }
+ ],
+ "fichesFull": [
+  [
+   [
+    "p",
+    "rh",
+    "R01 · RSSI"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Fiche rôle individuelle</b> · Opération PRESTATAIRE · poste : RSSI · à ne pas montrer aux autres joueurs"
+   ],
+   [
+    "p",
+    "h2",
+    "Votre mission dans le jeu"
+   ],
+   [
+    "p",
+    "b",
+    "Garant de la méthode. Tient la synthèse, relit les cotations, veille au temps."
+   ],
+   [
+    "p",
+    "h2",
+    "Dans la vraie vie"
+   ],
+   [
+    "p",
+    "b",
+    "Dans une organisation comme Synaptis Services, le RSSI est souvent seul ou presque : il rédige la politique de sécurité, relaie les alertes, prépare les audits et doit convaincre une direction qui arbitre d'abord entre ses priorités métier. Il est rarement le décideur : il éclaire, il documente, il fait signer. Situation réelle : avant le vote du budget, la direction demande « de quoi a-t-on besoin, et pourquoi ? » ; la seule réponse recevable est une analyse de risque chiffrée et lisible."
+   ],
+   [
+    "t",
+    [
+     [
+      "Ce que vous savez (et que les autres ne savent pas forcément)"
+     ],
+     [
+      "Vous connaissez la méthode : vous savez à chaque atelier quelle feuille remplir et dans quel ordre. Vous tenez le temps (chronomètre du plateau)."
+     ],
+     [
+      "Vous avez commandé l'audit interne : les constats du socle viennent de vous. Vous savez que « Partiel » veut dire « en place mais incomplet ou non testé », « Écart » « rien en place »."
+     ],
+     [
+      "Vous savez que les sources de risque et les parties prenantes sont connues, mais que personne n'a encore chiffré leur niveau."
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Comment cette fiche vous aide"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Lien avec le guide des joueurs :</b> à la fin de chaque atelier, le guide reprend la question de chaque rôle dans l'encadré « Conseils de vos rôles pendant cet atelier », avec un QR code vers le détail en ligne. Le tableau ci-dessous est la version complète, atelier par atelier."
+   ],
+   [
+    "p",
+    "b",
+    "À chaque atelier, vous avez des <b>questions à poser</b> à l'équipe, des <b>repères</b> pour aider à positionner une valeur ou un choix (ce ne sont pas des réponses toutes faites : vous devez toujours justifier), et une <b>position à défendre</b>."
+   ],
+   [
+    "p",
+    "rh",
+    "R01 · RSSI · atelier par atelier"
+   ],
+   [
+    "t",
+    [
+     [
+      "Atelier",
+      "Questions à poser",
+      "Repères pour positionner vos valeurs et vos choix",
+      "Position à défendre"
+     ],
+     [
+      "1 · Cadrage et socle",
+      "Chaque valeur métier a-t-elle au moins un bien support, chaque bien support une valeur métier ? L'ER décrit-il l'atteinte, pas l'attaque ?",
+      "Faites justifier chaque gravité par un calcul (jours × 180 k€). Pour le socle : relisez la phrase du constat avant de choisir Conforme, Partiel ou Écart.",
+      "Un taux de conformité honnête, même faible, plutôt qu'un taux flatteur."
+     ],
+     [
+      "2 · Sources de risque",
+      "Quelle phrase de la carte justifie ce M, ce R, ce A ? Tous les ER G3 et G4 sont-ils couverts ?",
+      "Faites utiliser toute l'échelle 1 à 4. Deux sources ne peuvent pas avoir exactement les mêmes cotations.",
+      "Retenir peu de sources, mais couvrir tous les ER graves."
+     ],
+     [
+      "3 · Écosystème",
+      "Pouvons-nous dire à voix haute la phrase « source → partie prenante → événement redouté » ? Les critères A, B, C ont-ils chacun leur preuve ?",
+      "Vérifiez que chaque niveau de menace est écrit D × P, M × C, quotient. Exigez 3 scénarios, pas 4.",
+      "Des mesures d'écosystème qui agissent sur la variable en cause."
+     ],
+     [
+      "4 · Scénarios opérationnels",
+      "Chaque action suit-elle logiquement la précédente ? Quels biens supports reviennent le plus souvent dans les chaînes ?",
+      "Aidez l'équipe à tenir la règle : V d'étape = 4 − freins ; V du scénario = minimum. Faites noter les biens supports critiques.",
+      "La V de l'atelier 4 remplace celle de l'atelier 3."
+     ],
+     [
+      "5 · Traitement du risque",
+      "Le budget est-il respecté ? Chaque risque accepté a-t-il un responsable, un indicateur et une date de revue ?",
+      "Préparez la décision d'acceptation : « Risque ___, G×V = ___, accepté par le DG pour ___ mois. Responsable : le RSSI. Indicateur : ___. »",
+      "Aucun risque Élevé ou Critique accepté sans signature et sans suivi."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre piège à éviter"
+     ],
+     [
+      "Décider seul au nom de l'équipe. Votre rôle est de conduire, pas de trancher les cotations métier."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre phrase-clé"
+     ],
+     [
+      "« Montrez-moi le calcul, puis la preuve. »"
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Débrief : trois questions pour vous"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle décision de l'équipe ai-je le plus influencée, et sur quel fait ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle information de ma fiche aurait-elle dû être donnée plus tôt ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Dans mon vrai métier, qui joue ce rôle, et que ferait-il lundi ?"
+   ]
+  ],
+  [
+   [
+    "p",
+    "rh",
+    "R02 · Directeur des opérations et de l'exploitation"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Fiche rôle individuelle</b> · Opération PRESTATAIRE · poste : Directeur des opérations et de l'exploitation · à ne pas montrer aux autres joueurs"
+   ],
+   [
+    "p",
+    "h2",
+    "Votre mission dans le jeu"
+   ],
+   [
+    "p",
+    "note",
+    "<b>À 4 joueurs</b> : vous jouez aussi le responsable de la sécurité (R06) et portez le veto sécurité."
+   ],
+   [
+    "p",
+    "b",
+    "Défend la continuité du service rendu aux clients et arbitre les gravités. Connaît le coût d'un jour d'arrêt."
+   ],
+   [
+    "p",
+    "h2",
+    "Dans la vraie vie"
+   ],
+   [
+    "p",
+    "b",
+    "Le poste « Directeur des opérations et de l'exploitation » porte la continuité de l'activité de Synaptis Services : astreintes, fournisseurs, plans de continuité. Il connaît le prix d'un jour de service dégradé, car il le vit en gestion de crise. Situation réelle : lors d'une panne informatique de plusieurs jours dans une organisation comparable, l'activité est repassée au papier et au téléphone, et chaque jour coûte en heures supplémentaires, en clients mécontents et en perte de service rendu."
+   ],
+   [
+    "t",
+    [
+     [
+      "Ce que vous savez (et que les autres ne savent pas forcément)"
+     ],
+     [
+      "Un jour d'arrêt total coûte environ 180 k€ (valeur donnée par le dossier de scénario)."
+     ],
+     [
+      "Constat de l'audit sur la continuité : Bascule du centre de supervision sur le site de secours testée chaque année."
+     ],
+     [
+      "La valeur métier VM1 (service d'infogérance rendu aux clients) repose sur les biens supports techniques, les locaux et les équipes : Coffre de mots de passe et comptes à privilèges des clients ; Plateforme de supervision et d'automatisation ; Accès VPN et comptes d'administration chez les clients."
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Comment cette fiche vous aide"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Lien avec le guide des joueurs :</b> à la fin de chaque atelier, le guide reprend la question de chaque rôle dans l'encadré « Conseils de vos rôles pendant cet atelier », avec un QR code vers le détail en ligne. Le tableau ci-dessous est la version complète, atelier par atelier."
+   ],
+   [
+    "p",
+    "b",
+    "À chaque atelier, vous avez des <b>questions à poser</b> à l'équipe, des <b>repères</b> pour aider à positionner une valeur ou un choix (ce ne sont pas des réponses toutes faites : vous devez toujours justifier), et une <b>position à défendre</b>."
+   ],
+   [
+    "p",
+    "rh",
+    "R02 · Directeur des opérations et de l'exploitation · atelier par atelier"
+   ],
+   [
+    "t",
+    [
+     [
+      "Atelier",
+      "Questions à poser",
+      "Repères pour positionner vos valeurs et vos choix",
+      "Position à défendre"
+     ],
+     [
+      "1 · Cadrage et socle",
+      "Combien de jours peut-on tenir en mode dégradé ? À partir de quand l'indisponibilité devient-elle inacceptable ?",
+      "Utilisez 180 k€ par jour. Un arrêt de 12 jours = 2,2 M€ : G4. Rattachez chaque bien support à la ou aux valeurs métier qu'il soutient.",
+      "Les gravités sont calculées, pas ressenties."
+     ],
+     [
+      "2 · Sources de risque",
+      "Quelle source de risque s'attaquerait à mon activité ? Laquelle a un intérêt à nous mettre sous pression ?",
+      "Pensez à l'activité (A) : combien d'organisations du secteur ont été paralysées récemment ? C'est ce qui fait monter A.",
+      "Ne pas laisser sortir de l'étude une source qui peut arrêter l'activité."
+     ],
+     [
+      "3 · Écosystème",
+      "Quelle partie prenante, si elle tombe ou est compromise, arrête mon activité ? Combien de temps pour la remplacer ?",
+      "Vous êtes la meilleure source pour juger D (dépendance) : plus la partie prenante est difficile à remplacer vite, plus D est haut.",
+      "Protéger en priorité les PP qui ont un accès direct aux systèmes critiques."
+     ],
+     [
+      "4 · Scénarios opérationnels",
+      "Quels biens supports l'attaquant doit-il toucher pour provoquer l'ER1 ? Que vous manque-t-il pour rester en mode dégradé ?",
+      "Aidez à distinguer l'action qui provoque l'impact (Exploiter) de celle qui ne fait que préparer.",
+      "Les sauvegardes et le mode dégradé réduisent la gravité, pas la vraisemblance."
+     ],
+     [
+      "5 · Traitement du risque",
+      "Quelle mesure me rend le plus de jours de service ? Que peut-on laisser accepter sans mettre l'activité en danger ?",
+      "Comparez les gains par jeton avec la direction financière. Une mesure qui réduit G (sauvegardes) vaut autant qu'une qui réduit V.",
+      "Réduire la durée d'un arrêt avant de réduire sa probabilité."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre piège à éviter"
+     ],
+     [
+      "Sous-estimer ce qu'un jour d'arrêt coûte, parce que « on s'en est toujours sorti »."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre phrase-clé"
+     ],
+     [
+      "« Combien de jours, et combien par jour ? »"
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Débrief : trois questions pour vous"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle décision de l'équipe ai-je le plus influencée, et sur quel fait ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle information de ma fiche aurait-elle dû être donnée plus tôt ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Dans mon vrai métier, qui joue ce rôle, et que ferait-il lundi ?"
+   ]
+  ],
+  [
+   [
+    "p",
+    "rh",
+    "R03 · Architecte de la plateforme et des accès clients"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Fiche rôle individuelle</b> · Opération PRESTATAIRE · poste : Architecte de la plateforme et des accès clients · à ne pas montrer aux autres joueurs"
+   ],
+   [
+    "p",
+    "h2",
+    "Votre mission dans le jeu"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Responsabilité en plus de votre carte :</b> vous jouez aussi l'attaquant (Red Team). Vous pensez comme la source de risque, cherchez le maillon le moins protégé et contestez en priorité les scénarios peu plausibles."
+   ],
+   [
+    "p",
+    "b",
+    "Connaît supervision, coffre, tunnels, cloud. Décrit les modes opératoires crédibles."
+   ],
+   [
+    "p",
+    "h2",
+    "Dans la vraie vie"
+   ],
+   [
+    "p",
+    "b",
+    "Le poste « Architecte de la plateforme et des accès clients » connaît les systèmes de l'intérieur : architectures, accès d'administration, interventions de prestataires. Il vit entre astreintes, contraintes des éditeurs et délais d'intervention. Situation réelle : un prestataire arrive tôt le matin avec un accès temporaire pour une intervention ; personne ne vérifie ce qu'il fait ensuite, et le support amovible qu'il branche n'a jamais été contrôlé."
+   ],
+   [
+    "t",
+    [
+     [
+      "Ce que vous savez (et que les autres ne savent pas forcément)"
+     ],
+     [
+      "Un pare-feu et une passerelle séparent le SI interne, la plateforme de supervision et les réseaux des clients, mais plusieurs tunnels permanents arrivent directement sur la plateforme, sans zone démilitarisée."
+     ],
+     [
+      "Le coffre de mots de passe contient des comptes partagés ; les accès aux clients se font par VPN avec sessions permanentes et aucun second facteur d'authentification."
+     ],
+     [
+      "Environ 300 postes de techniciens sous un système hérité : correctifs non appliqués depuis deux ans, durcissement inexistant."
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Comment cette fiche vous aide"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Lien avec le guide des joueurs :</b> à la fin de chaque atelier, le guide reprend la question de chaque rôle dans l'encadré « Conseils de vos rôles pendant cet atelier », avec un QR code vers le détail en ligne. Le tableau ci-dessous est la version complète, atelier par atelier."
+   ],
+   [
+    "p",
+    "b",
+    "À chaque atelier, vous avez des <b>questions à poser</b> à l'équipe, des <b>repères</b> pour aider à positionner une valeur ou un choix (ce ne sont pas des réponses toutes faites : vous devez toujours justifier), et une <b>position à défendre</b>."
+   ],
+   [
+    "p",
+    "rh",
+    "R03 · Architecte de la plateforme et des accès clients · atelier par atelier"
+   ],
+   [
+    "t",
+    [
+     [
+      "Atelier",
+      "Questions à poser",
+      "Repères pour positionner vos valeurs et vos choix",
+      "Position à défendre"
+     ],
+     [
+      "1 · Cadrage et socle",
+      "Quels biens supports portent l'activité ? Quel équipement n'a pas de valeur métier derrière lui ?",
+      "Reliez chaque bien support de la liste aux valeurs métier : un bien support peut en soutenir plusieurs (plateforme de supervision et d'automatisation : plusieurs valeurs métier).",
+      "Rien ne reste « orphelin » sur la feuille 1."
+     ],
+     [
+      "2 · Sources de risque",
+      "Un technicien interne a-t-il des moyens ? Que sait-il faire sans outils ?",
+      "L'initié a des ressources élevées parce qu'il possède des accès légitimes et connaît les procédures.",
+      "Ne pas écarter l'initié parce qu'il n'est « pas un hacker »."
+     ],
+     [
+      "3 · Écosystème",
+      "Quel prestataire a un accès permanent à nos systèmes ? Lequel entre dans les locaux avec un badge ou un compte partenaire ?",
+      "Vous savez ce qui explique P (pénétration) : accès permanent, compte partagé, badge, support amovible. Une PP avec un accès direct aux systèmes critiques est un relais crédible.",
+      "Faire valider les chemins par le terrain : un chemin que vous jugez impossible doit être justifié."
+     ],
+     [
+      "4 · Scénarios opérationnels",
+      "Pour atteindre coffre de mots de passe et comptes à privilèges des clients, que doit savoir faire l'attaquant ? Quel accès lui faut-il ? Qui peut le remarquer ?",
+      "Vous connaissez les freins : F1 (savoir-faire sur les systèmes), F3 (accès + présence + cible accessible), F4 (une anomalie remarquée par l'exploitation). Rappel : une règle en Écart ne freine pas.",
+      "Des chaînes réalistes : les mêmes actions ne conviennent pas à tous les scénarios."
+     ],
+     [
+      "5 · Traitement du risque",
+      "Quelle mesure est applicable dans mes équipes en moins de six mois ? Laquelle suppose un arrêt de service ?",
+      "Cloisonnement, bastion d'accès, verrouillage local : dites ce qui est faisable et ce qui ne l'est pas.",
+      "Un plan que les équipes peuvent réellement mettre en œuvre."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre piège à éviter"
+     ],
+     [
+      "Trop techniser : l'atelier 4 décrit des actions sur des biens supports, pas des lignes de code."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre phrase-clé"
+     ],
+     [
+      "« Sur le terrain, voilà comment ça se passe. »"
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Débrief : trois questions pour vous"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle décision de l'équipe ai-je le plus influencée, et sur quel fait ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle information de ma fiche aurait-elle dû être donnée plus tôt ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Dans mon vrai métier, qui joue ce rôle, et que ferait-il lundi ?"
+   ]
+  ],
+  [
+   [
+    "p",
+    "rh",
+    "R06 · Responsable conformité et engagements clients"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Fiche rôle individuelle</b> · Opération PRESTATAIRE · poste : Responsable conformité et engagements clients · à ne pas montrer aux autres joueurs"
+   ],
+   [
+    "p",
+    "h2",
+    "Votre mission dans le jeu"
+   ],
+   [
+    "p",
+    "b",
+    "Porte l'événement redouté de compromission des clients. Peut imposer un veto sur l'acceptation."
+   ],
+   [
+    "p",
+    "h2",
+    "Dans la vraie vie"
+   ],
+   [
+    "p",
+    "b",
+    "Le poste « Responsable conformité et engagements clients » (expertise : engagements contractuels) veille à ce qui ne se négocie pas : sécurité, conformité, intégrité. Sa responsabilité, et celle de la direction, peut être engagée en cas de manquement. Situation réelle : un paramètre modifié ou une consigne falsifiée peut avoir des conséquences graves en quelques heures, bien avant que le service informatique ne le voie."
+   ],
+   [
+    "t",
+    [
+     [
+      "Ce que vous savez (et que les autres ne savent pas forcément)"
+     ],
+     [
+      "Vous détenez le jeton noir VETO SÉCURITÉ : vous pouvez refuser qu'un risque relevant de votre périmètre soit accepté."
+     ],
+     [
+      "L'ER4 (compromission de clients à travers nos propres accès) est classé G4 : Rebond vers les SI de plusieurs clients, responsabilité contractuelle engagée, perte de clients, survie de l'entreprise en jeu."
+     ],
+     [
+      "Bascule du centre de supervision sur le site de secours testée chaque année."
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Comment cette fiche vous aide"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Lien avec le guide des joueurs :</b> à la fin de chaque atelier, le guide reprend la question de chaque rôle dans l'encadré « Conseils de vos rôles pendant cet atelier », avec un QR code vers le détail en ligne. Le tableau ci-dessous est la version complète, atelier par atelier."
+   ],
+   [
+    "p",
+    "b",
+    "À chaque atelier, vous avez des <b>questions à poser</b> à l'équipe, des <b>repères</b> pour aider à positionner une valeur ou un choix (ce ne sont pas des réponses toutes faites : vous devez toujours justifier), et une <b>position à défendre</b>."
+   ],
+   [
+    "p",
+    "rh",
+    "R06 · Responsable conformité et engagements clients · atelier par atelier"
+   ],
+   [
+    "t",
+    [
+     [
+      "Atelier",
+      "Questions à poser",
+      "Repères pour positionner vos valeurs et vos choix",
+      "Position à défendre"
+     ],
+     [
+      "1 · Cadrage et socle",
+      "Quel événement redouté touche à ce qui ne se négocie pas (sécurité, conformité, solvabilité) ? Y a-t-il une atteinte qui reste invisible pendant des heures ?",
+      "Dès qu'une atteinte qualitative est décrite en G4, la gravité est G4 sans calcul d'argent. Rattachez les biens supports concernés à la valeur métier correspondante.",
+      "Une ER qui nomme explicitement l'enjeu critique."
+     ],
+     [
+      "2 · Sources de risque",
+      "Quelle source viserait cet enjeu ? Qui a assez de moyens et d'accès pour le faire ?",
+      "Un initié a des accès légitimes ; un hacktiviste n'a pas les moyens d'agir en profondeur. Ne laissez pas ER4 sans source retenue.",
+      "Couvrir ER4 par au moins un couple retenu."
+     ],
+     [
+      "3 · Écosystème",
+      "Qui entre physiquement ou logiquement dans les zones sensibles ? Avec quel contrôle ?",
+      "Un accès partenaire (compte, badge) donne une pénétration forte. La menace est élevée si la maturité cyber est minimale (PP7 : 3,0).",
+      "Un chemin crédible pour ER4 par le relais le moins mûr."
+     ],
+     [
+      "4 · Scénarios opérationnels",
+      "Combien de personnes ou de conditions faut-il réunir pour modifier une consigne sans être vu ? Quelle alerte remarquerait-on ?",
+      "Frein F3 : plusieurs conditions cumulées. Frein F4 : alarmes remarquées. N'oubliez pas : sans journalisation, pas de détection.",
+      "Des étapes qui ne sous-estiment pas la facilité de l'accès."
+     ],
+     [
+      "5 · Traitement du risque",
+      "Le risque touchant mon périmètre est-il revenu à un niveau que j'accepte ? Sinon, quelle mesure supplémentaire ?",
+      "Quand un risque relève du veto, posez le jeton noir : le DG doit choisir une mesure en plus, pas accepter.",
+      "Aucun risque critique accepté sans mon avis écrit."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre piège à éviter"
+     ],
+     [
+      "Utiliser le veto sans proposer d'alternative : le DG a besoin d'une mesure concrète à choisir."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre phrase-clé"
+     ],
+     [
+      "« Là où l'enjeu est vital, le coût passe après. »"
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Débrief : trois questions pour vous"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle décision de l'équipe ai-je le plus influencée, et sur quel fait ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle information de ma fiche aurait-elle dû être donnée plus tôt ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Dans mon vrai métier, qui joue ce rôle, et que ferait-il lundi ?"
+   ]
+  ],
+  [
+   [
+    "p",
+    "rh",
+    "R10 · Directeur général (DG)"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Fiche rôle individuelle</b> · Opération PRESTATAIRE · poste : Directeur général (DG) · à ne pas montrer aux autres joueurs"
+   ],
+   [
+    "p",
+    "h2",
+    "Votre mission dans le jeu"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Responsabilité en plus de votre carte :</b> vous tenez les 14 jetons de budget (rôle de la finance). Vous évaluez les coûts d'impact et de traitement et signez l'acceptation des risques."
+   ],
+   [
+    "p",
+    "b",
+    "Arbitre en fin d'atelier 5. Accepte ou refuse les risques résiduels."
+   ],
+   [
+    "p",
+    "h2",
+    "Dans la vraie vie"
+   ],
+   [
+    "p",
+    "b",
+    "Le poste « Directeur général (DG) » dirige l'organisation. Il arbitre entre directions, répond aux instances de gouvernance et signe les décisions. En matière de risque, il est celui qui accepte formellement, et donc qui assume. Situation réelle : après un incident, la question n'est pas « qui a échoué ? » mais « qui avait accepté ce risque, avec quelle information ? »"
+   ],
+   [
+    "t",
+    [
+     [
+      "Ce que vous savez (et que les autres ne savent pas forcément)"
+     ],
+     [
+      "Vous tranchez les désaccords à l'atelier 5 et vous signez l'acceptation des risques résiduels."
+     ],
+     [
+      "Les instances de gouvernance attendent de vous une décision que vous pourrez expliquer et défendre."
+     ],
+     [
+      "Le budget est limité à 14 jetons. Vous ne pouvez pas tout traiter : vous devez choisir."
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Comment cette fiche vous aide"
+   ],
+   [
+    "p",
+    "note",
+    "<b>Lien avec le guide des joueurs :</b> à la fin de chaque atelier, le guide reprend la question de chaque rôle dans l'encadré « Conseils de vos rôles pendant cet atelier », avec un QR code vers le détail en ligne. Le tableau ci-dessous est la version complète, atelier par atelier."
+   ],
+   [
+    "p",
+    "b",
+    "À chaque atelier, vous avez des <b>questions à poser</b> à l'équipe, des <b>repères</b> pour aider à positionner une valeur ou un choix (ce ne sont pas des réponses toutes faites : vous devez toujours justifier), et une <b>position à défendre</b>."
+   ],
+   [
+    "p",
+    "rh",
+    "R10 · Directeur général (DG) · atelier par atelier"
+   ],
+   [
+    "t",
+    [
+     [
+      "Atelier",
+      "Questions à poser",
+      "Repères pour positionner vos valeurs et vos choix",
+      "Position à défendre"
+     ],
+     [
+      "1 · Cadrage et socle",
+      "Quelles sont nos obligations légales, nos engagements envers nos clients ou usagers ? Qu'est-ce qui ne doit jamais s'arrêter ?",
+      "Écoutez le directeur des opérations et le titulaire du veto : la valeur métier passe avant la technique.",
+      "Le cadre de l'étude validé par la direction."
+     ],
+     [
+      "2 · Sources de risque",
+      "Pourquoi retenir cette source et pas celle-là ? Ai-je tous les ER graves couverts ?",
+      "Demandez le contrôle de couverture : si un ER grave n'est atteint par aucune source retenue, la sélection est trop étroite.",
+      "Une sélection argumentée, pas exhaustive."
+     ],
+     [
+      "3 · Écosystème",
+      "Ces mesures d'écosystème sont-elles réalistes avec nos prestataires ? Combien coûtent-elles ?",
+      "Notez le coût total des ME retenues : elles s'ajouteront aux mesures M dans le budget de 14 jetons.",
+      "Des mesures d'écosystème choisies avec le coût en tête."
+     ],
+     [
+      "4 · Scénarios opérationnels",
+      "Que retenez-vous de cet atelier pour ma décision ? Quels sont les biens supports critiques ?",
+      "Demandez la liste des biens supports critiques : ce sont eux que le plan doit protéger.",
+      "Une vue claire de ce qu'il faut protéger."
+     ],
+     [
+      "5 · Traitement du risque",
+      "Quel risque résiduel j'accepte ? Qui en est responsable ? Quand le revoit-on ?",
+      "Posez les trois questions : responsable, indicateur, date de revue. Si le titulaire du veto le pose, choisissez une mesure en plus.",
+      "Décision écrite, signée, avec responsable, indicateur, revue."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre piège à éviter"
+     ],
+     [
+      "Signer sans comprendre : vous ne pouvez pas accepter un risque que personne ne vous a expliqué."
+     ]
+    ]
+   ],
+   [
+    "t",
+    [
+     [
+      "Votre phrase-clé"
+     ],
+     [
+      "« Qui est responsable, et quand revoit-on ? »"
+     ]
+    ]
+   ],
+   [
+    "p",
+    "h3",
+    "Débrief : trois questions pour vous"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle décision de l'équipe ai-je le plus influencée, et sur quel fait ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Quelle information de ma fiche aurait-elle dû être donnée plus tôt ?"
+   ],
+   [
+    "p",
+    "bl",
+    "Dans mon vrai métier, qui joue ce rôle, et que ferait-il lundi ?"
+   ]
+  ]
+ ],
+ "defs": [
+  [
+   "p",
+   "h2",
+   "Fiche de définitions · un seul vocabulaire pour toute la table"
+  ],
+  [
+   "p",
+   "note",
+   "À lire par tous les joueurs avant de commencer et à garder sous la main. La dernière colonne indique <b>la carte ou la zone du plateau qui porte la notion</b>."
+  ],
+  [
+   "p",
+   "h3",
+   "Pour tous"
+  ],
+  [
+   "t",
+   [
+    [
+     "Terme",
+     "Définition en une phrase",
+     "Où le trouver"
+    ],
+    [
+     "<b>Valeur métier (VM)</b>",
+     "Ce qui est essentiel à la mission de l'organisation (un processus, une information, un savoir-faire). Test : « si on change de technologie, cela existe-t-il encore ? »",
+     "Carte bleue ENTREPRISE"
+    ],
+    [
+     "<b>Bien support (BS)</b>",
+     "Composante du SI, de l'OT, des locaux ou des personnes sur laquelle repose une valeur métier. Il disparaît avec la technologie.",
+     "Carte bleue ENTREPRISE"
+    ],
+    [
+     "<b>Événement redouté (ER)</b>",
+     "Atteinte à une valeur métier selon un critère (disponibilité, intégrité, confidentialité), avec son impact. On ne décrit jamais l'attaque.",
+     "Carte bleue ENTREPRISE"
+    ],
+    [
+     "<b>Gravité (G1 à G4)</b>",
+     "Niveau d'impact d'un ER, coté avec l'échelle du dossier de scénario (calcul jours d'arrêt × coût par jour quand c'est possible). Un ER qui touche la sécurité des personnes est G4.",
+     "Dossier de scénario ; feuille 1"
+    ],
+    [
+     "<b>Vraisemblance (V1 à V4)</b>",
+     "Facilité avec laquelle un scénario peut se produire. Cotée par critères à l'atelier 3, par étapes à l'atelier 4.",
+     "Feuilles 3 et 2"
+    ],
+    [
+     "<b>Risque</b>",
+     "Gravité × vraisemblance (G × V). Faible ≤ 3 · Moyen 4 à 6 · Élevé 8 à 9 · Critique ≥ 12.",
+     "Matrice atelier 5"
+    ]
+   ]
+  ],
+  [
+   "p",
+   "h3",
+   "Atelier 1 · Cadrage et socle"
+  ],
+  [
+   "t",
+   [
+    [
+     "Terme",
+     "Définition en une phrase",
+     "Où le trouver"
+    ],
+    [
+     "<b>Socle de sécurité</b>",
+     "8 règles de base. Chacune est notée Conforme (1 point), Partielle (0,5) ou Écart (0). Taux de conformité = points ÷ 8.",
+     "Feuille 1 ; constats d'audit du dossier"
+    ]
+   ]
+  ],
+  [
+   "p",
+   "h3",
+   "Atelier 2 · Sources de risque"
+  ],
+  [
+   "t",
+   [
+    [
+     "Terme",
+     "Définition en une phrase",
+     "Où le trouver"
+    ],
+    [
+     "<b>Source de risque (SR)</b>",
+     "Personne ou groupe qui peut porter atteinte à l'organisation : État, cybercriminel, hacktiviste, concurrent, initié, amateur…",
+     "Carte rouge MENACE"
+    ],
+    [
+     "<b>Objectif visé (OV)</b>",
+     "Ce que la source cherche à obtenir (espionnage, gain financier, vengeance, défi). Ce n'est pas un ER : l'objectif est ce que veut l'attaquant, l'ER est ce que redoute l'entreprise.",
+     "Carte rouge MENACE"
+    ],
+    [
+     "<b>M, R, A et pertinence (Σ)</b>",
+     "Motivation, Ressources, Activité, chacune de 1 à 4. Σ = M + R + A : ≥ 8 retenu · 6 à 7 à surveiller · ≤ 5 écarté.",
+     "Feuille 2"
+    ],
+    [
+     "<b>Couple retenu</b>",
+     "Couple source / objectif dont Σ ≥ 8. Seul un couple retenu compte dans le contrôle de couverture.",
+     "Feuille 2"
+    ],
+    [
+     "<b>Couverture</b>",
+     "Contrôle de cohérence : chaque ER de gravité G3 ou G4 doit être atteint par au moins un couple retenu. Sinon la sélection est trop restrictive. Une source à surveiller ou écartée ne couvre rien.",
+     "Feuille 2, bas"
+    ]
+   ]
+  ],
+  [
+   "p",
+   "h3",
+   "Atelier 3 · Écosystème et scénarios stratégiques"
+  ],
+  [
+   "t",
+   [
+    [
+     "Terme",
+     "Définition en une phrase",
+     "Où le trouver"
+    ],
+    [
+     "<b>Partie prenante (PP)</b>",
+     "Entité extérieure en relation avec l'organisation (fournisseur, prestataire, partenaire). Elle peut servir de rebond.",
+     "Carte verte ÉCOSYSTÈME"
+    ],
+    [
+     "<b>D, P, M, C</b>",
+     "Dépendance et Pénétration font monter la menace ; Maturité cyber et Confiance la font baisser. Valeurs de 1 à 4 imprimées sur la carte.",
+     "Carte verte ÉCOSYSTÈME"
+    ],
+    [
+     "<b>Niveau de menace</b>",
+     "(D × P) ÷ (M × C). Danger ≥ 3 · Contrôle de 1,5 à moins de 3 · Veille moins de 1,5.",
+     "Radar, feuille 3"
+    ],
+    [
+     "<b>Scénario stratégique (SS)</b>",
+     "Chemin d'attaque source de risque → partie prenante (relais) → événement redouté. Sa gravité est celle de l'ER. On pose 3 cartes dans le couloir ; le second emplacement PP reste vide sauf second relais justifié.",
+     "Couloir SS du plateau"
+    ],
+    [
+     "<b>Critères A, B, C</b>",
+     "A : Σ de la source ≥ 9. B : la PP du chemin est en zone danger. C : une règle du socle sur le chemin est en Écart ou Partielle. V = nombre de critères remplis (minimum V1, maximum V3).",
+     "Feuilles 1, 2 et 3"
+    ],
+    [
+     "<b>Mesure d'écosystème (ME)</b>",
+     "Action sur une partie prenante qui change UNE variable de 1 (D ou P : −1 · M ou C : +1). Elle a un coût en jetons, repris sur le budget de l'atelier 5.",
+     "Carte vert foncé MESURE ÉCOSYSTÈME"
+    ]
+   ]
+  ],
+  [
+   "p",
+   "h3",
+   "Atelier 4 · Scénarios opérationnels"
+  ],
+  [
+   "t",
+   [
+    [
+     "Terme",
+     "Définition en une phrase",
+     "Où le trouver"
+    ],
+    [
+     "<b>Scénario opérationnel</b>",
+     "Enchaînement de 4 actions sur des biens supports : Connaître, Rentrer, Trouver, Exploiter (CRTE).",
+     "Cartes noires OPÉRATION"
+    ],
+    [
+     "<b>Tests T1 à T4</b>",
+     "Pour écarter une action : bien connu (T1), valeur métier (T2), chemin vers un ER (T3), enchaînement (T4). Trois cartes sont hors sujet.",
+     "Feuille 2"
+    ],
+    [
+     "<b>Freins F1 à F4</b>",
+     "Chaque frein fait baisser la vraisemblance d'une étape : V étape = 4 − nombre de freins (minimum 1). V du scénario = la plus faible des 4 étapes.",
+     "Feuille 2"
+    ],
+    [
+     "<b>Bien support critique</b>",
+     "Bien visé par au moins 2 des 12 actions posées, dont au moins un Rentrer ou un Exploiter.",
+     "Feuille 2"
+    ]
+   ]
+  ],
+  [
+   "p",
+   "h3",
+   "Atelier 5 · Traitement du risque"
+  ],
+  [
+   "t",
+   [
+    [
+     "Terme",
+     "Définition en une phrase",
+     "Où le trouver"
+    ],
+    [
+     "<b>Mesure du plan</b>",
+     "Action de sécurité qui réduit G ou V. Elle coûte des jetons ; le budget total est de 14 jetons.",
+     "Carte orange MESURE"
+    ],
+    [
+     "<b>Seuil d'acceptation</b>",
+     "Niveau de risque que la direction accepte : G × V ≤ 6. Au-dessus, le scénario doit être traité (mesure en plus) ou faire l'objet d'une dérogation signée du DG.",
+     "Matrice, feuille 4"
+    ],
+    [
+     "<b>Risque résiduel</b>",
+     "Risque qui reste après traitement. Il est accepté formellement : responsable du suivi, indicateur, date de revue.",
+     "Feuille 4"
+    ],
+    [
+     "<b>Veto sécurité</b>",
+     "Le responsable de la sécurité des personnes peut s'opposer à l'acceptation d'un risque qui touche l'ER de sécurité.",
+     "Carte jaune RÔLE ; feuille 4"
+    ],
+    [
+     "<b>Stratégies de traitement</b>",
+     "Réduire, éviter, partager (assurance : ne change ni G ni V) ou accepter.",
+     "Cartes orange MESURE"
+    ],
+    [
+     "<b>PACS</b>",
+     "Plan d'amélioration continue de la sécurité : mesures, responsables, échéances.",
+     "Zone PACS du plateau"
+    ]
+   ]
+  ],
+  [
+   "p",
+   "h3",
+   "Cartes de jeu"
+  ],
+  [
+   "t",
+   [
+    [
+     "Terme",
+     "Définition en une phrase",
+     "Où le trouver"
+    ],
+    [
+     "<b>Carte Aléa</b>",
+     "Événement lu par l'animateur à mi-parcours : il oblige à recoter. La version 1 n'est jamais effacée.",
+     "Carte violette ALÉA"
+    ],
+    [
+     "<b>Carte Rôle</b>",
+     "Votre point de vue, vos questions et votre position à défendre. À ne pas montrer aux autres.",
+     "Carte jaune RÔLE ; fiche de rôle"
+    ]
+   ]
+  ],
+  [
+   "t",
+   [
+    [
+     "",
+     "Version en ligne de cette fiche et conseils des rôles atelier par atelier : scannez le QR code.<br/>https://github.com/BelmDeveloppement/ebios-rm-plateau/blob/main/DEFINITIONS.md"
+    ]
+   ]
+  ]
+ ]
 }
