@@ -124,7 +124,7 @@ function v4(i){const ss='SS'+i;let m=4,any=false;for(let s=0;s<4;s++){const n=['
 function gOf(i){const e=ER[g('a3.ss.'+i+'.er')];return e?parseInt(e[4].slice(1)):null}
 function after(i){const G=num(g('a5.G'+i)),V=num(g('a5.V'+i));return G&&V?G*V:null}
 function planCost(){let t=0;CFG.mes.forEach(m=>{if(g('a5.m.'+m[0]))t+=m[2]});CFG.me.forEach(m=>{if(g('a5.me.'+m[0]))t+=m[4]});return t}
-function sheet(html){$('#ov').innerHTML=`<div class="sheet" data-act="closeov"><div onclick="event.stopPropagation()">${html}<p style="text-align:center"><button class="btn sec" data-act="closeov2">Fermer</button></p></div></div>`}
+function sheet(html){$('#ov').innerHTML=`<div class="sheet" data-act="closeov"><div>${html}<p style="text-align:center"><button class="btn sec" data-act="closeov2">Fermer</button></p></div></div>`}
 // ---------- vote anonyme
 function poll(id,label,opts){const cnt={},vs=NET.votes[id]||{};Object.values(vs).forEach(v=>cnt[v]=(cnt[v]||0)+1);const n=Object.keys(vs).length,rev=NET.reveal[id];
   const mine=S.vote[id];
@@ -265,7 +265,8 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(
   else if(a.startsWith('v_')){V[a.slice(2)]();pub('res');render()}
   else if(a==='vote'){S.vote[b.dataset.poll]=b.dataset.v;save();pubRaw({k:'vote',poll:b.dataset.poll,vid:S.vid,v:b.dataset.v});render()}
   else if(a==='reveal'){const id=b.dataset.poll;pubRaw({k:'reveal',poll:id,on:!NET.reveal[id]})}
-  else if(a==='closeov'||a==='closeov2'){$('#ov').innerHTML=''}
+  else if(a==='closeov'){if(e.target===b)$('#ov').innerHTML=''}
+  else if(a==='closeov2'){$('#ov').innerHTML=''}
   else if(a==='hint')hintSheet();
   else if(a==='hintshow'){const id=b.dataset.id,l=+b.dataset.l;if(l===2||l===3){if(!confirm(l===2?'Ce niveau coûte 1 point. Continuer ?':'Ce niveau coûte 2 points. Continuer ?'))return}S.hint[id]=Math.max(S.hint[id]||0,l);save();pub('score');hintSheet(b.dataset.open);badge()}
   else if(a==='role')roleSheet(S.role);
