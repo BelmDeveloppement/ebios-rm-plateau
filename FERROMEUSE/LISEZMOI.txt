@@ -1,0 +1,8 @@
+PILOTE COMPAGNON EBIOS RM - FERROMEUSE
+Contenu : index.html (appli, un seul fichier), config.json, dg.mp4 (message du DG), dg_FERROMEUSE.srt (sous-titres).
+Hebergement : copiez ce dossier dans le depot GitHub (ebios-rm-plateau/FERROMEUSE/) et activez GitHub Pages ;
+URL attendue : https://belmdeveloppement.github.io/ebios-rm-plateau/FERROMEUSE/
+Joueurs : ouvrir l'URL, saisir n° de table + code de session + role.
+Animateur : meme URL avec #anim (ex. .../FERROMEUSE/#anim), bouton "Generer un code".
+Essai hors ligne : ajouter ?relay=local (votes et scores restent sur l'appareil).
+Reseau : relais ntfy.sh (non teste depuis mon environnement). Remplacable via ?relay=https://votre-serveur
