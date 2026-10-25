@@ -5226,5 +5226,50 @@
    ]
   ]
  ],
- "hasAnim": true
+ "hasAnim": true,
+ "eval": {
+  "rows": [
+   [
+    "Atelier 1",
+    "20",
+    "Exhaustivité (5) · gravités (7) · socle (4) · justification (2) · révision après aléa (2)"
+   ],
+   [
+    "Atelier 2",
+    "15",
+    "Cotations (5) · décisions retenir / écarter (5) · justifications (3) · révision après aléa (2)"
+   ],
+   [
+    "Atelier 3",
+    "20",
+    "Calculs de menace (7) · scénarios stratégiques (7) · mesures d'écosystème (4) · révision après aléa (2)"
+   ],
+   [
+    "Atelier 4",
+    "20",
+    "Chaînes complètes (9) · actions écartées (5) · vraisemblance justifiée (4) · révision après aléa (2)"
+   ],
+   [
+    "Atelier 5",
+    "20",
+    "Matrice (4) · plan sous budget (7) · risque résiduel (4) · acceptation formelle (3) · révision après aléa (2)"
+   ],
+   [
+    "Cohésion et temps",
+    "5",
+    "Parole partagée (2) · respect du temps (2) · réactivité aux aléas (1)"
+   ],
+   [
+    "Défis flash (bonus)",
+    "+2 par atelier",
+    "Ateliers concernés : ________________"
+   ],
+   [
+    "TOTAL",
+    "100",
+    ""
+   ]
+  ],
+  "note": "Appréciation : 85 et plus : analyse prête à présenter à un comité · 70 à 84 : solide, points à consolider · 50 à 69 : méthode comprise, rigueur à renforcer · moins de 50 : refaire l'atelier faible avec l'animateur."
+ }
 }
