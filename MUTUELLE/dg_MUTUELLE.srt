@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:05,364
+Bonjour à toutes et à tous. Je suis le directeur général de la Mutuelle Orion.
+
+2
+00:00:05,764 --> 00:00:15,030
+Nous remboursons les soins de nos adhérents et protégeons leurs données de santé. Notre cœur de gestion est notre métier, et la confiance de nos adhérents est notre capital.
+
+3
+00:00:15,430 --> 00:00:25,148
+Un jour d'arrêt du cœur de gestion nous coûte un million cent cinquante mille euros. Une cyberattaque n'est plus une question informatique. C'est une question de survie de l'organisation.
+
+4
+00:00:25,548 --> 00:00:34,198
+Je vous confie aujourd'hui une mission. Analyser nos risques avec la méthode EBIOS RM, atelier après atelier, jusqu'à un plan de traitement que je puisse signer.
+
+5
+00:00:34,598 --> 00:00:42,784
+Vous disposerez de quatorze jetons de budget. Pas un de plus. Chaque mesure a un coût. Je ne financerai pas tout, je veux que vous priorisiez.
+
+6
+00:00:43,184 --> 00:00:58,371
+Pour chaque scénario, je fixe un seuil : gravité fois vraisemblance, inférieur ou égal à six. Au-dessus, je veux soit une mesure supplémentaire, soit une dérogation que je signe, avec un responsable, un indicateur et une date de revue.
+
+7
+00:00:58,771 --> 00:01:07,665
+Une dernière chose. Ne me présentez pas des certitudes, présentez-moi des preuves. Et dites-moi toujours : qui est responsable, et quand revoit-on ?
+
+8
+00:01:08,065 --> 00:01:11,258
+Bon courage, et bonne journée de travail.

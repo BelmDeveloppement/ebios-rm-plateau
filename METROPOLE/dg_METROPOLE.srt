@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:06,096
+Bonjour à toutes et à tous. Je suis le directeur général des services de la Métropole Haute-Moselle.
+
+2
+00:00:06,496 --> 00:00:15,924
+Nous assurons l'eau, les feux, l'état civil, les élections et la relation avec les habitants. Des services que personne ne remarque, jusqu'au jour où ils s'arrêtent.
+
+3
+00:00:16,324 --> 00:00:26,797
+Un jour de désorganisation des services urbains nous coûte cinq cent mille euros. Une cyberattaque n'est plus une question informatique. C'est une question de survie de l'organisation.
+
+4
+00:00:27,197 --> 00:00:36,067
+Je vous confie aujourd'hui une mission. Analyser nos risques avec la méthode EBIOS RM, atelier après atelier, jusqu'à un plan de traitement que je puisse signer.
+
+5
+00:00:36,467 --> 00:00:44,781
+Vous disposerez de quatorze jetons de budget. Pas un de plus. Chaque mesure a un coût. Je ne financerai pas tout, je veux que vous priorisiez.
+
+6
+00:00:45,181 --> 00:01:00,600
+Pour chaque scénario, je fixe un seuil : gravité fois vraisemblance, inférieur ou égal à six. Au-dessus, je veux soit une mesure supplémentaire, soit une dérogation que je signe, avec un responsable, un indicateur et une date de revue.
+
+7
+00:01:01,000 --> 00:01:10,416
+Une dernière chose. Ne me présentez pas des certitudes, présentez-moi des preuves. Et dites-moi toujours : qui est responsable, et quand revoit-on ?
+
+8
+00:01:10,816 --> 00:01:14,184
+Bon courage, et bonne journée de travail.

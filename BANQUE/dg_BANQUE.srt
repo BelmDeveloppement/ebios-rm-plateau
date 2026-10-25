@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:04,958
+Bonjour à toutes et à tous. Je suis le directeur général de la Banque Verdon.
+
+2
+00:00:05,358 --> 00:00:12,986
+Nous gérons les comptes et les paiements de nos clients. Ici, la confiance se perd en une journée et se reconstruit en des années.
+
+3
+00:00:13,386 --> 00:00:24,103
+Un jour d'indisponibilité de la banque en ligne nous coûte un million neuf cent mille euros. Une cyberattaque n'est plus une question informatique. C'est une question de survie de l'organisation.
+
+4
+00:00:24,503 --> 00:00:33,293
+Je vous confie aujourd'hui une mission. Analyser nos risques avec la méthode EBIOS RM, atelier après atelier, jusqu'à un plan de traitement que je puisse signer.
+
+5
+00:00:33,693 --> 00:00:41,902
+Vous disposerez de quatorze jetons de budget. Pas un de plus. Chaque mesure a un coût. Je ne financerai pas tout, je veux que vous priorisiez.
+
+6
+00:00:42,302 --> 00:00:57,314
+Pour chaque scénario, je fixe un seuil : gravité fois vraisemblance, inférieur ou égal à six. Au-dessus, je veux soit une mesure supplémentaire, soit une dérogation que je signe, avec un responsable, un indicateur et une date de revue.
+
+7
+00:00:57,714 --> 00:01:07,200
+Une dernière chose. Ne me présentez pas des certitudes, présentez-moi des preuves. Et dites-moi toujours : qui est responsable, et quand revoit-on ?
+
+8
+00:01:07,600 --> 00:01:10,829
+Bon courage, et bonne journée de travail.

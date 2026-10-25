@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:05,399
+Bonjour à toutes et à tous. Je suis le directeur général de l'Aéroport de Corvelle.
+
+2
+00:00:05,799 --> 00:00:15,482
+Nous accueillons des milliers de passagers chaque jour. Enregistrement, bagages, information des vols : tout repose sur des systèmes qui doivent fonctionner en continu.
+
+3
+00:00:15,882 --> 00:00:26,564
+Un jour de perturbation de l'exploitation nous coûte cinq cent vingt mille euros. Une cyberattaque n'est plus une question informatique. C'est une question de survie de l'organisation.
+
+4
+00:00:26,964 --> 00:00:35,522
+Je vous confie aujourd'hui une mission. Analyser nos risques avec la méthode EBIOS RM, atelier après atelier, jusqu'à un plan de traitement que je puisse signer.
+
+5
+00:00:35,922 --> 00:00:43,957
+Vous disposerez de quatorze jetons de budget. Pas un de plus. Chaque mesure a un coût. Je ne financerai pas tout, je veux que vous priorisiez.
+
+6
+00:00:44,357 --> 00:00:59,404
+Pour chaque scénario, je fixe un seuil : gravité fois vraisemblance, inférieur ou égal à six. Au-dessus, je veux soit une mesure supplémentaire, soit une dérogation que je signe, avec un responsable, un indicateur et une date de revue.
+
+7
+00:00:59,804 --> 00:01:09,302
+Une dernière chose. Ne me présentez pas des certitudes, présentez-moi des preuves. Et dites-moi toujours : qui est responsable, et quand revoit-on ?
+
+8
+00:01:09,702 --> 00:01:12,907
+Bon courage, et bonne journée de travail.

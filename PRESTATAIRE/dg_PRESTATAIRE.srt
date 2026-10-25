@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:05,085
+Bonjour à toutes et à tous. Je suis le directeur général de Synaptis Services.
+
+2
+00:00:05,485 --> 00:00:13,602
+Nous exploitons et supervisons les systèmes de nos clients. Si nous sommes compromis, nos clients le sont aussi : nous sommes un maillon de leur chaîne.
+
+3
+00:00:14,002 --> 00:00:24,335
+Un jour d'indisponibilité de notre plateforme nous coûte cent quatre-vingt mille euros. Une cyberattaque n'est plus une question informatique. C'est une question de survie de l'organisation.
+
+4
+00:00:24,735 --> 00:00:33,548
+Je vous confie aujourd'hui une mission. Analyser nos risques avec la méthode EBIOS RM, atelier après atelier, jusqu'à un plan de traitement que je puisse signer.
+
+5
+00:00:33,948 --> 00:00:42,320
+Vous disposerez de quatorze jetons de budget. Pas un de plus. Chaque mesure a un coût. Je ne financerai pas tout, je veux que vous priorisiez.
+
+6
+00:00:42,720 --> 00:00:58,045
+Pour chaque scénario, je fixe un seuil : gravité fois vraisemblance, inférieur ou égal à six. Au-dessus, je veux soit une mesure supplémentaire, soit une dérogation que je signe, avec un responsable, un indicateur et une date de revue.
+
+7
+00:00:58,445 --> 00:01:07,235
+Une dernière chose. Ne me présentez pas des certitudes, présentez-moi des preuves. Et dites-moi toujours : qui est responsable, et quand revoit-on ?
+
+8
+00:01:07,635 --> 00:01:10,898
+Bon courage, et bonne journée de travail.

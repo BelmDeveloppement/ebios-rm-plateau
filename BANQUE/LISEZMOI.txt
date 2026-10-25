@@ -1,0 +1,9 @@
+COMPAGNON EBIOS RM - BANQUE
+Contenu : index.html (appli, un seul fichier), config.json, dg.mp4 (message du DG), dg_BANQUE.srt (sous-titres).
+Hebergement : copiez ce dossier dans le depot GitHub (ebios-rm-plateau/BANQUE/) ; GitHub Pages doit etre active (Settings > Pages > main / root).
+URL : https://belmdeveloppement.github.io/ebios-rm-plateau/BANQUE/
+Joueurs : ouvrir l'URL, saisir n° de table, code de session et role.
+Animateur : meme URL suivie de #anim, bouton "Generer un code".
+Essai hors ligne : ajouter ?relay=local (votes et scores restent sur l'appareil).
+Reseau : relais ntfy.sh (non teste depuis l'environnement de creation). Remplacable via ?relay=https://votre-serveur
+Voix du DG : synthese vocale ; remplacez dg.mp4 par un enregistrement si vous le souhaitez.

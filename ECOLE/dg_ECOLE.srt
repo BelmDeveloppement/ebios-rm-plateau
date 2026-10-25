@@ -1,0 +1,31 @@
+1
+00:00:00,000 --> 00:00:04,818
+Bonjour à toutes et à tous. Je suis le directeur de l'École d'ingénieurs Vauban.
+
+2
+00:00:05,218 --> 00:00:16,179
+Nous formons des ingénieurs et nous gardons leurs notes, leurs diplômes et leurs données. Une école vit de sa crédibilité : un diplôme douteux, et c'est toute la formation qui est mise en cause.
+
+3
+00:00:16,579 --> 00:00:25,612
+Un jour d'arrêt de nos systèmes nous coûte cent soixante-dix mille euros. Une cyberattaque n'est plus une question informatique. C'est une question de survie de l'organisation.
+
+4
+00:00:26,012 --> 00:00:34,721
+Je vous confie aujourd'hui une mission. Analyser nos risques avec la méthode EBIOS RM, atelier après atelier, jusqu'à un plan de traitement que je puisse signer.
+
+5
+00:00:35,121 --> 00:00:43,225
+Vous disposerez de quatorze jetons de budget. Pas un de plus. Chaque mesure a un coût. Je ne financerai pas tout, je veux que vous priorisiez.
+
+6
+00:00:43,625 --> 00:00:58,580
+Pour chaque scénario, je fixe un seuil : gravité fois vraisemblance, inférieur ou égal à six. Au-dessus, je veux soit une mesure supplémentaire, soit une dérogation que je signe, avec un responsable, un indicateur et une date de revue.
+
+7
+00:00:58,980 --> 00:01:08,454
+Une dernière chose. Ne me présentez pas des certitudes, présentez-moi des preuves. Et dites-moi toujours : qui est responsable, et quand revoit-on ?
+
+8
+00:01:08,854 --> 00:01:12,117
+Bon courage, et bonne journée de travail.

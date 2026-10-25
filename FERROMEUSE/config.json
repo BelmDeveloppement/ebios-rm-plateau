@@ -10,7 +10,7 @@
   500,
   5000
  ],
- "gscale": "G1  5 M€ ou atteinte qualitative décrite dans l'échelle du dossier.",
+ "gscale": "G1 < 50 k€ · G2 de 50 k€ à 500 k€ · G3 de 500 k€ à 5 M€ · G4 > 5 M€ ou atteinte qualitative décrite dans l'échelle du dossier.",
  "vm": [
   [
    "VM1",
