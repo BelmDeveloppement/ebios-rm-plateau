@@ -507,7 +507,7 @@
    "AL9",
    "Atelier 5",
    "Gel budgétaire",
-   "Le budget passe de 14 à 11 jetons. Refaites votre plan d'amélioration."
+   "Le budget passe de 14 à 11 points de budget. Refaites votre plan d'amélioration."
   ],
   [
    "AL10",
@@ -623,33 +623,7 @@
    "SS3"
   ]
  ],
- "roles": [
-  {
-   "id": "R01",
-   "title": "RSSI",
-   "mission": "Garant de la méthode. Tient la synthèse, relit les cotations, veille au temps."
-  },
-  {
-   "id": "R02",
-   "title": "Directeur des opérations et de l'exploitation",
-   "mission": "Défend la continuité du service rendu aux clients et arbitre les gravités. Connaît le coût d'un jour d'arrêt."
-  },
-  {
-   "id": "R03",
-   "title": "Architecte de la plateforme et des accès clients",
-   "mission": "Connaît supervision, coffre, tunnels, cloud. Décrit les modes opératoires crédibles."
-  },
-  {
-   "id": "R06",
-   "title": "Responsable conformité et engagements clients",
-   "mission": "Porte l'événement redouté de compromission des clients. Peut imposer un veto sur l'acceptation."
-  },
-  {
-   "id": "R10",
-   "title": "Directeur général (DG)",
-   "mission": "Arbitre en fin d'atelier 5. Accepte ou refuse les risques résiduels."
-  }
- ],
+ "roles": [],
  "ref": {
   "vmtab": {
    "VM1": {
@@ -1215,10 +1189,10 @@
     "« SS1 : V3 dans les deux ateliers ; SS2 et SS3 : V2. »"
    ],
    [
-    "Ils dépassent les 14 jetons",
-    "« Combien de points de risque gagne-t-on par jeton ? »",
-    "« Classez les mesures par gain par jeton. »",
-    "« M7 : 2 points par jeton ; M8 : 0,67 mais traite SS3 (G4). »"
+    "Ils dépassent les 14 points de budget",
+    "« Combien de points de risque gagne-t-on par point de budget ? »",
+    "« Classez les mesures par gain par point de budget. »",
+    "« M7 : 2 points par point de budget ; M8 : 0,67 mais traite SS3 (G4). »"
    ],
    [
     "Ils ne recalculent pas G ou V",
@@ -1233,10 +1207,10 @@
     "« Ne les comptez pas deux fois. »"
    ],
    [
-    "Ils oublient le veto sécurité",
-    "« Quel scénario touche le veto ? Qui détient le jeton noir ? »",
+    "Ils acceptent par dérogation un risque qui touche la sécurité des personnes",
+    "« Quel scénario touche la sécurité des personnes ? Peut-on l'accepter par dérogation ? »",
     "« SS3 vise ER4 (G4). »",
-    "« Le veto s'exerce avant la signature du DG. »"
+    "« Ce risque ne s'accepte pas par dérogation : ajoutez une mesure avant la signature du DG. »"
    ],
    [
     "Ils veulent accepter un risque sans condition",
@@ -1260,7 +1234,7 @@
     "Le budget n'est pas utilisé",
     "« Un risque élevé subsiste-t-il ? »",
     "« Le budget est un plafond, pas une obligation. »",
-    "« Plan de référence : 13 jetons sur 14. »"
+    "« Plan de référence : 13 points de budget sur 14. »"
    ]
   ]
  },
@@ -1278,10 +1252,6 @@
      [
       "Cartes",
       "Deck bleu ENTREPRISE (21 cartes : 5 valeurs métier VM, 10 biens supports BS, 6 événements redoutés ER). Mettez les 6 cartes ER de côté, FACE CACHÉE."
-     ],
-     [
-      "Jetons",
-      "Aucun."
      ],
      [
       "À côté de vous",
@@ -1309,14 +1279,14 @@
      ],
      [
       "25–29",
-      "Parier sur les gravités (sans les chiffres)",
+      "Estimer les gravités (sans les chiffres)",
       "Chacun écrit en silence G1 à G4 pour chacun des 6 ER, d'après le titre seul et l'échelle de gravité. Comparez ensuite à voix haute. Dans l'appli : étape 2.",
-      "Appli (pari) + feuille 1"
+      "Appli (estimation) + feuille 1"
      ],
      [
       "29–38",
       "Calculer les gravités",
-      "Retournez les cartes ER. Pour chaque ER : jours d'arrêt × 180 k€ par jour, puis lisez l'échelle. Si le résultat diffère de votre pari, écrivez en une phrase ce que le titre ne montrait pas. Les ER qui touchent la sécurité des personnes sont G4 par nature.",
+      "Retournez les cartes ER. Pour chaque ER : jours d'arrêt × 180 k€ par jour, puis lisez l'échelle. Si le résultat diffère de votre estimation, écrivez en une phrase ce que le titre ne montrait pas. Les ER qui touchent la sécurité des personnes sont G4 par nature.",
       "Feuille 1, grille des ER"
      ],
      [
@@ -1328,18 +1298,18 @@
      [
       "46–50",
       "Aléa puis vérification",
-      "Tirez la carte Aléa de l'atelier (bouton de l'appli) : écrivez dans le bloc violet de la feuille ce qui change. Cliquez sur « Vérifier » dans chaque étape : l'appli met ✔ ou ✘ sans donner la réponse.",
+      "Tirez la carte Aléa de l'atelier (bouton de l'appli) : écrivez dans le bloc violet de la feuille ce qui change. Cliquez sur « Vérifier » dans chaque étape : l'appli garde vos bonnes réponses, met ✘ sur les autres avec une courte explication, et vous laisse corriger.",
       "Appli"
      ]
     ],
     "appli": [
-     "Chaque étape a un bouton « Vérifier » : ✔ juste, ✘ à revoir. Les points tombent automatiquement.",
+     "Chaque étape a un bouton « Vérifier » : ✔ juste (la réponse est conservée), ✘ à revoir avec une courte explication. Vous modifiez vos choix et revérifiez. Après 3 essais infructueux sur une même vérification, la solution est proposée avec ses explications (les points de cette vérification ne montent plus).",
      "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse coûtent 1 des 5 aides de votre table pour toute la journée."
     ],
     "controle": [
      "Chaque valeur métier a au moins un bien support, et chaque bien support apparaît dans au moins une valeur métier.",
      "Aucun ER ne décrit une attaque : il décrit une atteinte (disponibilité, intégrité ou confidentialité) et son impact.",
-     "Chaque ER a un pari écrit avant le calcul, un calcul écrit, et une phrase explique chaque écart.",
+     "Chaque ER a une estimation écrite avant le calcul, un calcul écrit, et une phrase explique chaque écart.",
      "Les 8 règles du socle sont notées et le taux est calculé.",
      "Le bloc « Après l'aléa » est rempli."
     ],
@@ -1349,7 +1319,13 @@
      "Oublier les personnes et les locaux comme biens supports.",
      "Coter une gravité sans calcul."
     ],
-    "exemple": "Exemple hors jeu (boulangerie) : valeur métier « Vente du jour ». Si elle est atteinte, sont touchés : la caisse enregistreuse, le logiciel de commande en ligne et le four connecté → on écrit ces trois biens supports en face de « Vente du jour ». Critère le plus sensible : D (disponibilité), car sans caisse on ne vend plus."
+    "exemple": "Exemple hors jeu (boulangerie) : valeur métier « Vente du jour ». Si elle est atteinte, sont touchés : la caisse enregistreuse, le logiciel de commande en ligne et le four connecté → on écrit ces trois biens supports en face de « Vente du jour ». Critère le plus sensible : D (disponibilité), car sans caisse on ne vend plus.",
+    "objs": [
+     "Cadrer l'étude : dire ce qui compte pour l'entreprise (valeurs métier) et sur quoi cela repose (biens supports).",
+     "Identifier les événements redoutés (ER) et estimer puis calculer leur GRAVITÉ. Cette gravité sera reprise telle quelle à l'atelier 5 (risque = gravité × vraisemblance).",
+     "Évaluer le socle de sécurité : où l'entreprise est conforme, partielle ou en écart. C'est ce socle qui rendra les attaques plus ou moins faciles à l'atelier 4.",
+     "Poser le cadre commun de la table : vocabulaire, échelles, documents."
+    ]
    },
    "a2": {
     "titre": "Atelier 2 · Sources de risque",
@@ -1363,10 +1339,6 @@
      [
       "Cartes",
       "Deck rouge MENACE (6 cartes SR : un profil et un objectif visé). Aucune cotation n'est imprimée."
-     ],
-     [
-      "Jetons",
-      "Aucun."
      ],
      [
       "À côté de vous",
@@ -1421,7 +1393,13 @@
      "Coter sans justifier.",
      "Oublier un ER grave : un angle mort veut dire qu'un risque majeur ne sera jamais étudié."
     ],
-    "exemple": "Couvert, c'est quoi ? Imaginez un ER « Fuite des plans » (G3). Si la seule source retenue est un hacktiviste qui veut faire du bruit, personne ne cherche à voler les plans : l'ER est un angle mort. Il faut alors retenir la source « concurrent » (Σ ≥ 8) ou revoir sa cotation."
+    "exemple": "Couvert, c'est quoi ? Imaginez un ER « Fuite des plans » (G3). Si la seule source retenue est un hacktiviste qui veut faire du bruit, personne ne cherche à voler les plans : l'ER est un angle mort. Il faut alors retenir la source « concurrent » (Σ ≥ 8) ou revoir sa cotation.",
+    "objs": [
+     "Identifier les sources de risque (SR) et ce qu'elles visent (objectif visé).",
+     "Évaluer la PERTINENCE de chaque source : motivation, ressources, activité (Σ = M + R + A).",
+     "Retenir les sources prioritaires (Σ ≥ 8) et mettre les autres sous surveillance ou de côté.",
+     "Contrôler que chaque événement redouté grave est couvert par au moins une source retenue."
+    ]
    },
    "a3": {
     "titre": "Atelier 3 · Écosystème et scénarios stratégiques",
@@ -1435,10 +1413,6 @@
      [
       "Cartes",
       "Deck vert ÉCOSYSTÈME (8 cartes PP : D, P, M, C imprimés) et deck vert foncé MESURE ÉCOSYSTÈME (8 cartes ME). Réutilisez les cartes SR retenues (atelier 2) et les cartes ER (atelier 1)."
-     ],
-     [
-      "Jetons",
-      "Aucun."
      ],
      [
       "À côté de vous",
@@ -1467,7 +1441,7 @@
      [
       "35–50",
       "Choisir les mesures d'écosystème",
-      "Pour chaque PP en zone danger, choisissez au moins une carte ME. Chaque ME change UNE variable de 1. Recalculez le niveau et la zone. Notez le coût en jetons : il sera retiré des 14 jetons de l'atelier 5.",
+      "Pour chaque PP en zone danger, choisissez au moins une carte ME. Chaque ME change UNE variable de 1. Recalculez le niveau et la zone. Notez le coût en points de budget : il sera retiré des 14 points de budget de l'atelier 5.",
       "Zone ③ mesures ; feuille 3"
      ],
      [
@@ -1493,7 +1467,13 @@
      "Arrondir trop tôt : gardez 2 décimales.",
      "Choisir une source écartée ou à surveiller pour un scénario."
     ],
-    "exemple": "Exemple hors jeu : D 3, P 4, M 1, C 3. D × P = 12 ; M × C = 3 ; niveau = 12 ÷ 3 = 4,0 → zone danger (≥ 3)."
+    "exemple": "Exemple hors jeu : D 3, P 4, M 1, C 3. D × P = 12 ; M × C = 3 ; niveau = 12 ÷ 3 = 4,0 → zone danger (≥ 3).",
+    "objs": [
+     "Cartographier l'écosystème : les parties prenantes (PP) qui peuvent servir de rebond.",
+     "Évaluer le niveau de menace de chaque partie prenante : (D × P) ÷ (M × C).",
+     "Construire 3 scénarios stratégiques (source → partie prenante → événement redouté) et les évaluer.",
+     "Choisir des mesures d'écosystème pour toute partie prenante en zone danger (menace ≥ 3) : l'objectif est de repasser sous 3 au moindre coût."
+    ]
    },
    "a4": {
     "titre": "Atelier 4 · Scénarios opérationnels",
@@ -1507,10 +1487,6 @@
      [
       "Cartes",
       "Deck noir OPÉRATION (15 cartes : phase, action, bien visé), mélangées : certaines ne servent à rien. Posez 4 cartes par chaîne (12 au total) ; les 3 restantes seront écartées. Gardez les cartes bleues BS sous la main."
-     ],
-     [
-      "Jetons",
-      "Aucun."
      ],
      [
       "À côté de vous",
@@ -1571,12 +1547,18 @@
      "Compter un frein sans pouvoir le justifier.",
      "Oublier que la V de l'atelier 4 remplace celle de l'atelier 3."
     ],
-    "exemple": "Exemple de frein : si la règle du socle qui couvre l'étape est Conforme ou Partielle, F2 s'applique et la V baisse de 1 ; si elle est en Écart, aucun frein F2."
+    "exemple": "Exemple de frein : si la règle du socle qui couvre l'étape est Conforme ou Partielle, F2 s'applique et la V baisse de 1 ; si elle est en Écart, aucun frein F2.",
+    "objs": [
+     "Construire les scénarios opérationnels : les chemins d'attaque en quatre phases (Connaître, Rentrer, Trouver, Exploiter).",
+     "Identifier les cibles techniques : les biens supports visés par les actions, et ceux qui sont critiques.",
+     "Évaluer la VRAISEMBLANCE de chaque scénario : elle dépend de la pertinence de la source (atelier 2) et de la résistance du socle de sécurité (atelier 1), traduites ici en freins. Vraisemblance d'une étape = 4 − freins ; celle du scénario est la plus faible de ses étapes.",
+     "Préparer le niveau de risque brut : gravité (atelier 1) × vraisemblance, qui sera placé dans la matrice à l'atelier 5."
+    ]
    },
    "a5": {
     "titre": "Atelier 5 · Traitement du risque",
     "duree": 40,
-    "obj": "Choisir un plan de traitement sous budget (14 jetons) pour ramener chaque scénario au seuil d'acceptation, formuler les risques résiduels et faire signer la décision au directeur général.",
+    "obj": "Choisir un plan de traitement sous budget (14 points) pour ramener chaque scénario au seuil d'acceptation, formuler les risques résiduels et faire signer la décision au directeur général.",
     "besoin": [
      [
       "Plateau",
@@ -1587,8 +1569,8 @@
       "Deck orange MESURE (12 cartes : coût et effet) et cartes ME retenues à l'atelier 3, à poser sur les emplacements."
      ],
      [
-      "Jetons",
-      "14 jetons jaunes de budget (tenus par le DG) · 2 bleus (SS1), 2 rouges (SS2), 2 verts (SS3) pour la matrice : le premier posé = avant traitement, le second = après · 1 jeton noir VETO SÉCURITÉ."
+      "Budget",
+      "14 points de budget à répartir (coûts écrits sur la feuille 4). La matrice G × V de la feuille 4 reçoit deux valeurs par scénario : avant traitement, après traitement."
      ],
      [
       "À côté de vous",
@@ -1599,13 +1581,13 @@
      [
       "0–5",
       "Placer les scénarios dans la matrice",
-      "Pour chaque SS : G (gravité de l'ER visé, atelier 1) × V (vraisemblance du scénario opérationnel, atelier 4). Posez le premier jeton de la couleur du scénario. Niveaux : Faible ≤ 3, Moyen 4 à 6, Élevé 8 à 9, Critique ≥ 12.",
+      "Pour chaque SS : G (gravité de l'ER visé, atelier 1) × V (vraisemblance du scénario opérationnel, atelier 4). Écrivez G × V dans la colonne « avant traitement » de la matrice (feuille 4). Niveaux : Faible ≤ 3, Moyen 4 à 6, Élevé 8 à 9, Critique ≥ 12.",
       "Zone ⑤ matrice ; feuille 4"
      ],
      [
       "5–20",
       "Construire le plan sous budget",
-      "Choisissez des mesures (cartes orange et ME) dans la limite de 14 jetons. Lisez l'effet de chaque carte (« vraisemblance −1 » ou « gravité −1 »), recalculez G × V par écrit, posez le second jeton. Objectif : chaque scénario à G × V ≤ 6. Deux mesures qui font la même chose ne se cumulent pas.",
+      "Choisissez des mesures (cartes orange et ME) dans la limite de 14 points de budget. Lisez l'effet de chaque carte (« vraisemblance −1 » ou « gravité −1 »), recalculez G × V et écrivez-le dans la colonne « après traitement ». Objectif : chaque scénario à G × V ≤ 6. Deux mesures qui font la même chose ne se cumulent pas.",
       "Zone ⑤ PACS et budget"
      ],
      [
@@ -1617,7 +1599,7 @@
      [
       "25–34",
       "Risque résiduel et acceptation",
-      "Un scénario encore au-dessus de 6 reçoit une mesure en plus, ou une dérogation signée du DG avec un responsable, un indicateur et une date de revue. Si un ER touche la sécurité des personnes, le responsable HSE peut poser le jeton noir VETO SÉCURITÉ : le DG doit alors choisir une mesure en plus.",
+      "Un scénario encore au-dessus de 6 reçoit une mesure en plus, ou une dérogation signée du DG avec un responsable, un indicateur et une date de revue. Si un ER touche la sécurité des personnes, le risque résiduel n'est jamais accepté par dérogation : la table ajoute une mesure.",
       "Zone ⑤ acceptation"
      ],
      [
@@ -1632,7 +1614,7 @@
      "La dérogation du DG (responsable, indicateur, date) se saisit sous chaque scénario encore trop haut."
     ],
     "controle": [
-     "Le total des coûts ne dépasse pas 14 jetons.",
+     "Le total des coûts ne dépasse pas 14 points de budget.",
      "Chaque scénario est à G × V ≤ 6, ou une dérogation signée du DG est écrite.",
      "Pour chaque mesure, G ou V a été recalculé par écrit.",
      "Chaque risque accepté a un responsable, un indicateur et une date de revue.",
@@ -1644,7 +1626,13 @@
      "Utiliser la V de l'atelier 3 au lieu de celle de l'atelier 4.",
      "Cumuler deux mesures équivalentes (M et ME)."
     ],
-    "exemple": "Exemple : G4 × V2 = 8 (Élevé). Une mesure « vraisemblance −1 » donne G4 × V1 = 4 (Moyen) : sous le seuil de 6."
+    "exemple": "Exemple : G4 × V2 = 8 (Élevé). Une mesure « vraisemblance −1 » donne G4 × V1 = 4 (Moyen) : sous le seuil de 6.",
+    "objs": [
+     "Placer chaque scénario dans la matrice avec son risque brut : G × V (G vient de l'atelier 1, V de l'atelier 4).",
+     "Choisir un plan de traitement sous budget et recalculer le risque résiduel.",
+     "Comparer chaque risque résiduel au seuil d'acceptation (G × V ≤ 6) : sinon, mesure en plus ou dérogation signée du DG.",
+     "Formaliser la décision : responsable, indicateur, date de revue."
+    ]
    },
    "deb": {
     "titre": "Débrief et bilan",
@@ -1658,10 +1646,6 @@
      [
       "Cartes",
       "Aucune."
-     ],
-     [
-      "Jetons",
-      "Aucun."
      ],
      [
       "À côté de vous",
@@ -1700,7 +1684,12 @@
     "controle": [
      "Chaque joueur a écrit son action « lundi »."
     ],
-    "pieges": []
+    "pieges": [],
+    "objs": [
+     "Comparer vos résultats à ceux des autres tables.",
+     "Repérer les notions fragiles.",
+     "Décider d'une action concrète pour lundi."
+    ]
    }
   },
   "tutoB": {
@@ -1709,6 +1698,31 @@
      "p",
      "b",
      "Dire ce qui compte pour Synaptis Services (valeurs métier), ce qui le porte (biens supports), ce qui serait grave (événements redoutés, leur gravité) et où en est la sécurité de base (socle)."
+    ],
+    [
+     "p",
+     "h3",
+     "Les objectifs de l'atelier"
+    ],
+    [
+     "p",
+     "bl",
+     "Cadrer l'étude : dire ce qui compte pour l'entreprise (valeurs métier) et sur quoi cela repose (biens supports)."
+    ],
+    [
+     "p",
+     "bl",
+     "Identifier les événements redoutés (ER) et estimer puis calculer leur GRAVITÉ. Cette gravité sera reprise telle quelle à l'atelier 5 (risque = gravité × vraisemblance)."
+    ],
+    [
+     "p",
+     "bl",
+     "Évaluer le socle de sécurité : où l'entreprise est conforme, partielle ou en écart. C'est ce socle qui rendra les attaques plus ou moins faciles à l'atelier 4."
+    ],
+    [
+     "p",
+     "bl",
+     "Poser le cadre commun de la table : vocabulaire, échelles, documents."
     ],
     [
      "p",
@@ -1729,10 +1743,6 @@
       [
        "<b>Cartes</b>",
        "Deck bleu ENTREPRISE (21 cartes : 5 valeurs métier VM, 10 biens supports BS, 6 événements redoutés ER). Mettez les 6 cartes ER de côté, FACE CACHÉE."
-      ],
-      [
-       "<b>Jetons</b>",
-       "Aucun."
       ],
       [
        "<b>À côté de vous</b>",
@@ -1770,12 +1780,12 @@
       ],
       [
        "25–29",
-       "<b>Parier sur les gravités (sans les chiffres).</b> Chacun écrit en silence G1 à G4 pour chacun des 6 ER, d'après le titre seul et l'échelle de gravité. Comparez ensuite à voix haute. Dans l'appli : étape 2.",
-       "Appli (pari) + feuille 1"
+       "<b>Estimer les gravités (sans les chiffres).</b> Chacun écrit en silence G1 à G4 pour chacun des 6 ER, d'après le titre seul et l'échelle de gravité. Comparez ensuite à voix haute. Dans l'appli : étape 2.",
+       "Appli (estimation) + feuille 1"
       ],
       [
        "29–38",
-       "<b>Calculer les gravités.</b> Retournez les cartes ER. Pour chaque ER : jours d'arrêt × 180 k€ par jour, puis lisez l'échelle. Si le résultat diffère de votre pari, écrivez en une phrase ce que le titre ne montrait pas. Les ER qui touchent la sécurité des personnes sont G4 par nature.",
+       "<b>Calculer les gravités.</b> Retournez les cartes ER. Pour chaque ER : jours d'arrêt × 180 k€ par jour, puis lisez l'échelle. Si le résultat diffère de votre estimation, écrivez en une phrase ce que le titre ne montrait pas. Les ER qui touchent la sécurité des personnes sont G4 par nature.",
        "Feuille 1, grille des ER"
       ],
       [
@@ -1785,7 +1795,7 @@
       ],
       [
        "46–50",
-       "<b>Aléa puis vérification.</b> Tirez la carte Aléa de l'atelier (bouton de l'appli) : écrivez dans le bloc violet de la feuille ce qui change. Cliquez sur « Vérifier » dans chaque étape : l'appli met ✔ ou ✘ sans donner la réponse.",
+       "<b>Aléa puis vérification.</b> Tirez la carte Aléa de l'atelier (bouton de l'appli) : écrivez dans le bloc violet de la feuille ce qui change. Cliquez sur « Vérifier » dans chaque étape : l'appli garde vos bonnes réponses, met ✘ sur les autres avec une courte explication, et vous laisse corriger.",
        "Appli"
       ]
      ]
@@ -1803,7 +1813,7 @@
     [
      "p",
      "bl",
-     "Chaque étape a un bouton « Vérifier » : ✔ juste, ✘ à revoir. Les points tombent automatiquement."
+     "Chaque étape a un bouton « Vérifier » : ✔ juste (la réponse est conservée), ✘ à revoir avec une courte explication. Vous modifiez vos choix et revérifiez. Après 3 essais infructueux sur une même vérification, la solution est proposée avec ses explications (les points de cette vérification ne montent plus)."
     ],
     [
      "p",
@@ -1828,7 +1838,7 @@
     [
      "p",
      "bl",
-     "☐ Chaque ER a un pari écrit avant le calcul, un calcul écrit, et une phrase explique chaque écart."
+     "☐ Chaque ER a une estimation écrite avant le calcul, un calcul écrit, et une phrase explique chaque écart."
     ],
     [
      "p",
@@ -1875,6 +1885,31 @@
     [
      "p",
      "h3",
+     "Les objectifs de l'atelier"
+    ],
+    [
+     "p",
+     "bl",
+     "Identifier les sources de risque (SR) et ce qu'elles visent (objectif visé)."
+    ],
+    [
+     "p",
+     "bl",
+     "Évaluer la PERTINENCE de chaque source : motivation, ressources, activité (Σ = M + R + A)."
+    ],
+    [
+     "p",
+     "bl",
+     "Retenir les sources prioritaires (Σ ≥ 8) et mettre les autres sous surveillance ou de côté."
+    ],
+    [
+     "p",
+     "bl",
+     "Contrôler que chaque événement redouté grave est couvert par au moins une source retenue."
+    ],
+    [
+     "p",
+     "h3",
      "Ce dont vous avez besoin"
     ],
     [
@@ -1891,10 +1926,6 @@
       [
        "<b>Cartes</b>",
        "Deck rouge MENACE (6 cartes SR : un profil et un objectif visé). Aucune cotation n'est imprimée."
-      ],
-      [
-       "<b>Jetons</b>",
-       "Aucun."
       ],
       [
        "<b>À côté de vous</b>",
@@ -2022,6 +2053,31 @@
     [
      "p",
      "h3",
+     "Les objectifs de l'atelier"
+    ],
+    [
+     "p",
+     "bl",
+     "Cartographier l'écosystème : les parties prenantes (PP) qui peuvent servir de rebond."
+    ],
+    [
+     "p",
+     "bl",
+     "Évaluer le niveau de menace de chaque partie prenante : (D × P) ÷ (M × C)."
+    ],
+    [
+     "p",
+     "bl",
+     "Construire 3 scénarios stratégiques (source → partie prenante → événement redouté) et les évaluer."
+    ],
+    [
+     "p",
+     "bl",
+     "Choisir des mesures d'écosystème pour toute partie prenante en zone danger (menace ≥ 3) : l'objectif est de repasser sous 3 au moindre coût."
+    ],
+    [
+     "p",
+     "h3",
      "Ce dont vous avez besoin"
     ],
     [
@@ -2038,10 +2094,6 @@
       [
        "<b>Cartes</b>",
        "Deck vert ÉCOSYSTÈME (8 cartes PP : D, P, M, C imprimés) et deck vert foncé MESURE ÉCOSYSTÈME (8 cartes ME). Réutilisez les cartes SR retenues (atelier 2) et les cartes ER (atelier 1)."
-      ],
-      [
-       "<b>Jetons</b>",
-       "Aucun."
       ],
       [
        "<b>À côté de vous</b>",
@@ -2079,7 +2131,7 @@
       ],
       [
        "35–50",
-       "<b>Choisir les mesures d'écosystème.</b> Pour chaque PP en zone danger, choisissez au moins une carte ME. Chaque ME change UNE variable de 1. Recalculez le niveau et la zone. Notez le coût en jetons : il sera retiré des 14 jetons de l'atelier 5.",
+       "<b>Choisir les mesures d'écosystème.</b> Pour chaque PP en zone danger, choisissez au moins une carte ME. Chaque ME change UNE variable de 1. Recalculez le niveau et la zone. Notez le coût en points de budget : il sera retiré des 14 points de budget de l'atelier 5.",
        "Zone ③ mesures ; feuille 3"
       ],
       [
@@ -2169,6 +2221,31 @@
     [
      "p",
      "h3",
+     "Les objectifs de l'atelier"
+    ],
+    [
+     "p",
+     "bl",
+     "Construire les scénarios opérationnels : les chemins d'attaque en quatre phases (Connaître, Rentrer, Trouver, Exploiter)."
+    ],
+    [
+     "p",
+     "bl",
+     "Identifier les cibles techniques : les biens supports visés par les actions, et ceux qui sont critiques."
+    ],
+    [
+     "p",
+     "bl",
+     "Évaluer la VRAISEMBLANCE de chaque scénario : elle dépend de la pertinence de la source (atelier 2) et de la résistance du socle de sécurité (atelier 1), traduites ici en freins. Vraisemblance d'une étape = 4 − freins ; celle du scénario est la plus faible de ses étapes."
+    ],
+    [
+     "p",
+     "bl",
+     "Préparer le niveau de risque brut : gravité (atelier 1) × vraisemblance, qui sera placé dans la matrice à l'atelier 5."
+    ],
+    [
+     "p",
+     "h3",
      "Ce dont vous avez besoin"
     ],
     [
@@ -2185,10 +2262,6 @@
       [
        "<b>Cartes</b>",
        "Deck noir OPÉRATION (15 cartes : phase, action, bien visé), mélangées : certaines ne servent à rien. Posez 4 cartes par chaîne (12 au total) ; les 3 restantes seront écartées. Gardez les cartes bleues BS sous la main."
-      ],
-      [
-       "<b>Jetons</b>",
-       "Aucun."
       ],
       [
        "<b>À côté de vous</b>",
@@ -2316,7 +2389,32 @@
     [
      "p",
      "b",
-     "Choisir un plan de traitement sous budget (14 jetons) pour ramener chaque scénario au seuil d'acceptation, formuler les risques résiduels et faire signer la décision au directeur général."
+     "Choisir un plan de traitement sous budget (14 points) pour ramener chaque scénario au seuil d'acceptation, formuler les risques résiduels et faire signer la décision au directeur général."
+    ],
+    [
+     "p",
+     "h3",
+     "Les objectifs de l'atelier"
+    ],
+    [
+     "p",
+     "bl",
+     "Placer chaque scénario dans la matrice avec son risque brut : G × V (G vient de l'atelier 1, V de l'atelier 4)."
+    ],
+    [
+     "p",
+     "bl",
+     "Choisir un plan de traitement sous budget et recalculer le risque résiduel."
+    ],
+    [
+     "p",
+     "bl",
+     "Comparer chaque risque résiduel au seuil d'acceptation (G × V ≤ 6) : sinon, mesure en plus ou dérogation signée du DG."
+    ],
+    [
+     "p",
+     "bl",
+     "Formaliser la décision : responsable, indicateur, date de revue."
     ],
     [
      "p",
@@ -2339,8 +2437,8 @@
        "Deck orange MESURE (12 cartes : coût et effet) et cartes ME retenues à l'atelier 3, à poser sur les emplacements."
       ],
       [
-       "<b>Jetons</b>",
-       "14 jetons jaunes de budget (tenus par le DG) · 2 bleus (SS1), 2 rouges (SS2), 2 verts (SS3) pour la matrice : le premier posé = avant traitement, le second = après · 1 jeton noir VETO SÉCURITÉ."
+       "<b>Budget</b>",
+       "14 points de budget à répartir (coûts écrits sur la feuille 4). La matrice G × V de la feuille 4 reçoit deux valeurs par scénario : avant traitement, après traitement."
       ],
       [
        "<b>À côté de vous</b>",
@@ -2363,12 +2461,12 @@
       ],
       [
        "0–5",
-       "<b>Placer les scénarios dans la matrice.</b> Pour chaque SS : G (gravité de l'ER visé, atelier 1) × V (vraisemblance du scénario opérationnel, atelier 4). Posez le premier jeton de la couleur du scénario. Niveaux : Faible ≤ 3, Moyen 4 à 6, Élevé 8 à 9, Critique ≥ 12.",
+       "<b>Placer les scénarios dans la matrice.</b> Pour chaque SS : G (gravité de l'ER visé, atelier 1) × V (vraisemblance du scénario opérationnel, atelier 4). Écrivez G × V dans la colonne « avant traitement » de la matrice (feuille 4). Niveaux : Faible ≤ 3, Moyen 4 à 6, Élevé 8 à 9, Critique ≥ 12.",
        "Zone ⑤ matrice ; feuille 4"
       ],
       [
        "5–20",
-       "<b>Construire le plan sous budget.</b> Choisissez des mesures (cartes orange et ME) dans la limite de 14 jetons. Lisez l'effet de chaque carte (« vraisemblance −1 » ou « gravité −1 »), recalculez G × V par écrit, posez le second jeton. Objectif : chaque scénario à G × V ≤ 6. Deux mesures qui font la même chose ne se cumulent pas.",
+       "<b>Construire le plan sous budget.</b> Choisissez des mesures (cartes orange et ME) dans la limite de 14 points de budget. Lisez l'effet de chaque carte (« vraisemblance −1 » ou « gravité −1 »), recalculez G × V et écrivez-le dans la colonne « après traitement ». Objectif : chaque scénario à G × V ≤ 6. Deux mesures qui font la même chose ne se cumulent pas.",
        "Zone ⑤ PACS et budget"
       ],
       [
@@ -2378,7 +2476,7 @@
       ],
       [
        "25–34",
-       "<b>Risque résiduel et acceptation.</b> Un scénario encore au-dessus de 6 reçoit une mesure en plus, ou une dérogation signée du DG avec un responsable, un indicateur et une date de revue. Si un ER touche la sécurité des personnes, le responsable HSE peut poser le jeton noir VETO SÉCURITÉ : le DG doit alors choisir une mesure en plus.",
+       "<b>Risque résiduel et acceptation.</b> Un scénario encore au-dessus de 6 reçoit une mesure en plus, ou une dérogation signée du DG avec un responsable, un indicateur et une date de revue. Si un ER touche la sécurité des personnes, le risque résiduel n'est jamais accepté par dérogation : la table ajoute une mesure.",
        "Zone ⑤ acceptation"
       ],
       [
@@ -2416,7 +2514,7 @@
     [
      "p",
      "bl",
-     "☐ Le total des coûts ne dépasse pas 14 jetons."
+     "☐ Le total des coûts ne dépasse pas 14 points de budget."
     ],
     [
      "p",
@@ -2473,6 +2571,26 @@
     [
      "p",
      "h3",
+     "Les objectifs de l'atelier"
+    ],
+    [
+     "p",
+     "bl",
+     "Comparer vos résultats à ceux des autres tables."
+    ],
+    [
+     "p",
+     "bl",
+     "Repérer les notions fragiles."
+    ],
+    [
+     "p",
+     "bl",
+     "Décider d'une action concrète pour lundi."
+    ],
+    [
+     "p",
+     "h3",
      "Ce dont vous avez besoin"
     ],
     [
@@ -2489,10 +2607,6 @@
       [
        "<b>Cartes</b>",
        "Aucune."
-      ],
-      [
-       "<b>Jetons</b>",
-       "Aucun."
       ],
       [
        "<b>À côté de vous</b>",
@@ -2591,7 +2705,7 @@
    [
     "p",
     "bl",
-    "<b>4 · Vérification</b> : cliquez sur « Vérifier ». ✔ = juste, ✘ = à revoir. Corrigez et revérifiez autant que nécessaire : seuls les meilleurs points sont gardés."
+    "<b>4 · Vérification</b> : cliquez sur « Vérifier ». ✔ = juste (conservé), ✘ = à revoir, avec une courte phrase d'explication. Corrigez et revérifiez : seuls les meilleurs points sont gardés. Après 3 essais infructueux sur une même vérification, vous pouvez afficher la solution expliquée."
    ],
    [
     "p",
@@ -2607,66 +2721,6 @@
     "p",
     "b",
     "Chaque table dispose de <b>5 aides</b> pour tout le jeu. Le bouton « Aide » propose d'abord une question gratuite ; un indice, ou la réponse d'un élément précis (par exemple « Révéler VM2 »), consomme <b>1 aide</b> et coûte <b>1 point</b>. Choisissez quand les utiliser : les 5 sont partagées par toute la table, sur tous les ateliers."
-   ],
-   [
-    "p",
-    "h2",
-    "Les rôles à la table"
-   ],
-   [
-    "t",
-    [
-     [
-      "Carte",
-      "Rôle",
-      "Ce que vous faites"
-     ],
-     [
-      "R01",
-      "RSSI",
-      "Garant de la méthode. Tient la synthèse, relit les cotations, veille au temps."
-     ],
-     [
-      "R02",
-      "Directeur des opérations et de l'exploitation",
-      "Défend la continuité du service rendu aux clients et arbitre les gravités. Connaît le coût d'un jour d'arrêt."
-     ],
-     [
-      "R03",
-      "Architecte de la plateforme et des accès clients",
-      "Connaît supervision, coffre, tunnels, cloud. Décrit les modes opératoires crédibles."
-     ],
-     [
-      "R06",
-      "Responsable conformité et engagements clients",
-      "Porte l'événement redouté de compromission des clients. Peut imposer un veto sur l'acceptation."
-     ],
-     [
-      "R10",
-      "Directeur général (DG)",
-      "Arbitre en fin d'atelier 5. Accepte ou refuse les risques résiduels."
-     ]
-    ]
-   ],
-   [
-    "p",
-    "bl",
-    "Le <b>DG (R10)</b> tient les 14 jetons de budget et signe l'acceptation des risques à l'atelier 5."
-   ],
-   [
-    "p",
-    "bl",
-    "Le <b>responsable HSE (R06)</b> garde le jeton noir VETO SÉCURITÉ. À quatre joueurs, R02 joue aussi R06."
-   ],
-   [
-    "p",
-    "bl",
-    "Le <b>responsable technique (R03)</b> joue l'attaquant : il conteste les scénarios peu plausibles."
-   ],
-   [
-    "p",
-    "bl",
-    "Le <b>RSSI (R01)</b> tient la feuille et veille au temps ; il ne décide pas seul."
    ],
    [
     "p",
@@ -2740,23 +2794,13 @@
      ],
      [
       "Cartes orange MESURE (12)",
-      "Deck orange : coût en jetons et effet.",
+      "Deck orange : coût en points de budget et effet.",
       "Atelier 5"
-     ],
-     [
-      "Cartes jaunes RÔLE (5)",
-      "Une par joueur (à 4 joueurs, R02 joue aussi R06).",
-      "Dès le début"
      ],
      [
       "Cartes violettes ALÉA",
       "Elles n'ont plus besoin d'être lues par quelqu'un : l'appli tire la carte de l'atelier pour votre table.",
       "Milieu de chaque atelier"
-     ],
-     [
-      "Jetons (21)",
-      "14 jaunes = budget (tenu par le DG) · 2 bleus, 2 rouges, 2 verts = marqueurs SS1, SS2, SS3 (avant, après) · 1 noir = veto sécurité.",
-      "Atelier 5"
      ],
      [
       "Feuilles A4 de réserve",
@@ -3376,7 +3420,7 @@
     [
      "p",
      "b",
-     "<b>Défi 5.2.</b> Avec 6 jetons, quelle priorité pour SS1 seul (12) ?"
+     "<b>Défi 5.2.</b> Avec 6 points de budget, quelle priorité pour SS1 seul (12) ?"
     ],
     [
      "p",
@@ -3547,7 +3591,7 @@
     ],
     [
      "<b>Mesure d'écosystème (ME)</b>",
-     "Action sur une partie prenante qui change UNE variable de 1 (D ou P : −1 · M ou C : +1). Elle a un coût en jetons, repris sur le budget de l'atelier 5.",
+     "Action sur une partie prenante qui change UNE variable de 1 (D ou P : −1 · M ou C : +1). Elle a un coût en points de budget, repris sur le budget de l'atelier 5.",
      "Carte vert foncé MESURE ÉCOSYSTÈME"
     ]
    ]
@@ -3602,7 +3646,7 @@
     ],
     [
      "<b>Mesure du plan</b>",
-     "Action de sécurité qui réduit G ou V. Elle coûte des jetons ; le budget total est de 14 jetons.",
+     "Action de sécurité qui réduit G ou V. Elle coûte des points de budget ; le budget total est de 14 points de budget.",
      "Carte orange MESURE"
     ],
     [
@@ -3614,11 +3658,6 @@
      "<b>Risque résiduel</b>",
      "Risque qui reste après traitement. Il est accepté formellement : responsable du suivi, indicateur, date de revue.",
      "Feuille 4"
-    ],
-    [
-     "<b>Veto sécurité</b>",
-     "Le responsable de la sécurité des personnes peut s'opposer à l'acceptation d'un risque qui touche l'ER de sécurité.",
-     "Carte jaune RÔLE ; feuille 4"
     ],
     [
      "<b>Stratégies de traitement</b>",
@@ -3649,11 +3688,6 @@
      "<b>Carte Aléa</b>",
      "Événement tiré à mi-parcours (bouton de l'appli) : il oblige à recoter. La version 1 n'est jamais effacée.",
      "Carte violette ALÉA"
-    ],
-    [
-     "<b>Carte Rôle</b>",
-     "Votre responsabilité à la table (voir les règles du jeu).",
-     "Carte jaune RÔLE"
     ]
    ]
   ],
@@ -3662,7 +3696,7 @@
    [
     [
      "",
-     "Version en ligne de cette fiche et conseils des rôles atelier par atelier : scannez le QR code.<br/>https://github.com/BelmDeveloppement/ebios-rm-plateau/blob/main/DEFINITIONS.md"
+     "Version en ligne de cette fiche : scannez le QR code.<br/>https://github.com/BelmDeveloppement/ebios-rm-plateau/blob/main/DEFINITIONS.md"
     ]
    ]
   ]

@@ -38,7 +38,7 @@ Un seul vocabulaire pour toute la table. La colonne « Où le trouver » indique
 | **Niveau de menace** | (D × P) ÷ (M × C). Danger ≥ 3 · Contrôle de 1,5 à moins de 3 · Veille moins de 1,5. | Radar, feuille 3 |
 | **Scénario stratégique (SS)** | Chemin d'attaque source de risque → partie prenante (relais) → événement redouté. Sa gravité est celle de l'ER. On pose 3 cartes dans le couloir ; le second emplacement PP reste vide sauf second relais justifié. | Couloir SS du plateau |
 | **Critères A, B, C** | A : Σ de la source ≥ 9. B : la PP du chemin est en zone danger. C : une règle du socle sur le chemin est en Écart ou Partielle. V = nombre de critères remplis (minimum V1, maximum V3). | Feuilles 1, 2 et 3 |
-| **Mesure d'écosystème (ME)** | Action sur une partie prenante qui change UNE variable de 1 (D ou P : −1 · M ou C : +1). Elle a un coût en jetons, repris sur le budget de l'atelier 5. | Carte vert foncé MESURE ÉCOSYSTÈME |
+| **Mesure d'écosystème (ME)** | Action sur une partie prenante qui change UNE variable de 1 (D ou P : −1 · M ou C : +1). Elle a un coût en points de budget, repris sur le budget de l'atelier 5. | Carte vert foncé MESURE ÉCOSYSTÈME |
 
 ## Atelier 4 · Scénarios opérationnels
 
@@ -53,10 +53,9 @@ Un seul vocabulaire pour toute la table. La colonne « Où le trouver » indique
 
 | Terme | Définition | Où le trouver |
 |---|---|---|
-| **Mesure du plan** | Action de sécurité qui réduit G ou V. Elle coûte des jetons ; le budget total est de 14 jetons. | Carte orange MESURE |
+| **Mesure du plan** | Action de sécurité qui réduit G ou V. Elle coûte des points de budget ; le budget total est de 14 points de budget. | Carte orange MESURE |
 | **Seuil d'acceptation** | Niveau de risque que la direction accepte : G × V ≤ 6. Au-dessus, le scénario doit être traité (mesure en plus) ou faire l'objet d'une dérogation signée du DG. | Matrice, feuille 4 |
 | **Risque résiduel** | Risque qui reste après traitement. Il est accepté formellement : responsable du suivi, indicateur, date de revue. | Feuille 4 |
-| **Veto sécurité** | Le responsable de la sécurité des personnes peut s'opposer à l'acceptation d'un risque qui touche l'ER de sécurité. | Carte jaune RÔLE ; feuille 4 |
 | **Stratégies de traitement** | Réduire, éviter, partager (assurance : ne change ni G ni V) ou accepter. | Cartes orange MESURE |
 | **PACS** | Plan d'amélioration continue de la sécurité : mesures, responsables, échéances. | Zone PACS du plateau |
 
@@ -65,4 +64,3 @@ Un seul vocabulaire pour toute la table. La colonne « Où le trouver » indique
 | Terme | Définition | Où le trouver |
 |---|---|---|
 | **Carte Aléa** | Événement lu par l'animateur à mi-parcours : il oblige à recoter. La version 1 n'est jamais effacée. | Carte violette ALÉA |
-| **Carte Rôle** | Votre point de vue, vos questions et votre position à défendre. À ne pas montrer aux autres. | Carte jaune RÔLE ; fiche de rôle |
