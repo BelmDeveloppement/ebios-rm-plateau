@@ -1440,7 +1440,7 @@
      [
       "16–35",
       "Construire les 3 scénarios stratégiques",
-      "Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = nombre de critères cochés (minimum 1).",
+      "Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = A + B + C (nombre de critères cochés), au minimum 1. C'est une règle du jeu : la méthode officielle n'évalue la vraisemblance qu'à l'atelier 4.",
       "Zone ③ couloirs ; feuille 3"
      ],
      [
@@ -1508,7 +1508,7 @@
      [
       "8–25",
       "Poser les actions dans les 3 chaînes",
-      "Pour chaque scénario, posez 4 actions dans l'ordre Connaître → Rentrer → Trouver → Exploiter. Chaque action doit rendre la suivante possible : écrivez pourquoi. Dans l'appli : un menu par phase.",
+      "Pour chaque scénario, posez 4 actions dans l'ordre Connaître → Rentrer → Trouver → Exploiter (la méthode officielle ne fixe pas de sens de construction : astuce, fixez d'abord la dernière action, celle qui touche l'ER visé, puis remontez). Chaque action doit rendre la suivante possible : écrivez pourquoi. Dans l'appli : un menu par phase.",
       "Zone ④ ; feuille 2 (bas)"
      ],
      [
@@ -1526,7 +1526,7 @@
      [
       "40–50",
       "Coter les étapes",
-      "Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). V étape = 4 − nombre de freins, minimum 1. V du scénario = la plus petite des 4 étapes : elle remplace la V de l'atelier 3.",
+      "Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). Pour chaque étape : 0 frein = V4 (très facile), 1 frein = V3, 2 freins = V2, 3 freins ou plus = V1 (très difficile). Le scénario prend la valeur de son étape la plus difficile (l'attaquant est arrêté dès qu'une étape est trop dure) : elle remplace la V de l'atelier 3. Exemple : freins 0, 1, 2, 0 donnent V 4, 3, 2, 4 ; V du scénario = 2.",
       "Feuille 2, atelier 4"
      ],
      [
@@ -1556,7 +1556,7 @@
     "objs": [
      "Construire les scénarios opérationnels : les chemins d'attaque en quatre phases (Connaître, Rentrer, Trouver, Exploiter).",
      "Identifier les cibles techniques : les biens supports visés par les actions, et ceux qui sont critiques.",
-     "Évaluer la VRAISEMBLANCE de chaque scénario : elle dépend de la pertinence de la source (atelier 2) et de la résistance du socle de sécurité (atelier 1), traduites ici en freins. Vraisemblance d'une étape = 4 − freins ; celle du scénario est la plus faible de ses étapes.",
+     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Chaque obstacle réel est un frein ; par étape, 0 frein = V4 … 3 freins ou plus = V1 ; le scénario vaut son étape la plus difficile.",
      "Préparer le niveau de risque brut : gravité (atelier 1) × vraisemblance, qui sera placé dans la matrice à l'atelier 5."
     ]
    },
@@ -2131,7 +2131,7 @@
       ],
       [
        "16–35",
-       "<b>Construire les 3 scénarios stratégiques.</b> Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = nombre de critères cochés (minimum 1).",
+       "<b>Construire les 3 scénarios stratégiques.</b> Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = A + B + C (nombre de critères cochés), au minimum 1. C'est une règle du jeu : la méthode officielle n'évalue la vraisemblance qu'à l'atelier 4.",
        "Zone ③ couloirs ; feuille 3"
       ],
       [
@@ -2241,7 +2241,7 @@
     [
      "p",
      "bl",
-     "Évaluer la VRAISEMBLANCE de chaque scénario : elle dépend de la pertinence de la source (atelier 2) et de la résistance du socle de sécurité (atelier 1), traduites ici en freins. Vraisemblance d'une étape = 4 − freins ; celle du scénario est la plus faible de ses étapes."
+     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Chaque obstacle réel est un frein ; par étape, 0 frein = V4 … 3 freins ou plus = V1 ; le scénario vaut son étape la plus difficile."
     ],
     [
      "p",
@@ -2294,7 +2294,7 @@
       ],
       [
        "8–25",
-       "<b>Poser les actions dans les 3 chaînes.</b> Pour chaque scénario, posez 4 actions dans l'ordre Connaître → Rentrer → Trouver → Exploiter. Chaque action doit rendre la suivante possible : écrivez pourquoi. Dans l'appli : un menu par phase.",
+       "<b>Poser les actions dans les 3 chaînes.</b> Pour chaque scénario, posez 4 actions dans l'ordre Connaître → Rentrer → Trouver → Exploiter (la méthode officielle ne fixe pas de sens de construction : astuce, fixez d'abord la dernière action, celle qui touche l'ER visé, puis remontez). Chaque action doit rendre la suivante possible : écrivez pourquoi. Dans l'appli : un menu par phase.",
        "Zone ④ ; feuille 2 (bas)"
       ],
       [
@@ -2309,7 +2309,7 @@
       ],
       [
        "40–50",
-       "<b>Coter les étapes.</b> Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). V étape = 4 − nombre de freins, minimum 1. V du scénario = la plus petite des 4 étapes : elle remplace la V de l'atelier 3.",
+       "<b>Coter les étapes.</b> Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). Pour chaque étape : 0 frein = V4 (très facile), 1 frein = V3, 2 freins = V2, 3 freins ou plus = V1 (très difficile). Le scénario prend la valeur de son étape la plus difficile (l'attaquant est arrêté dès qu'une étape est trop dure) : elle remplace la V de l'atelier 3. Exemple : freins 0, 1, 2, 0 donnent V 4, 3, 2, 4 ; V du scénario = 2.",
        "Feuille 2, atelier 4"
       ],
       [
