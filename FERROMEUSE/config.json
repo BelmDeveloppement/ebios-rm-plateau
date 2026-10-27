@@ -1407,7 +1407,7 @@
    "a3": {
     "titre": "Atelier 3 · Écosystème et scénarios stratégiques",
     "duree": 55,
-    "obj": "Repérer quelles parties prenantes (fournisseurs, prestataires) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème.",
+    "obj": "Repérer quelles parties prenantes (fournisseurs, prestataires, clients : la chaîne d'approvisionnement, ou supply chain) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème.",
     "besoin": [
      [
       "Plateau",
@@ -2051,7 +2051,7 @@
     [
      "p",
      "b",
-     "Repérer quelles parties prenantes (fournisseurs, prestataires) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème."
+     "Repérer quelles parties prenantes (fournisseurs, prestataires, clients : la chaîne d'approvisionnement, ou supply chain) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème."
     ],
     [
      "p",
