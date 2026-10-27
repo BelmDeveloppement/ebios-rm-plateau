@@ -198,7 +198,7 @@ const ok_=a=>{const s=(STEPS[a]||[]).filter(x=>x.chk);return !!(STEPS[a]&&prog_(
 const FREE=qs.get('free')==='1';
 const noFalse=k=>S.res[k]&&!Object.entries(S.res[k]).some(([x,y])=>x!=='_all'&&y===false);
 const chkOK=k=>{if(k==='a1vm')return CFG.vm.every(v=>S.rev['a1_vm:'+v[0]]||(S.res.a1vm&&S.res.a1vm[v[0]]===true));const gr=Object.keys(VRES).find(x=>VRES[x].includes(k));return !!(gr&&S.rev[gr])||(VRES[gr]||[k]).every(noFalse)};
-const TEST=qs.get('test')==='1';
+const TEST=(()=>{const q=qs.get('test');try{if(q==='0'){localStorage.removeItem('ebios2_test');return false}if(q==='1')localStorage.setItem('ebios2_test','1');return q==='1'||localStorage.getItem('ebios2_test')==='1'||['FERROMEUSE'].includes(CFG.key)}catch(e){return q==='1'}})();
 const stepOK=s=>!!(S.force&&S.force[s.a+':'+s.id])||(s.done()&&(!s.chk||chkOK(s.chk)));
 const atDone=a=>(STEPS[a]||[]).every(stepOK);
 const atLocked=id=>{if(FREE||!isAt(id))return false;const i=AT.findIndex(x=>x.id===id);for(let j=0;j<i;j++)if(!atDone(AT[j].id))return true;return false};
