@@ -82,6 +82,7 @@ body.tour #dock,body.tour nav,body.tour #crumb,body.tour .fab,body.tour .fab2,bo
 body.prof .wrap{max-width:1500px}body.prof{font-size:17px}body.tour{font-size:18px;padding-bottom:30px}body.tour .wrap{display:block;max-width:1500px}
 .tourgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}@media(max-width:900px){.tourgrid{grid-template-columns:1fr}}
 .tstep{display:flex;gap:10px;padding:8px 10px;border-radius:10px;margin:6px 0;background:var(--card);border:1px solid var(--line)}.tstep .ti{font-size:1.3em;width:1.5em;text-align:center}.tstep.v{border-left:5px solid var(--ok)}.tstep.c{border-left:5px solid var(--acc);background:var(--soft)}.tstep.l{opacity:.55}.tdev{margin:8px 0;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.need{background:var(--soft);border-left:4px solid var(--acc);padding:8px 12px;border-radius:8px;margin:6px 0 10px;font-size:14px}
 </style>
 </head>
 <body>
@@ -106,10 +107,13 @@ S.gate=Object.assign({op:{},ok:{},q:{},done:false},S.gate||{});S.ev=S.ev||{};S.a
 let PREV=0;
 const save=()=>{if(PREV===2)return;try{localStorage.setItem(LSK,JSON.stringify(S))}catch(e){toast('Mémoire pleine : retirez des photos')}};
 const IS_ANIM=/anim|prof/.test(location.hash+location.search);
-if(IS_ANIM)document.body.classList.add('prof');const qs=new URLSearchParams(location.search);if(qs.get('s')&&(!S.session||IS_TOUR))S.session=qs.get('s').toUpperCase();if(IS_TOUR)S.table=qs.get('tour');
+if(IS_ANIM)document.body.classList.add('prof');const qs=new URLSearchParams(location.search);const QS_S=(qs.get('s')||'').toUpperCase(),QS_T=(qs.get('t')||'').trim();
+function wipeS(){const v=S.vid,p=S.pname;Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,{aidBy:{},pname:p||'',table:'',role:'',session:'',inp:{},pts:{},res:{},rts:{},aid:{},vote:{},photos:{},pulse:{},its:{},gate:{op:{},ok:{},q:{},done:false},tuto:{},vid:v,tab:'',ev:{},att:{},rev:{},sig:{},force:{}})}
+if(!IS_ANIM&&!IS_TOUR&&((QS_S&&S.session&&S.session!==QS_S)||(QS_T&&S.table&&S.table!==QS_T)))wipeS();
+if(QS_S)S.session=QS_S;if(QS_T&&!IS_TOUR){S.table=QS_T;S.locked=1}if(IS_TOUR)S.table=qs.get('tour');
 let tab=IS_TOUR?'tour':IS_ANIM?'anim':(S.tab||'home');
 const isAt=t=>['a1','a2','a3','a4','a5','deb'].includes(t);
-if(!IS_ANIM&&isAt(tab)&&!S.gate.done)tab='home';
+if(!IS_ANIM&&isAt(tab)&&(!S.gate.done||(S.locked&&!S.pname)))tab='home';
 const g=k=>S.inp[k];
 const SYNC_SKIP=k=>k.startsWith('anim.')||k.startsWith('__');
 let OUT_={};
@@ -143,12 +147,13 @@ function total(){return Math.max(0,Object.values(S.pts).reduce((a,b)=>a+b,0)-aid
 function byAt(){const o={};for(const k in S.pts){const a=k.split('.')[0];o[a]=(o[a]||0)+S.pts[k]}return o}
 // ---------- réseau (relais type ntfy.sh ; BroadcastChannel en secours)
 const RELAY=qs.get('relay')||'https://ntfy.sh';
-const NET={votes:{},reveal:{},tables:{},timer:null,alea:null,status:'hors ligne'};
+const NET={joins:{},kicks:{},tow:{},votes:{},reveal:{},tables:{},timer:null,alea:null,status:'hors ligne'};
 let es=null,bc=null,topic='';
 function connect(){
   if(es){es.close();es=null}if(bc){bc.close();bc=null}
   if(!S.session){NET.status='hors ligne';return}
   topic='ebiosrm-'+CFG.key.toLowerCase()+'-'+S.session.toLowerCase();
+  clearTimeout(connect.jt);connect.jt=setTimeout(()=>{tryJoin();towCheck()},2800);
   try{bc=new BroadcastChannel(topic);bc.onmessage=e=>onMsg(e.data)}catch(e){}
   if(RELAY==='local'){NET.status='local (cet appareil)';return}
   try{es=new EventSource(RELAY+'/'+topic+'/sse?since=12h');
@@ -164,12 +169,22 @@ function pub(kind){if(kind==='res'||kind==='score')kind='st';clearTimeout(pubT[k
   if(kind==='st')pubRaw(stMsg());
   if(kind==='tsync')pubRaw({k:'tsync',tb:S.table,vid:S.vid,pts:S.pts,aid:S.aid,aidBy:S.aidBy,att:S.att,rev:S.rev,res:Object.fromEntries(Object.keys(S.res).map(k=>[k,[S.res[k],S.rts[k]||1]]))})},kind==='tsync'?500:2500)}
 function stMsg(){const prog={},ok={};AT.forEach(a=>{prog[a.id]=prog_(a.id);ok[a.id]=ok_(a.id)});return {k:'st',tb:S.table,vid:S.vid,bud:planCost(),tot:total(),at:byAt(),aid:aidesUsed(),ap:aidesBy(),cs:(()=>{try{return stepNow()}catch(er){return ''}})(),prog,ok,rd:!!S.gate.done,last:S.last||0,r:summary()}}
+const MAXJ=5;
+function tryJoin(){if(IS_ANIM||IS_TOUR||PREV||!S.session||!S.table||!S.pname)return;const J=NET.joins[S.table]||{},me=S.pname.trim().toLowerCase(),n=Object.keys(J).length;
+  if(J[me]||n<MAXJ){S.refused=false;if(!J[me]||J[me].vid!==S.vid)pubRaw({k:'join',tb:S.table,vid:S.vid,name:S.pname.trim()})}else S.refused=true;render()}
+let towHb=null;
+function towCheck(){if(!IS_TOUR||!S.session||!S.table)return;const o=NET.tow[S.table];
+  if(o&&o.vid!==S.vid&&Date.now()-o.ts<70000){S.towRefus=true;render();return}
+  S.towRefus=false;if(!towHb){const hb=()=>pubRaw({k:'tow',tb:S.table,vid:S.vid});hb();towHb=setInterval(hb,20000)}render()}
 function onMsg(m,self){if(!m||!m.k)return;if(m.tb&&m.tb===S.table&&!(IS_TOUR&&self))NET.lastMsg=Date.now();
   if(m.k==='vote'){(NET.votes[m.poll]=NET.votes[m.poll]||{})[m.vid]=m.v}
   else if(m.k==='reveal'){NET.reveal[m.poll]=m.on}
   else if(m.k==='tin'){if(m.vid!==S.vid&&S.table&&m.tb===S.table){let ch=0;for(const k in m.d){const [v,ts]=m.d[k];if(ts>(S.its[k]||0)){S.inp[k]=v;S.its[k]=ts;ch=1}}if(ch){S.last=Math.max(S.last||0,m.ts||0);save()}}}
   else if(m.k==='tsync'){if(m.vid!==S.vid&&S.table&&m.tb===S.table){for(const id in (m.pts||{}))if((m.pts[id]||0)>(S.pts[id]||0))S.pts[id]=m.pts[id];for(const id in (m.aid||{}))if(!S.aid[id])S.aid[id]=m.aid[id];S.aidBy=S.aidBy||{};for(const id in (m.aidBy||{}))if(!S.aidBy[id])S.aidBy[id]=m.aidBy[id];for(const id in (m.att||{}))if((m.att[id]||0)>(S.att[id]||0))S.att[id]=m.att[id];for(const id in (m.rev||{}))if(!S.rev[id])S.rev[id]=m.rev[id];for(const k in (m.res||{})){const [v,ts]=m.res[k];if(ts>(S.rts[k]||0)){S.res[k]=v;S.rts[k]=ts}}save()}}
   else if(m.k==='st'){const t=NET.tables[m.tb]=NET.tables[m.tb]||{rd:{}};if(!t.seen||m.ts>=t.seen)Object.assign(t,{bud:m.bud,tot:m.tot,at:m.at,aid:m.aid,ap:m.ap,cs:m.cs,prog:m.prog,ok:m.ok,last:m.last,r:m.r,seen:m.ts});t.rd[m.vid]=!!m.rd;t.n=Object.keys(t.rd).length;t.nrd=Object.values(t.rd).filter(Boolean).length}
+  else if(m.k==='join'){const key=String(m.name||'').trim().toLowerCase();if(key){const J=NET.joins[m.tb]=NET.joins[m.tb]||{};if(m.ts>(NET.kicks[m.tb+'|'+key]||0))J[key]={vid:m.vid,ts:m.ts,n:m.name};if(m.vid===S.vid&&m.tb===S.table)S.joinTs=m.ts}}
+  else if(m.k==='kick'){const key=String(m.name||'').trim().toLowerCase();NET.kicks[m.tb+'|'+key]=m.ts;const J=NET.joins[m.tb];if(J&&J[key]&&J[key].ts<=m.ts)delete J[key];if(!IS_ANIM&&!IS_TOUR&&m.tb===S.table&&key===(S.pname||'').trim().toLowerCase()&&m.ts>(S.joinTs||0)){const p=S.pname;wipeS();S.pname=p;S.kickedMsg=1;save();connect();render()}}
+  else if(m.k==='tow'){NET.tow[m.tb]={vid:m.vid,ts:m.ts}}
   else if(m.k==='timer'){NET.timer=m}
   else if(m.k==='alea'){NET.alea=m}
   clearTimeout(onMsg.t);onMsg.t=setTimeout(()=>{if(!$('input:focus,textarea:focus,select:focus'))soon();badge()},300)}
@@ -221,7 +236,7 @@ const STEPS={
   {id:'cot',l:'② Cotation M, R, A',done:()=>hasAll(CFG.sr,s=>['M','R','A'].every(c=>num(g('a2.'+s[0]+'.'+c)))),chk:'a2s',todo:()=>{const s=CFG.sr.find(s=>!['M','R','A'].every(c=>num(g('a2.'+s[0]+'.'+c))));return s?'Cotez M, R et A pour '+s[0]:''}},
      {id:'cov',l:'③ Contrôle de couverture',done:()=>CFG.er.filter(e=>['G3','G4'].includes(g('a1.g.'+e[0])||e[4])).every(e=>CFG.sr.some(s=>retenues().includes(s[0])&&g('a2.cov.'+e[0]+'.'+s[0]))),chk:'a2c',todo:()=>'Pour chaque ER grave (G3, G4), cochez la source retenue qui peut le provoquer ; sinon retenez une source de plus'}],
  a3:[{id:'lv',l:'① Niveaux de menace',done:()=>hasAll(CFG.pp,p=>num(g('a3.lv.'+p[0]))!=null&&['D','P','M','C'].every(c=>num(g('a3.pd.'+p[0]+'.'+c))!=null)),chk:'a3p',todo:()=>'Lisez D, P, M, C sur chaque carte verte et calculez le niveau'},
-     {id:'ss',l:'② Scénarios stratégiques',done:()=>[1,2,3].every(i=>g('a3.ss.'+i+'.sr')&&g('a3.ss.'+i+'.pp')&&g('a3.ss.'+i+'.er')),chk:'a3s',todo:()=>'Construisez les 3 chemins source → partie prenante → ER et cochez A, B, C'},
+     {id:'ss',l:'② Scénarios stratégiques',done:()=>[1,2,3].every(i=>g('a3.ss.'+i+'.sr')&&g('a3.ss.'+i+'.pp')&&g('a3.ss.'+i+'.er')),chk:'a3s',todo:()=>'Construisez les 3 chemins couple SR/OV → partie prenante → ER'},
      {id:'me',l:'③ Mesures d\'écosystème',done:()=>hasAll(CFG.ref.danger,pid=>CFG.me.some(m=>g('a3.me.c.'+pid+'.'+m[0]))),chk:'a3m',todo:()=>'Choisissez au moins une mesure pour chaque partie prenante en zone danger'}],
  a4:[{id:'met',l:'① Méthode et entraînement',done:()=>EXO.every(x=>[0,1,2,3].every(k=>num(g('a4.ex.'+x.id+'.'+k))!=null)&&num(g('a4.ex.'+x.id+'.V'))!=null)&&!!g('a4.ex.Q'),chk:'a4e',todo:()=>'Lisez la méthode, puis faites les 2 exercices et la question'},
   {id:'ch',l:'② Les 3 chaînes',done:()=>CFG.ref.ss.every(s=>['Connaître','Rentrer','Trouver','Exploiter'].every(p=>g('a4.ch.'+s.id+'.'+p))),chk:'a4c',todo:()=>'Posez 4 actions par chaîne, répondez aux questions et cotez Pr de chaque étape'},
@@ -233,10 +248,10 @@ const STEPS={
 Object.keys(STEPS).forEach(a=>STEPS[a].forEach(s=>{s.a=a}));
 const prog_=a=>{const s=STEPS[a]||[];return s.length?s.filter(x=>x.done()).length/s.length:0};
 const ok_=a=>{const s=(STEPS[a]||[]).filter(x=>x.chk);return !!(STEPS[a]&&prog_(a)===1&&s.every(x=>S.res[x.chk]))};
-const FREE=qs.get('free')==='1';
+const FREE=false;
 const noFalse=k=>S.res[k]&&!Object.entries(S.res[k]).some(([x,y])=>x!=='_all'&&y===false);
 const chkOK=k=>{if(k==='a3p')return CFG.pp.every(p=>S.rev['a3_p:'+p[0]]||(S.res.a3p&&S.res.a3p[p[0]]===true));if(k==='a1vm')return CFG.vm.every(v=>S.rev['a1_vm:'+v[0]]||(S.res.a1vm&&S.res.a1vm[v[0]]===true));const gr=Object.keys(VRES).find(x=>VRES[x].includes(k));return !!(gr&&S.rev[gr])||(VRES[gr]||[k]).every(noFalse)};
-const TEST=(()=>{const q=qs.get('test');try{if(q==='0'){localStorage.removeItem('ebios2_test');return false}if(q==='1')localStorage.setItem('ebios2_test','1');return q==='1'||localStorage.getItem('ebios2_test')==='1'||['FERROMEUSE'].includes(CFG.key)}catch(e){return q==='1'}})();
+const TEST=false;
 const revGrp=k=>{const gr=Object.keys(VRES).find(x=>VRES[x].includes(k));return !!(gr&&S.rev[gr])};
 const stepOK=s=>!!(S.force&&S.force[s.a+':'+s.id])||(!!s.chk&&s.chk!=='a1vm'&&revGrp(s.chk))||(s.done()&&(!s.chk||chkOK(s.chk)));
 const atDone=a=>(STEPS[a]||[]).every(stepOK);
@@ -295,9 +310,10 @@ function gateCard(){
 // ---------- pages
 function home(){
  return `<div class="card"><h2>Bienvenue dans l'Opération VAL-D'ARGONNE</h2><p>Cet appareil est le <b>compagnon de votre table</b> : il explique chaque atelier pas à pas, calcule, vérifie vos résultats (✔ ou ✘ sans donner la réponse), compte les points et assemble le tableau de bord de votre analyse.</p>
- <h3>1 · Votre table</h3><div class="row"><label>N° de table<br><input data-k="__table" type="text" inputmode="numeric" value="${esc(S.table)}" style="width:90px"></label></div><div class="row"><label style="flex:1">Code de session (donné par l'enseignant)<br><input class="sess" data-k="__session" type="text" value="${esc(S.session)}" placeholder="code"></label></div><div class="row"><label style="flex:1">Votre prénom (pour le décompte des aides)<br><input class="sess" style="text-transform:none" data-k="__pname" type="text" value="${esc(S.pname)}" placeholder="prénom"></label></div>
- <p class="mut">Tous les téléphones et ordinateurs d'une même table (même n° + même code) partagent les saisies, les points et les aides utilisées. ${S.session&&S.table?'Réseau : '+esc(NET.status)+'.':'Sans numéro ni code, l\'appli fonctionne seule sur cet appareil.'}</p>
-</div>`+gateCard()+`<div class="card"><h3>Comment ça marche</h3><ul><li><b>Boutons fixes en bas</b> (ou à droite sur ordinateur) : Consignes de l'atelier, Règles, Documents, Aide.</li><li><b>Chaque atelier</b> commence par ses consignes : quoi sortir, quoi faire, dans quel ordre, où écrire.</li><li><b>Vérifier</b> : ✔ ou ✘ par ligne. Chaque ligne juste rapporte des points.</li><li><b>5 aides pour toute la table</b> sur toute la journée (−1 point chacune).</li><li><b>Ma table</b> : le tableau de bord de votre analyse se remplit au fil de vos choix.</li></ul></div>`}
+ ${S.kickedMsg?'<div class="banner"><b>Vous avez été retiré de la table par l\'enseignant.</b> Scannez le QR code de votre scénario pour rejoindre la bonne table.</div>':''}
+ ${S.locked?`<h3>1 · Votre table</h3><div class="banner"><b>Table ${esc(S.table)}</b> · ${esc(CFG.org)}<br><span class="mut">Séance ${esc(S.session)} · ${esc(NET.status)}</span></div><div class="row"><label style="flex:1">Votre prénom (pour le décompte des aides)<br><input class="sess" style="text-transform:none" data-k="__pname" type="text" value="${esc(S.pname)}" placeholder="prénom"></label></div>${S.pname?'':'<p class="warn">Saisissez votre prénom pour rejoindre la table.</p>'}<p class="mut">Tous les appareils de la table partagent les saisies, les points et les aides utilisées (2 à 5 joueurs par table).</p><p><button class="btn sec sm" data-act="wrongtable">Ce n'est pas ma table</button></p>`
+ :`<h3>1 · Votre table</h3>${S.session?'':'<div class="banner">Scannez le QR code de votre scénario, donné par l\'enseignant, pour rejoindre votre table.</div>'}<details ${S.session?'open':''}><summary>${S.session?'Ma table':'Saisie manuelle (hors séance enseignant)'}</summary><div class="row"><label>N° de table<br><input data-k="__table" type="text" inputmode="numeric" value="${esc(S.table)}" style="width:90px"></label></div><div class="row"><label style="flex:1">Code de session<br><input class="sess" data-k="__session" type="text" value="${esc(S.session)}" placeholder="code"></label></div><div class="row"><label style="flex:1">Votre prénom (pour le décompte des aides)<br><input class="sess" style="text-transform:none" data-k="__pname" type="text" value="${esc(S.pname)}" placeholder="prénom"></label></div></details>`}
+</div>`+gateCard()+`<div class="card"><h3>Comment ça marche</h3><ul><li><b>Boutons fixes en bas</b> (ou à droite sur ordinateur) : Consignes de l'atelier, Règles, Documents, Aide.</li><li><b>Chaque atelier</b> commence par ses consignes : quoi sortir, quoi faire, dans quel ordre, où écrire.</li><li><b>Vérifier</b> : ✔ ou ✘ par ligne. Chaque ligne juste rapporte des points.</li><li><b>Aide illimitée</b> : chaque indice ou réponse coûte 1 point de pénalité, noté à votre nom.</li><li><b>Ma table</b> : le tableau de bord de votre analyse se remplit au fil de vos choix.</li></ul></div>`}
 function elapsedTxt(){const e=$('#el');if(!e)return;const t0=+e.dataset.t0,mn=+e.dataset.min,m=Math.floor((Date.now()-t0)/60000);e.textContent=m+' / '+mn+' min';e.style.color=m>mn?'var(--ko)':''}
 function head(a){const t0=num(g('t0.'+a.id)),open=!S.tuto[a.id]||S.tutoOpen===a.id;
  return `<div class="card" style="border-left:6px solid var(${a.c})"><h2 style="color:var(${a.c})">${a.n} · ${a.t}</h2><div class="mut">Durée conseillée : ${a.min} min${t0?' · ⏱ <span id="el" data-t0="'+t0+'" data-min="'+a.min+'"></span>':''}</div>${NET.timer&&NET.timer.at===a.id?timerCard():''}${open?blocksFold(CFG.v2.tutoB[a.id]):''}${open?(!S.tuto[a.id]?'<button class="fab" data-act="tutook" data-a="'+a.id+'">✔ J\'ai lu : je commence</button>':'<button class="fab" data-act="tutoclose">✕ Fermer les consignes</button>')+'<button class="fab2" data-act="top">▲ Début</button>':''}${!open&&CFG.v2.tuto[a.id]&&CFG.v2.tuto[a.id].objs?'<details class="dd" style="margin-top:6px"><summary>Objectifs de l\'atelier</summary><ul>'+CFG.v2.tuto[a.id].objs.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></details>':''}<div class="row" style="margin-top:8px">${!S.tuto[a.id]?`<button class="btn big2" data-act="tutook" data-a="${a.id}">J'ai lu les consignes : je commence</button>`:open?'<button class="btn sec" data-act="tutoclose">Masquer les consignes</button>':`<button class="btn sec" data-act="tutoopen" data-a="${a.id}">📋 Revoir les consignes</button>`}</div></div>`}
@@ -416,7 +432,7 @@ function poll(id,label,opts){const cnt={},vs=NET.votes[id]||{};Object.values(vs)
   return `<div class="card" style="background:var(--soft)"><div class="mut">🗳 Vote anonyme · ${esc(label)}</div><div>${opts.map(o=>`<button class="btn ${mine===o?'':'sec'} sm" data-act="vote" data-poll="${id}" data-v="${esc(o)}">${esc(o)}</button> `).join('')}</div>
   <div class="mut">${S.session?n+' vote(s) reçu(s)':'Mode hors ligne : votez à main levée ou saisissez un code de session.'}${mine?' · votre vote : <b>'+esc(mine)+'</b>':''}</div>
   ${rev?`<div class="hist">${opts.map(o=>`<div><span style="width:70px">${esc(o)}</span><span class="b" style="width:${n?Math.round(100*(cnt[o]||0)/n)*1.6:0}px"></span> ${cnt[o]||0}</div>`).join('')}</div>`:''}</div>`}
-// ---------- aides : questions gratuites, indices et réponses (5 aides par table)
+// ---------- aides : questions gratuites, indices et réponses (illimitées, 1 point de pénalité)
 function revealables(a){const L=[],R=CFG.ref;
  if(a==='a1'){CFG.vm.forEach(v=>{const r=R.vmtab[v[0]];L.push({id:'r.a1.'+v[0],l:v[0]+' '+v[1],t:v[0]+' → biens supports '+r.bs.join(', ')+' · critère '+r.crit.join(' + ')})});CFG.er.forEach(e=>L.push({id:'r.a1.'+e[0],l:e[0]+' '+e[1],t:e[0]+' → '+e[4]+'. '+e[3]}));CFG.socle.forEach(r=>L.push({id:'r.a1.'+r[0],l:r[0]+' '+r[1],t:r[0]+' → '+r[2]}))}
  if(a==='a2'){CFG.sr.forEach(s=>{const p=R.pert[s[0]];L.push({id:'r.a2.'+s[0],l:s[0]+' '+s[1],t:s[0]+' → M='+p[0]+' R='+p[1]+' A='+p[2]+' → Σ='+(p[0]+p[1]+p[2])+' : '+sigmaDec(p[0]+p[1]+p[2])})});CFG.er.forEach(e=>{if(R.cov[e[0]]&&['G3','G4'].includes(e[4]))L.push({id:'r.a2c.'+e[0],l:'Couverture '+e[0],t:e[0]+' peut être provoqué par : '+R.cov[e[0]].join(', ')})})}
@@ -460,6 +476,10 @@ function tState(t){const now=Date.now(),tm=NET.timer,run=tm&&!tm.stop&&tm.at&&tm
   if(run){const a=tm.at,exp=Math.min(1,(now-tm.start)/tm.dur),p=(t.prog||{})[a]||0;if(p<1&&idle)return ['inactive','st-ko'];if(p<exp-.25&&exp>.3)return ['en retard','st-w']}
   else if(idle&&Object.values(t.prog||{}).some(p=>p>0&&p<1))return ['inactive','st-ko'];
   return ['ok','']}
+const NEEDB={"① Valeurs métier": "le dossier de scénario (bouton Documents) · la feuille 1 du plateau · les cartes bleues ENTREPRISE : valeurs métier (VM) et biens supports (BS)", "② Estimer les gravités": "les cartes ER (bleues ENTREPRISE), face cachée · l'échelle de gravité (Documents) · le coût d'un jour d'arrêt (dossier de scénario) · la calculatrice", "③ Révéler les gravités": "les cartes ER, que vous retournez maintenant · l'échelle de gravité · la feuille 1 (colonne gravité)", "④ Socle de sécurité": "le dossier de scénario (constats d'audit) · la feuille 1 (tableau du socle R1 à R8)", "① Couples source": "le deck rouge MENACE (cartes SR : profil et objectif visé) · la feuille 2 (partie haute)", "② Cotation M, R, A": "la feuille 2 (tableau M / R / A / Σ) · les échelles M, R, A (Documents) · la calculatrice", "③ Contrôle de couverture": "la feuille 2 (bas du tableau) · les cartes ER de gravité G3 ou G4 (feuille 1) · les sources retenues (Σ ≥ 8)", "① Niveau de menace": "le deck vert ÉCOSYSTÈME (cartes PP : D, P, M, C imprimés) · la feuille 3 (radar) · les échelles D, P, M, C · la calculatrice", "② Scénarios stratégiques": "les cartes SR retenues (atelier 2) · les cartes PP du radar · les cartes ER graves (atelier 1) · la zone ③ du plateau (couloirs SS1 à SS3) · la feuille 3", "③ Mesures d'écosystème": "le deck vert foncé MESURE ÉCOSYSTÈME (cartes ME) · le cadre des mesures d'écosystème de la zone ③ · la feuille 3 · les PP en zone danger", "① Méthode : estimer": "la page de méthode de l'appli · la calculatrice · la feuille 2 (partie basse)", "② Les 3 chaînes": "le deck noir OPÉRATION (cartes mélangées) · la zone ④ du plateau (3 chaînes de 4 emplacements) · la feuille 2 (partie basse) · les cartes bleues BS", "③ Actions écartées": "les 3 cartes OPÉRATION non utilisées · les tests T1 à T4 (feuille 2)", "④ Biens supports critiques": "les cartes bleues BS · les 3 chaînes posées en zone ④ · la feuille 2 (biens supports critiques)", "① Plan sous budget": "le deck orange MESURE (coût et effet) · les cartes ME retenues à l'atelier 3 · la zone ⑤ du plateau · la feuille 4 (budget) · la calculatrice", "② Seuil d'acceptation": "la feuille 4 (matrice G × V avant / après traitement, décision du DG) · G (feuille 1) et V (atelier 4)"};
+function needBanners(m){if(IS_ANIM||IS_TOUR)return;m.querySelectorAll('h2').forEach(h=>{const t=h.textContent.trim();const k=Object.keys(NEEDB).find(x=>t.startsWith(x));if(k){const d=document.createElement('div');d.className='need';d.innerHTML='🎒 <b>Pour cette étape, sortez :</b> '+NEEDB[k]+'.';h.insertAdjacentElement('afterend',d)}})}
+function refusCard(){return `<div class="card"><h2>Table complète</h2><div class="banner ko">La table ${esc(S.table)} compte déjà ${MAXJ} joueurs. Prévenez l'enseignant : vous êtes peut-être sur le mauvais QR code.</div><p><button class="btn sec" data-act="wrongtable">Ce n'est pas ma table</button></p></div>`}
+function towRefus(){return `<div class="card"><h2>Tour de contrôle déjà ouverte</h2><div class="banner ko">La tour de contrôle de la table ${esc(S.table)} est déjà ouverte sur un autre appareil. Une seule personne par table utilise la tour de contrôle.</div></div>`}
 function qrBlock(titre,url,note){return `<div class="qrc"><div class="qrt">${esc(titre)}</div><div class="qrs">${qrSvg(url,220)}</div><div class="mut" style="font-size:11px;word-break:break-all">${esc(url)}</div>${note?'<div class="mut">'+esc(note)+'</div>':''}</div>`}
 function qrCard(){const code=(S.session||'').toUpperCase();if(!code)return `<div class="card"><h2>QR codes de la séance</h2><div class="mut">Saisissez ou générez d'abord un code de session : les QR codes en dépendent.</div></div>`;const nt=Math.max(1,Math.min(20,num(g('anim.nt'))||Math.max(6,Object.keys(NET.tables).length)));
  return `<div class="card"><h2>QR codes de la séance · code ${esc(code)}</h2><div class="mut">À projeter ou à imprimer. Chaque table ne reçoit que son QR de tour de contrôle (clé propre à la table). Le QR enseignant n'embarque pas le code enseignant : vous le saisissez à l'ouverture.</div><div class="row"><label>Nombre de tables<br><input data-k="anim.nt" type="number" min="1" max="20" value="${nt}" style="width:90px"></label><button class="btn" data-act="qrprint">Imprimer / PDF</button></div><div class="qrg">${qrBlock('Joueurs (toutes les tables)',urlPlayers(code),'Ouvre le jeu ; le code de session est déjà renseigné.')}${qrBlock('Enseignant',urlProf(code),'Réservé à l\'enseignant : code enseignant demandé.')}</div><h3>Tours de contrôle des tables</h3><div class="qrg">${Array.from({length:nt},(_,i)=>qrBlock('Table '+(i+1),urlTour(code,i+1),'Tour de contrôle de la table '+(i+1)+' uniquement')).join('')}</div></div>`}
@@ -619,8 +639,8 @@ function render(){
   if(fo&&fo.dataset&&fo.dataset.k&&(fo.tagName==='TEXTAREA'||fo.type==='text'||fo.type==='number')){fk=fo.dataset.k;try{ss=fo.selectionStart;se=fo.selectionEnd}catch(e){}}
   let h='';
   if(NET.alea&&!IS_ANIM&&isAt(tab))h+=`<div class="banner"><b>Carte Aléa imposée : ${esc(NET.alea.t)}</b><br>${esc(NET.alea.x)}</div>`;
-  if(isAt(tab)&&!S.gate.done&&!PREV)h+=lockPage();else if(tab==='tour'&&(!S.session||qs.get('k')!==tkey(S.session,S.table)))h+=tourRefus();else h+=({home,a1,a2,a3,a4,a5,deb,anim,tbl:tblPage,tour:tourPage})[tab]();
-  const sy=window.scrollY;m.innerHTML=h;if(!IS_ANIM&&isAt(tab)&&(S.gate.done||PREV))m.insertAdjacentHTML('afterbegin',pbarHtml(tab));tbarRender();applyGate(m);hydrate(m);{let cb=$('#crumb');if(!cb){cb=document.createElement('div');cb.id='crumb';document.body.appendChild(cb)}const on=!IS_ANIM&&isAt(tab)&&(S.gate.done||PREV)&&(STEPS[tab]||[]).length;cb.style.display=on?'':'none';if(on){cb.innerHTML=crumbHtml(tab);const cc=cb.querySelector('.cr.c');if(cc)cb.scrollLeft=Math.max(0,cc.offsetLeft-(cb.clientWidth-cc.offsetWidth)/2)}const root=document.documentElement.style;root.setProperty('--cb',on?cb.offsetHeight+'px':'0px');const dk=$('#dock');root.setProperty('--dh',(dk&&dk.offsetHeight||0)+'px')}if(!IS_ANIM)$$('[data-act^="v_"],[data-act="vvm"],[data-act="vpp"]',m).forEach(bt=>{const u=solUi(bt.dataset.act==='vvm'?'a1_vm:'+bt.dataset.vm:bt.dataset.act==='vpp'?'a3_p:'+bt.dataset.pp:bt.dataset.act.slice(2));if(u){const p=bt.closest('p')||bt;p.insertAdjacentHTML('afterend',u)}});{const cs=(isAt(tab)&&STEPS[tab]||[]).find(x=>!stepOK(x)),key=tab+'|'+(cs?cs.id:'')+'|'+REVN+'|'+PREV;if(render._key!==key){render._key=key;window.scrollTo(0,0)}else if(render._first)window.scrollTo(0,sy);render._first=1}
+  if(isAt(tab)&&!S.gate.done&&!PREV)h+=lockPage();else if(S.refused&&!IS_ANIM&&!IS_TOUR)h+=refusCard();else if(tab==='tour'&&S.towRefus)h+=towRefus();else if(tab==='tour'&&(!S.session||qs.get('k')!==tkey(S.session,S.table)))h+=tourRefus();else h+=({home,a1,a2,a3,a4,a5,deb,anim,tbl:tblPage,tour:tourPage})[tab]();
+  const sy=window.scrollY;m.innerHTML=h;needBanners(m);if(!IS_ANIM&&isAt(tab)&&(S.gate.done||PREV))m.insertAdjacentHTML('afterbegin',pbarHtml(tab));tbarRender();applyGate(m);hydrate(m);{let cb=$('#crumb');if(!cb){cb=document.createElement('div');cb.id='crumb';document.body.appendChild(cb)}const on=!IS_ANIM&&isAt(tab)&&(S.gate.done||PREV)&&(STEPS[tab]||[]).length;cb.style.display=on?'':'none';if(on){cb.innerHTML=crumbHtml(tab);const cc=cb.querySelector('.cr.c');if(cc)cb.scrollLeft=Math.max(0,cc.offsetLeft-(cb.clientWidth-cc.offsetWidth)/2)}const root=document.documentElement.style;root.setProperty('--cb',on?cb.offsetHeight+'px':'0px');const dk=$('#dock');root.setProperty('--dh',(dk&&dk.offsetHeight||0)+'px')}if(!IS_ANIM)$$('[data-act^="v_"],[data-act="vvm"],[data-act="vpp"]',m).forEach(bt=>{const u=solUi(bt.dataset.act==='vvm'?'a1_vm:'+bt.dataset.vm:bt.dataset.act==='vpp'?'a3_p:'+bt.dataset.pp:bt.dataset.act.slice(2));if(u){const p=bt.closest('p')||bt;p.insertAdjacentHTML('afterend',u)}});{const cs=(isAt(tab)&&STEPS[tab]||[]).find(x=>!stepOK(x)),key=tab+'|'+(cs?cs.id:'')+'|'+REVN+'|'+PREV;if(render._key!==key){render._key=key;window.scrollTo(0,0)}else if(render._first)window.scrollTo(0,sy);render._first=1}
   if(fk){const el=$('[data-k="'+fk+'"]',m);if(el&&el.dataset.k!=='__q'){el.focus();try{if(ss!=null)el.setSelectionRange(ss,se)}catch(e){}}}
   $('#nav').innerHTML=IS_ANIM?'':[['home','🏠','Accueil'],...AT.map((a,i)=>[a.id,i<5?'<b>'+(i+1)+'</b>':'🏁',i<5?'Atelier':'Débrief']),['tbl','📊','Table']].map(([id,ic,l])=>`<button class="${tab===id?'on':''} ${isAt(id)&&(!S.gate.done||atLocked(id))?'lock':''}" data-act="go" data-t="${id}"><b>${ic}</b>${l}</button>`).join('');
   $('#dock').innerHTML=IS_ANIM?'':dockHtml();$('#side').innerHTML=IS_ANIM?'':sideHtml();
@@ -633,7 +653,7 @@ setInterval(()=>{if(IS_TOUR)render();elapsedTxt();if(IS_ANIM&&tab==='anim'&&!$('
 document.addEventListener('change',e=>{const t=e.target;
   if(t.dataset.photo){const f=t.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas'),k=Math.min(1,900/Math.max(im.width,im.height));c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);const a=t.dataset.photo;(S.photos[a]=S.photos[a]||[]).push(c.toDataURL('image/jpeg',.65));if(S.photos[a].length>3)S.photos[a].shift();save();render()};im.src=r.result};r.readAsDataURL(f);return}
   const k=t.dataset.k;if(!k)return;const v=t.type==='checkbox'?t.checked:t.value;{const mm=k.match(/^a1\.vc\.([^.]+)\.([DIC])$/);if(mm&&t.checked){const mx=(CFG.ref.vmtab[mm[1]]||{crit:[1]}).crit.length;const on=['D','I','C'].filter(c=>c!==mm[2]&&g('a1.vc.'+mm[1]+'.'+c));while(on.length>=mx){const o=on.shift();setv('a1.vc.'+mm[1]+'.'+o,false)}}}if(S.res.cells&&S.res.cells[k]){const cm=Object.assign({},S.res.cells);delete cm[k];setRes('cells',cm);pub('tsync')}
-  if(k==='__pname'){S.pname=v.trim();save();pub('tsync');return}
+  if(k==='__pname'){S.pname=v.trim();S.kickedMsg=0;save();pub('tsync');tryJoin();return}
   if(k==='__table'){S.table=v.trim();save();badge();pushAll();soon();return}
   if(k==='__session'){S.session=v.trim().toUpperCase();save();connect();pushAll();soon();return}
   if(k==='__role'){S.role=v;save();badge();soon();return}
@@ -690,6 +710,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(
   else if(a==='dossier')dossier();
   else if(a==='json'){const bl=new Blob([JSON.stringify(S,null,1)],{type:'application/json'}),u=URL.createObjectURL(bl),x=document.createElement('a');x.href=u;x.download='analyse_'+CFG.key+'_table'+(S.table||'')+'.json';x.click()}
   else if(a==='menu')menu();
+  else if(a==='wrongtable'){const p=S.pname;wipeS();S.pname=p;S.kickedMsg=0;save();connect();toast('Scannez le QR code de votre scénario');render()}
   else if(a==='gen'){S.session=Math.random().toString(36).slice(2,6).toUpperCase();save();connect();render()}
   else if(a==='tstart'){const at=g('anim.at')||'a1',mi=num(g('anim.min'))||AT.find(x=>x.id===at).min;pubRaw({k:'timer',at,start:Date.now(),dur:mi*60000})}
   else if(a==='tstop'){pubRaw({k:'timer',at:'',start:0,dur:0,stop:true})}
