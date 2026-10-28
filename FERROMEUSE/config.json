@@ -1142,18 +1142,6 @@
     "« Site web vitrine, Wi-Fi invité, Portable commercial : aucun n'est l'un des 10 biens supports. »"
    ],
    [
-    "Ils ne savent pas appliquer un frein",
-    "« Répondez oui ou non à F1, F2, F3, F4 pour cette étape. »",
-    "« Un frein est un obstacle réel pour l'attaquant. »",
-    "« SS1 Rentrer : F2 : R5 partielle (hameçonnage de prestataire, sensibilisation partielle) → V3. »"
-   ],
-   [
-    "Ils comptent un frein pour une règle en Écart",
-    "« Cette règle protège-t-elle quelque chose aujourd'hui ? »",
-    "« Écart : rien en place, donc pas de frein. Conforme ou Partiel : frein possible. »",
-    "« R2 en Écart : pas de F2. R5 Partielle : F2. »"
-   ],
-   [
     "Ils font la moyenne des V",
     "« Une chaîne résiste-t-elle mieux que son maillon le plus difficile ? »",
     "« V du scénario = la plus petite V des 4 étapes. »",
@@ -1176,6 +1164,18 @@
     "« Passe-t-elle les tests T1 à T4 ? »",
     "« Autorisée si elle est justifiée par les tests ; sinon utilisez la carte. »",
     "« Les chaînes de référence tiennent avec les cartes fournies. »"
+   ],
+   [
+    "Ils ne savent pas coter Pr",
+    "« Quels obstacles réels l'attaquant rencontre-t-il pour cette action ? »",
+    "« Chaque obstacle (compétences rares, conditions à réunir, règle du socle qui gêne, détection) baisse Pr d'un cran. »",
+    "« SS1 Rentrer (hameçonnage de l'intégrateur) : sensibilisation partielle, un obstacle : Pr3. »"
+   ],
+   [
+    "Ils font une moyenne des Pr",
+    "« L'attaquant doit-il réussir toutes les étapes ? »",
+    "« Pr cumulée = min (Pr de l'action ; Pr cumulée précédente) : le maillon le plus faible fixe le niveau. »",
+    "« Pr 4, 3, 2, 4 : cumulées 4, 3, 2, 2 ; vraisemblance V2, pas 3,25. »"
    ]
   ],
   "5": [
@@ -1493,7 +1493,7 @@
      ],
      [
       "À côté de vous",
-      "Tableau des freins (bouton « Documents », rubrique Échelles), feuille 3 et feuille 1."
+      "Fiche méthode « vraisemblance » (page de méthode de l'atelier dans l'appli), feuille 3 et feuille 1."
      ]
     ],
     "etapes": [
@@ -1524,7 +1524,7 @@
      [
       "40–50",
       "Coter les étapes",
-      "Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). Pour chaque étape : 0 frein = V4 (très facile), 1 frein = V3, 2 freins = V2, 3 freins ou plus = V1 (très difficile). Le scénario prend la valeur de son étape la plus difficile (l'attaquant est arrêté dès qu'une étape est trop dure) : elle remplace la V de l'atelier 3. Exemple : freins 0, 1, 2, 0 donnent V 4, 3, 2, 4 ; V du scénario = 2.",
+      "Pour chaque action posée, répondez aux questions de l'appli (compétences, conditions à réunir, règle du socle de l'atelier 1, détection), puis cotez la probabilité de succès Pr de 1 (faible) à 4 (quasi certaine). Pr cumulée = min (Pr de l'action ; Pr cumulée de l'action précédente) ; la première action garde sa Pr. La vraisemblance du scénario est la Pr cumulée de la dernière action : elle remplace la V de l'atelier 3. Exemple : Pr 4, 3, 2, 4 donnent des cumulées 4, 3, 2, 2 ; V du scénario = 2. Ce n'est pas une moyenne.",
       "Feuille 2, atelier 4"
      ],
      [
@@ -1536,25 +1536,25 @@
     ],
     "appli": [
      "Les menus de l'appli reprennent les cartes noires : choisissez la carte posée.",
-     "V d'étape et V du scénario se calculent à mesure que vous cochez les freins."
+     "Pr cumulée et V du scénario se calculent à mesure que vous cotez Pr. Une étape de méthode avec exercices ouvre l'atelier."
     ],
     "controle": [
      "Chaque chaîne a exactement 4 actions, une par phase, dans le bon ordre.",
      "Chaque action est justifiée : pourquoi suit-elle la précédente ?",
      "Chaque carte écartée échoue à un test, que vous savez nommer.",
-     "Chaque étape a sa V et ses freins ; la V du scénario est la plus petite.",
+     "Chaque action a sa Pr justifiée par les questions ; la V du scénario est la dernière Pr cumulée (la plus petite).",
      "Les biens supports critiques sont notés avec le décompte de leurs actions."
     ],
     "pieges": [
      "Mettre deux actions de la même phase dans une chaîne.",
-     "Compter un frein sans pouvoir le justifier.",
+     "Cote Pr sans pouvoir justifier chaque obstacle ; faire une moyenne au lieu d'un minimum.",
      "Oublier que la V de l'atelier 4 remplace celle de l'atelier 3."
     ],
-    "exemple": "Exemple de frein : si la règle du socle qui couvre l'étape est Conforme ou Partielle, F2 s'applique et la V baisse de 1 ; si elle est en Écart, aucun frein F2.",
+    "exemple": "Exemple : si la règle du socle qui couvre l'étape est Conforme ou Partielle, c'est un obstacle pour l'attaquant et Pr baisse d'un cran ; si elle est en Écart, ce n'est pas un obstacle.",
     "objs": [
      "Construire les scénarios opérationnels : les chemins d'attaque en quatre phases (Connaître, Rentrer, Trouver, Exploiter).",
      "Identifier les cibles techniques : les biens supports visés par les actions, et ceux qui sont critiques.",
-     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Chaque obstacle réel est un frein ; par étape, 0 frein = V4 … 3 freins ou plus = V1 ; le scénario vaut son étape la plus difficile.",
+     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Méthode ANSSI « standard » simplifiée : chaque action reçoit une probabilité de succès Pr de 1 à 4 ; la Pr cumulée d'une action est le minimum entre sa Pr et la Pr cumulée de l'action précédente ; la vraisemblance du scénario est la Pr cumulée de la dernière action.",
      "Préparer le niveau de risque brut : gravité (atelier 1) × vraisemblance, qui sera placé dans la matrice à l'atelier 5."
     ]
    },
@@ -2239,7 +2239,7 @@
     [
      "p",
      "bl",
-     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Chaque obstacle réel est un frein ; par étape, 0 frein = V4 … 3 freins ou plus = V1 ; le scénario vaut son étape la plus difficile."
+     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Méthode ANSSI « standard » simplifiée : chaque action reçoit une probabilité de succès Pr de 1 à 4 ; la Pr cumulée d'une action est le minimum entre sa Pr et la Pr cumulée de l'action précédente ; la vraisemblance du scénario est la Pr cumulée de la dernière action."
     ],
     [
      "p",
@@ -2268,7 +2268,7 @@
       ],
       [
        "<b>À côté de vous</b>",
-       "Tableau des freins (bouton « Documents », rubrique Échelles), feuille 3 et feuille 1."
+       "Fiche méthode « vraisemblance » (page de méthode de l'atelier dans l'appli), feuille 3 et feuille 1."
       ]
      ]
     ],
@@ -2307,7 +2307,7 @@
       ],
       [
        "40–50",
-       "<b>Coter les étapes.</b> Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). Pour chaque étape : 0 frein = V4 (très facile), 1 frein = V3, 2 freins = V2, 3 freins ou plus = V1 (très difficile). Le scénario prend la valeur de son étape la plus difficile (l'attaquant est arrêté dès qu'une étape est trop dure) : elle remplace la V de l'atelier 3. Exemple : freins 0, 1, 2, 0 donnent V 4, 3, 2, 4 ; V du scénario = 2.",
+       "<b>Coter les étapes.</b> Pour chaque action posée, répondez aux questions de l'appli (compétences, conditions à réunir, règle du socle de l'atelier 1, détection), puis cotez la probabilité de succès Pr de 1 (faible) à 4 (quasi certaine). Pr cumulée = min (Pr de l'action ; Pr cumulée de l'action précédente) ; la première action garde sa Pr. La vraisemblance du scénario est la Pr cumulée de la dernière action : elle remplace la V de l'atelier 3. Exemple : Pr 4, 3, 2, 4 donnent des cumulées 4, 3, 2, 2 ; V du scénario = 2. Ce n'est pas une moyenne.",
        "Feuille 2, atelier 4"
       ],
       [
@@ -2320,7 +2320,7 @@
     [
      "p",
      "note",
-     "Exemple de frein : si la règle du socle qui couvre l'étape est Conforme ou Partielle, F2 s'applique et la V baisse de 1 ; si elle est en Écart, aucun frein F2."
+     "Exemple : si la règle du socle qui couvre l'étape est Conforme ou Partielle, c'est un obstacle pour l'attaquant et Pr baisse d'un cran ; si elle est en Écart, ce n'est pas un obstacle."
     ],
     [
      "p",
@@ -2335,7 +2335,7 @@
     [
      "p",
      "bl",
-     "V d'étape et V du scénario se calculent à mesure que vous cochez les freins."
+     "Pr cumulée et V du scénario se calculent à mesure que vous cotez Pr. Une étape de méthode avec exercices ouvre l'atelier."
     ],
     [
      "p",
@@ -2360,7 +2360,7 @@
     [
      "p",
      "bl",
-     "☐ Chaque étape a sa V et ses freins ; la V du scénario est la plus petite."
+     "☐ Chaque action a sa Pr justifiée par les questions ; la V du scénario est la dernière Pr cumulée (la plus petite)."
     ],
     [
      "p",
@@ -2380,7 +2380,7 @@
     [
      "p",
      "bl",
-     "Compter un frein sans pouvoir le justifier."
+     "Cote Pr sans pouvoir justifier chaque obstacle ; faire une moyenne au lieu d'un minimum."
     ],
     [
      "p",
@@ -3220,14 +3220,14 @@
    [
     "p",
     "h3",
-    "Atelier 4 : les freins qui rendent une étape plus difficile"
+    "Atelier 4 : les obstacles qui font baisser la probabilité de succès Pr d'une action"
    ],
    [
     "t",
     [
      [
-      "Frein",
-      "Question à se poser sur l'étape",
+      "Obstacle",
+      "Question à se poser sur l'action",
       "Effet"
      ],
      [
@@ -3273,16 +3273,16 @@
       "(D × P) ÷ (M × C). Danger ≥ 3 · Contrôle de 1,5 à moins de 3 · Veille moins de 1,5"
      ],
      [
-      "Vraisemblance d'un scénario stratégique (atelier 3)",
-      "Nombre de critères remplis, minimum V1 : A. Σ de la source ≥ 9 ; B. une partie prenante du chemin est en zone danger ; C. une règle du socle sur le chemin est en Écart ou Partielle"
+      "Scénario stratégique (atelier 3)",
+      "Pas de vraisemblance à l'atelier 3 : la gravité du scénario est celle de l'ER ; la vraisemblance est estimée à l'atelier 4"
      ],
      [
-      "Vraisemblance d'une étape (atelier 4)",
-      "V étape = 4 − nombre de freins (F1 à F4), minimum V1"
+      "Probabilité de succès Pr d'une action (atelier 4)",
+      "Aucun obstacle = Pr4, un = Pr3, deux = Pr2, trois ou plus = Pr1. Pr cumulée = min (Pr de l'action ; Pr cumulée de l'action précédente)"
      ],
      [
       "Vraisemblance d'un scénario opérationnel (atelier 4)",
-      "La plus faible des quatre étapes. Elle remplace la V de l'atelier 3 pour la matrice de l'atelier 5"
+      "La Pr cumulée de la dernière action (le maillon le plus faible). Elle remplace la V de l'atelier 3 pour la matrice de l'atelier 5"
      ],
      [
       "Niveau de risque (atelier 5)",
@@ -3623,8 +3623,8 @@
      "Feuille 2"
     ],
     [
-     "<b>Freins F1 à F4</b>",
-     "Chaque frein fait baisser la vraisemblance d'une étape : V étape = 4 − nombre de freins (minimum 1). V du scénario = la plus faible des 4 étapes.",
+     "<b>Pr et Pr cumulée</b>",
+     "Pr = probabilité de succès d'une action vue de l'attaquant (1 à 4) : chaque obstacle réel la baisse d'un cran. Pr cumulée = min (Pr de l'action ; Pr cumulée précédente). V du scénario = Pr cumulée de la dernière action.",
      "Feuille 2"
     ],
     [
