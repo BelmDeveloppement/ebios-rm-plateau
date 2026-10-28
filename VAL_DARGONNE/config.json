@@ -1105,8 +1105,8 @@
    [
     "Ils font quatre scénarios (SR1 et SR5 séparés)",
     "« Même ER, même PP : combien de scénarios ? »",
-    "« Un seul ; on garde la source la plus pertinente pour le critère A. »",
-    "« SR1 (Σ 9) rend A rempli ; SR5 (Σ 8) non. »"
+    "« Un seul ; on garde la source la plus pertinente. »",
+    "« SR1 (Σ 9) est plus pertinente que SR5 (Σ 8). »"
    ],
    [
     "Ils ne voient pas à quoi sert une ME",
@@ -1141,18 +1141,6 @@
     "« Site web public, Wi-Fi visiteurs, Portable de direction : aucun n'est l'un des 10 biens supports. »"
    ],
    [
-    "Ils ne savent pas appliquer un frein",
-    "« Répondez oui ou non à F1, F2, F3, F4 pour cette étape. »",
-    "« Un frein est un obstacle réel pour l'attaquant. »",
-    "« SS1 Rentrer : F2 : R5 partielle (hameçonnage d'un technicien de l'intégrateur, sensibilisation partielle) → V3. »"
-   ],
-   [
-    "Ils comptent un frein pour une règle en Écart",
-    "« Cette règle protège-t-elle quelque chose aujourd'hui ? »",
-    "« Écart : rien en place, donc pas de frein. Conforme ou Partiel : frein possible. »",
-    "« R2 en Écart : pas de F2. R5 Partielle : F2. »"
-   ],
-   [
     "Ils font la moyenne des V",
     "« Une chaîne résiste-t-elle mieux que son maillon le plus difficile ? »",
     "« V du scénario = la plus petite V des 4 étapes. »",
@@ -1175,6 +1163,18 @@
     "« Passe-t-elle les tests T1 à T4 ? »",
     "« Autorisée si elle est justifiée par les tests ; sinon utilisez la carte. »",
     "« Les chaînes de référence tiennent avec les cartes fournies. »"
+   ],
+   [
+    "Ils ne savent pas coter Pr",
+    "« Quels obstacles réels l'attaquant rencontre-t-il pour cette action ? »",
+    "« Chaque obstacle (compétences rares, conditions à réunir, règle du socle qui gêne, détection) baisse Pr d'un cran. »",
+    "« SS1 Rentrer (hameçonnage de l'intégrateur) : sensibilisation partielle, un obstacle : Pr3. »"
+   ],
+   [
+    "Ils font une moyenne des Pr",
+    "« L'attaquant doit-il réussir toutes les étapes ? »",
+    "« Pr cumulée = min (Pr de l'action ; Pr cumulée précédente) : le maillon le plus faible fixe le niveau. »",
+    "« Pr 4, 3, 2, 4 : cumulées 4, 3, 2, 2 ; vraisemblance V2, pas 3,25. »"
    ]
   ],
   "5": [
@@ -1306,7 +1306,7 @@
     ],
     "appli": [
      "Chaque étape a un bouton « Vérifier » : ✔ juste (la réponse est conservée), ✘ à revoir avec une courte explication. Vous modifiez vos choix et revérifiez. Après 3 essais infructueux sur une même vérification, la solution est proposée avec ses explications (les points de cette vérification ne montent plus).",
-     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse coûtent 1 des 5 aides de votre table pour toute la journée."
+     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse sont illimités, mais chacun coûte 1 point de pénalité (noté à votre nom ; la table voit le total)."
     ],
     "controle": [
      "Chaque valeur métier a au moins un bien support, et chaque bien support apparaît dans au moins une valeur métier.",
@@ -1406,7 +1406,7 @@
    "a3": {
     "titre": "Atelier 3 · Écosystème et scénarios stratégiques",
     "duree": 55,
-    "obj": "Repérer quelles parties prenantes (fournisseurs, prestataires) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème.",
+    "obj": "Repérer quelles parties prenantes (fournisseurs, prestataires, clients : la chaîne d'approvisionnement, ou supply chain) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème.",
     "besoin": [
      [
       "Plateau",
@@ -1437,7 +1437,7 @@
      [
       "16–35",
       "Construire les 3 scénarios stratégiques",
-      "Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = A + B + C (nombre de critères cochés), au minimum 1. C'est une règle du jeu : la méthode officielle n'évalue la vraisemblance qu'à l'atelier 4.",
+      "Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ vérifiez que le couple source/objectif (SR/OV) retenu à l'atelier 2 mène bien à cet ER. La gravité du scénario est celle de l'ER ; la vraisemblance n'est pas estimée ici : conformément à la méthode officielle (EBIOS RM), elle l'est à l'atelier 4.",
       "Zone ③ couloirs ; feuille 3"
      ],
      [
@@ -1455,12 +1455,12 @@
     ],
     "appli": [
      "Le calculateur libre (D, P, M, C) vous aide sans remplacer le calcul écrit.",
-     "La V et le G × V de chaque scénario se calculent à mesure que vous cochez A, B, C."
+     "La gravité de chaque scénario est reprise de l'ER ; la vraisemblance sera estimée à l'atelier 4."
     ],
     "controle": [
      "Chaque niveau de menace est calculé par écrit (D × P, M × C, quotient) et la zone est cochée.",
      "Chaque scénario part d'une source retenue, passe par une partie prenante et finit sur un ER ; sa gravité est celle de l'ER.",
-     "Pour chaque V, vous savez dire quels critères A, B, C sont remplis, preuve à l'appui.",
+     "Pour chaque scénario, vous savez dire quel couple SR/OV retenu l'alimente et quel ER il vise.",
      "Chaque partie prenante en danger a une mesure d'écosystème avec recalcul.",
      "Le bloc « Après l'aléa » est rempli."
     ],
@@ -1492,7 +1492,7 @@
      ],
      [
       "À côté de vous",
-      "Tableau des freins (bouton « Documents », rubrique Échelles), feuille 3 et feuille 1."
+      "Fiche méthode « vraisemblance » (page de méthode de l'atelier dans l'appli), feuille 3 et feuille 1."
      ]
     ],
     "etapes": [
@@ -1523,7 +1523,7 @@
      [
       "40–50",
       "Coter les étapes",
-      "Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). Pour chaque étape : 0 frein = V4 (très facile), 1 frein = V3, 2 freins = V2, 3 freins ou plus = V1 (très difficile). Le scénario prend la valeur de son étape la plus difficile (l'attaquant est arrêté dès qu'une étape est trop dure) : elle remplace la V de l'atelier 3. Exemple : freins 0, 1, 2, 0 donnent V 4, 3, 2, 4 ; V du scénario = 2.",
+      "Pour chaque action posée, répondez aux questions de l'appli (compétences, conditions à réunir, règle du socle de l'atelier 1, détection), puis cotez la probabilité de succès Pr de 1 (faible) à 4 (quasi certaine). Pr cumulée = min (Pr de l'action ; Pr cumulée de l'action précédente) ; la première action garde sa Pr. La vraisemblance du scénario est la Pr cumulée de la dernière action : elle remplace la V de l'atelier 3. Exemple : Pr 4, 3, 2, 4 donnent des cumulées 4, 3, 2, 2 ; V du scénario = 2. Ce n'est pas une moyenne.",
       "Feuille 2, atelier 4"
      ],
      [
@@ -1535,25 +1535,25 @@
     ],
     "appli": [
      "Les menus de l'appli reprennent les cartes noires : choisissez la carte posée.",
-     "V d'étape et V du scénario se calculent à mesure que vous cochez les freins."
+     "Pr cumulée et V du scénario se calculent à mesure que vous cotez Pr. Une étape de méthode avec exercices ouvre l'atelier."
     ],
     "controle": [
      "Chaque chaîne a exactement 4 actions, une par phase, dans le bon ordre.",
      "Chaque action est justifiée : pourquoi suit-elle la précédente ?",
      "Chaque carte écartée échoue à un test, que vous savez nommer.",
-     "Chaque étape a sa V et ses freins ; la V du scénario est la plus petite.",
+     "Chaque action a sa Pr justifiée par les questions ; la V du scénario est la dernière Pr cumulée (la plus petite).",
      "Les biens supports critiques sont notés avec le décompte de leurs actions."
     ],
     "pieges": [
      "Mettre deux actions de la même phase dans une chaîne.",
-     "Compter un frein sans pouvoir le justifier.",
+     "Cote Pr sans pouvoir justifier chaque obstacle ; faire une moyenne au lieu d'un minimum.",
      "Oublier que la V de l'atelier 4 remplace celle de l'atelier 3."
     ],
-    "exemple": "Exemple de frein : si la règle du socle qui couvre l'étape est Conforme ou Partielle, F2 s'applique et la V baisse de 1 ; si elle est en Écart, aucun frein F2.",
+    "exemple": "Exemple : si la règle du socle qui couvre l'étape est Conforme ou Partielle, c'est un obstacle pour l'attaquant et Pr baisse d'un cran ; si elle est en Écart, ce n'est pas un obstacle.",
     "objs": [
      "Construire les scénarios opérationnels : les chemins d'attaque en quatre phases (Connaître, Rentrer, Trouver, Exploiter).",
      "Identifier les cibles techniques : les biens supports visés par les actions, et ceux qui sont critiques.",
-     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Chaque obstacle réel est un frein ; par étape, 0 frein = V4 … 3 freins ou plus = V1 ; le scénario vaut son étape la plus difficile.",
+     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Méthode ANSSI « standard » simplifiée : chaque action reçoit une probabilité de succès Pr de 1 à 4 ; la Pr cumulée d'une action est le minimum entre sa Pr et la Pr cumulée de l'action précédente ; la vraisemblance du scénario est la Pr cumulée de la dernière action.",
      "Préparer le niveau de risque brut : gravité (atelier 1) × vraisemblance, qui sera placé dans la matrice à l'atelier 5."
     ]
    },
@@ -1820,7 +1820,7 @@
     [
      "p",
      "bl",
-     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse coûtent 1 des 5 aides de votre table pour toute la journée."
+     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse sont illimités, mais chacun coûte 1 point de pénalité (noté à votre nom ; la table voit le total)."
     ],
     [
      "p",
@@ -2050,7 +2050,7 @@
     [
      "p",
      "b",
-     "Repérer quelles parties prenantes (fournisseurs, prestataires) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème."
+     "Repérer quelles parties prenantes (fournisseurs, prestataires, clients : la chaîne d'approvisionnement, ou supply chain) peuvent servir de rebond à une source de risque, bâtir 3 scénarios stratégiques (source → partie prenante → événement redouté) et réduire la menace par des mesures d'écosystème."
     ],
     [
      "p",
@@ -2128,7 +2128,7 @@
       ],
       [
        "16–35",
-       "<b>Construire les 3 scénarios stratégiques.</b> Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = A + B + C (nombre de critères cochés), au minimum 1. C'est une règle du jeu : la méthode officielle n'évalue la vraisemblance qu'à l'atelier 4.",
+       "<b>Construire les 3 scénarios stratégiques.</b> Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ vérifiez que le couple source/objectif (SR/OV) retenu à l'atelier 2 mène bien à cet ER. La gravité du scénario est celle de l'ER ; la vraisemblance n'est pas estimée ici : conformément à la méthode officielle (EBIOS RM), elle l'est à l'atelier 4.",
        "Zone ③ couloirs ; feuille 3"
       ],
       [
@@ -2161,7 +2161,7 @@
     [
      "p",
      "bl",
-     "La V et le G × V de chaque scénario se calculent à mesure que vous cochez A, B, C."
+     "La gravité de chaque scénario est reprise de l'ER ; la vraisemblance sera estimée à l'atelier 4."
     ],
     [
      "p",
@@ -2181,7 +2181,7 @@
     [
      "p",
      "bl",
-     "☐ Pour chaque V, vous savez dire quels critères A, B, C sont remplis, preuve à l'appui."
+     "☐ Pour chaque scénario, vous savez dire quel couple SR/OV retenu l'alimente et quel ER il vise."
     ],
     [
      "p",
@@ -2238,7 +2238,7 @@
     [
      "p",
      "bl",
-     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Chaque obstacle réel est un frein ; par étape, 0 frein = V4 … 3 freins ou plus = V1 ; le scénario vaut son étape la plus difficile."
+     "Évaluer la VRAISEMBLANCE de chaque scénario : plus la source est motivée et outillée (atelier 2) et plus le socle a d'écarts (atelier 1), plus l'attaque est facile. Méthode ANSSI « standard » simplifiée : chaque action reçoit une probabilité de succès Pr de 1 à 4 ; la Pr cumulée d'une action est le minimum entre sa Pr et la Pr cumulée de l'action précédente ; la vraisemblance du scénario est la Pr cumulée de la dernière action."
     ],
     [
      "p",
@@ -2267,7 +2267,7 @@
       ],
       [
        "<b>À côté de vous</b>",
-       "Tableau des freins (bouton « Documents », rubrique Échelles), feuille 3 et feuille 1."
+       "Fiche méthode « vraisemblance » (page de méthode de l'atelier dans l'appli), feuille 3 et feuille 1."
       ]
      ]
     ],
@@ -2306,7 +2306,7 @@
       ],
       [
        "40–50",
-       "<b>Coter les étapes.</b> Pour chaque étape, comptez les freins F1 à F4 qui s'appliquent (tableau des freins). Pour chaque étape : 0 frein = V4 (très facile), 1 frein = V3, 2 freins = V2, 3 freins ou plus = V1 (très difficile). Le scénario prend la valeur de son étape la plus difficile (l'attaquant est arrêté dès qu'une étape est trop dure) : elle remplace la V de l'atelier 3. Exemple : freins 0, 1, 2, 0 donnent V 4, 3, 2, 4 ; V du scénario = 2.",
+       "<b>Coter les étapes.</b> Pour chaque action posée, répondez aux questions de l'appli (compétences, conditions à réunir, règle du socle de l'atelier 1, détection), puis cotez la probabilité de succès Pr de 1 (faible) à 4 (quasi certaine). Pr cumulée = min (Pr de l'action ; Pr cumulée de l'action précédente) ; la première action garde sa Pr. La vraisemblance du scénario est la Pr cumulée de la dernière action : elle remplace la V de l'atelier 3. Exemple : Pr 4, 3, 2, 4 donnent des cumulées 4, 3, 2, 2 ; V du scénario = 2. Ce n'est pas une moyenne.",
        "Feuille 2, atelier 4"
       ],
       [
@@ -2319,7 +2319,7 @@
     [
      "p",
      "note",
-     "Exemple de frein : si la règle du socle qui couvre l'étape est Conforme ou Partielle, F2 s'applique et la V baisse de 1 ; si elle est en Écart, aucun frein F2."
+     "Exemple : si la règle du socle qui couvre l'étape est Conforme ou Partielle, c'est un obstacle pour l'attaquant et Pr baisse d'un cran ; si elle est en Écart, ce n'est pas un obstacle."
     ],
     [
      "p",
@@ -2334,7 +2334,7 @@
     [
      "p",
      "bl",
-     "V d'étape et V du scénario se calculent à mesure que vous cochez les freins."
+     "Pr cumulée et V du scénario se calculent à mesure que vous cotez Pr. Une étape de méthode avec exercices ouvre l'atelier."
     ],
     [
      "p",
@@ -2359,7 +2359,7 @@
     [
      "p",
      "bl",
-     "☐ Chaque étape a sa V et ses freins ; la V du scénario est la plus petite."
+     "☐ Chaque action a sa Pr justifiée par les questions ; la V du scénario est la dernière Pr cumulée (la plus petite)."
     ],
     [
      "p",
@@ -2379,7 +2379,7 @@
     [
      "p",
      "bl",
-     "Compter un frein sans pouvoir le justifier."
+     "Cote Pr sans pouvoir justifier chaque obstacle ; faire une moyenne au lieu d'un minimum."
     ],
     [
      "p",
@@ -2717,12 +2717,12 @@
    [
     "p",
     "h2",
-    "Les aides : 5 pour toute la journée"
+    "Les aides : illimitées, avec pénalité"
    ],
    [
     "p",
     "b",
-    "Chaque table dispose de <b>5 aides</b> pour tout le jeu. Le bouton « Aide » propose d'abord une question gratuite ; un indice, ou la réponse d'un élément précis (par exemple « Révéler VM2 »), consomme <b>1 aide</b> et coûte <b>1 point</b>. Choisissez quand les utiliser : les 5 sont partagées par toute la table, sur tous les ateliers."
+    "L'aide est <b>illimitée</b>. Le bouton « Aide » propose d'abord une question gratuite ; un indice, ou la réponse d'un élément précis (par exemple « Révéler VM2 »), coûte <b>1 point de pénalité</b>, noté au nom du joueur qui le demande. La table voit le total des aides utilisées ; l'enseignant voit le détail par joueur. Utilisez-les à bon escient."
    ],
    [
     "p",
@@ -3219,14 +3219,14 @@
    [
     "p",
     "h3",
-    "Atelier 4 : les freins qui rendent une étape plus difficile"
+    "Atelier 4 : les obstacles qui font baisser la probabilité de succès Pr d'une action"
    ],
    [
     "t",
     [
      [
-      "Frein",
-      "Question à se poser sur l'étape",
+      "Obstacle",
+      "Question à se poser sur l'action",
       "Effet"
      ],
      [
@@ -3272,16 +3272,16 @@
       "(D × P) ÷ (M × C). Danger ≥ 3 · Contrôle de 1,5 à moins de 3 · Veille moins de 1,5"
      ],
      [
-      "Vraisemblance d'un scénario stratégique (atelier 3)",
-      "Nombre de critères remplis, minimum V1 : A. Σ de la source ≥ 9 ; B. une partie prenante du chemin est en zone danger ; C. une règle du socle sur le chemin est en Écart ou Partielle"
+      "Scénario stratégique (atelier 3)",
+      "Pas de vraisemblance à l'atelier 3 : la gravité du scénario est celle de l'ER ; la vraisemblance est estimée à l'atelier 4"
      ],
      [
-      "Vraisemblance d'une étape (atelier 4)",
-      "V étape = 4 − nombre de freins (F1 à F4), minimum V1"
+      "Probabilité de succès Pr d'une action (atelier 4)",
+      "Aucun obstacle = Pr4, un = Pr3, deux = Pr2, trois ou plus = Pr1. Pr cumulée = min (Pr de l'action ; Pr cumulée de l'action précédente)"
      ],
      [
       "Vraisemblance d'un scénario opérationnel (atelier 4)",
-      "La plus faible des quatre étapes. Elle remplace la V de l'atelier 3 pour la matrice de l'atelier 5"
+      "La Pr cumulée de la dernière action (le maillon le plus faible). Elle remplace la V de l'atelier 3 pour la matrice de l'atelier 5"
      ],
      [
       "Niveau de risque (atelier 5)",
@@ -3363,7 +3363,7 @@
     [
      "p",
      "b",
-     "<b>Défi 3.3.</b> Un étudiant propose : « SR1 → assurance maladie et ARS (PP3) → ER3 ». Cotez le scénario par les critères A, B, C."
+     "<b>Défi 3.3.</b> Un étudiant propose : « SR1 → assurance maladie et ARS (PP3) → ER3 ». Quel couple SR/OV retenu l'alimente, et quelle gravité hérite-t-il ?"
     ],
     [
      "p",
@@ -3587,9 +3587,9 @@
      "Couloir SS du plateau"
     ],
     [
-     "<b>Critères A, B, C</b>",
-     "A : Σ de la source ≥ 9. B : la PP du chemin est en zone danger. C : une règle du socle sur le chemin est en Écart ou Partielle. V = nombre de critères remplis (minimum V1, maximum V3).",
-     "Feuilles 1, 2 et 3"
+     "<b>Vraisemblance (atelier 4)</b>",
+     "Probabilité de succès Pr de chaque action : 4 sans obstacle réel, −1 par obstacle réel (minimum 1). Pr cumulée = minimum de la Pr de l'action et de la Pr cumulée précédente. V du scénario = Pr cumulée de la dernière action.",
+     "Feuille 4"
     ],
     [
      "<b>Mesure d'écosystème (ME)</b>",
@@ -3622,8 +3622,8 @@
      "Feuille 2"
     ],
     [
-     "<b>Freins F1 à F4</b>",
-     "Chaque frein fait baisser la vraisemblance d'une étape : V étape = 4 − nombre de freins (minimum 1). V du scénario = la plus faible des 4 étapes.",
+     "<b>Pr et Pr cumulée</b>",
+     "Pr = probabilité de succès d'une action vue de l'attaquant (1 à 4) : chaque obstacle réel la baisse d'un cran. Pr cumulée = min (Pr de l'action ; Pr cumulée précédente). V du scénario = Pr cumulée de la dernière action.",
      "Feuille 2"
     ],
     [

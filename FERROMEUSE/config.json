@@ -1106,8 +1106,8 @@
    [
     "Ils font quatre scénarios (SR1 et SR5 séparés)",
     "« Même ER, même PP : combien de scénarios ? »",
-    "« Un seul ; on garde la source la plus pertinente pour le critère A. »",
-    "« SR1 (Σ 9) rend A rempli ; SR5 (Σ 8) non. »"
+    "« Un seul ; on garde la source la plus pertinente. »",
+    "« SR1 (Σ 9) est plus pertinente que SR5 (Σ 8). »"
    ],
    [
     "Ils ne voient pas à quoi sert une ME",
@@ -1307,7 +1307,7 @@
     ],
     "appli": [
      "Chaque étape a un bouton « Vérifier » : ✔ juste (la réponse est conservée), ✘ à revoir avec une courte explication. Vous modifiez vos choix et revérifiez. Après 3 essais infructueux sur une même vérification, la solution est proposée avec ses explications (les points de cette vérification ne montent plus).",
-     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse coûtent 1 des 5 aides de votre table pour toute la journée."
+     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse sont illimités, mais chacun coûte 1 point de pénalité (noté à votre nom ; la table voit le total)."
     ],
     "controle": [
      "Chaque valeur métier a au moins un bien support, et chaque bien support apparaît dans au moins une valeur métier.",
@@ -1438,7 +1438,7 @@
      [
       "16–35",
       "Construire les 3 scénarios stratégiques",
-      "Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = A + B + C (nombre de critères cochés), au minimum 1. C'est une règle du jeu : la méthode officielle n'évalue la vraisemblance qu'à l'atelier 4.",
+      "Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ vérifiez que le couple source/objectif (SR/OV) retenu à l'atelier 2 mène bien à cet ER. La gravité du scénario est celle de l'ER ; la vraisemblance n'est pas estimée ici : conformément à la méthode officielle (EBIOS RM), elle l'est à l'atelier 4.",
       "Zone ③ couloirs ; feuille 3"
      ],
      [
@@ -1456,12 +1456,12 @@
     ],
     "appli": [
      "Le calculateur libre (D, P, M, C) vous aide sans remplacer le calcul écrit.",
-     "La V et le G × V de chaque scénario se calculent à mesure que vous cochez A, B, C."
+     "La gravité de chaque scénario est reprise de l'ER ; la vraisemblance sera estimée à l'atelier 4."
     ],
     "controle": [
      "Chaque niveau de menace est calculé par écrit (D × P, M × C, quotient) et la zone est cochée.",
      "Chaque scénario part d'une source retenue, passe par une partie prenante et finit sur un ER ; sa gravité est celle de l'ER.",
-     "Pour chaque V, vous savez dire quels critères A, B, C sont remplis, preuve à l'appui.",
+     "Pour chaque scénario, vous savez dire quel couple SR/OV retenu l'alimente et quel ER il vise.",
      "Chaque partie prenante en danger a une mesure d'écosystème avec recalcul.",
      "Le bloc « Après l'aléa » est rempli."
     ],
@@ -1821,7 +1821,7 @@
     [
      "p",
      "bl",
-     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse coûtent 1 des 5 aides de votre table pour toute la journée."
+     "Bloqué ? Le bouton « Aide » donne d'abord une question gratuite ; indice et réponse sont illimités, mais chacun coûte 1 point de pénalité (noté à votre nom ; la table voit le total)."
     ],
     [
      "p",
@@ -2129,7 +2129,7 @@
       ],
       [
        "16–35",
-       "<b>Construire les 3 scénarios stratégiques.</b> Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ cochez les critères A, B, C de vraisemblance avec leur preuve (A : Σ de la source ≥ 9 ; B : une PP du chemin est en danger ; C : une règle du socle sur le chemin est en Écart ou Partielle). V = A + B + C (nombre de critères cochés), au minimum 1. C'est une règle du jeu : la méthode officielle n'évalue la vraisemblance qu'à l'atelier 4.",
+       "<b>Construire les 3 scénarios stratégiques.</b> Pour chaque scénario SS : ① choisissez un ER grave ; ② choisissez la source RETENUE qui peut le provoquer ; ③ choisissez la partie prenante qui sert de relais (de préférence en zone danger) ; ④ posez les 3 cartes SR → PP → ER dans le couloir ; ⑤ vérifiez que le couple source/objectif (SR/OV) retenu à l'atelier 2 mène bien à cet ER. La gravité du scénario est celle de l'ER ; la vraisemblance n'est pas estimée ici : conformément à la méthode officielle (EBIOS RM), elle l'est à l'atelier 4.",
        "Zone ③ couloirs ; feuille 3"
       ],
       [
@@ -2162,7 +2162,7 @@
     [
      "p",
      "bl",
-     "La V et le G × V de chaque scénario se calculent à mesure que vous cochez A, B, C."
+     "La gravité de chaque scénario est reprise de l'ER ; la vraisemblance sera estimée à l'atelier 4."
     ],
     [
      "p",
@@ -2182,7 +2182,7 @@
     [
      "p",
      "bl",
-     "☐ Pour chaque V, vous savez dire quels critères A, B, C sont remplis, preuve à l'appui."
+     "☐ Pour chaque scénario, vous savez dire quel couple SR/OV retenu l'alimente et quel ER il vise."
     ],
     [
      "p",
@@ -2718,12 +2718,12 @@
    [
     "p",
     "h2",
-    "Les aides : 5 pour toute la journée"
+    "Les aides : illimitées, avec pénalité"
    ],
    [
     "p",
     "b",
-    "Chaque table dispose de <b>5 aides</b> pour tout le jeu. Le bouton « Aide » propose d'abord une question gratuite ; un indice, ou la réponse d'un élément précis (par exemple « Révéler VM2 »), consomme <b>1 aide</b> et coûte <b>1 point</b>. Choisissez quand les utiliser : les 5 sont partagées par toute la table, sur tous les ateliers."
+    "L'aide est <b>illimitée</b>. Le bouton « Aide » propose d'abord une question gratuite ; un indice, ou la réponse d'un élément précis (par exemple « Révéler VM2 »), coûte <b>1 point de pénalité</b>, noté au nom du joueur qui le demande. La table voit le total des aides utilisées ; l'enseignant voit le détail par joueur. Utilisez-les à bon escient."
    ],
    [
     "p",
@@ -3364,7 +3364,7 @@
     [
      "p",
      "b",
-     "<b>Défi 3.3.</b> Un étudiant propose : « SR1 → client PP3 → ER3 ». Cotez le scénario par les critères A, B, C."
+     "<b>Défi 3.3.</b> Un étudiant propose : « SR1 → client PP3 → ER3 ». Quel couple SR/OV retenu l'alimente, et quelle gravité hérite-t-il ?"
     ],
     [
      "p",
@@ -3588,9 +3588,9 @@
      "Couloir SS du plateau"
     ],
     [
-     "<b>Critères A, B, C</b>",
-     "A : Σ de la source ≥ 9. B : la PP du chemin est en zone danger. C : une règle du socle sur le chemin est en Écart ou Partielle. V = nombre de critères remplis (minimum V1, maximum V3).",
-     "Feuilles 1, 2 et 3"
+     "<b>Vraisemblance (atelier 4)</b>",
+     "Probabilité de succès Pr de chaque action : 4 sans obstacle réel, −1 par obstacle réel (minimum 1). Pr cumulée = minimum de la Pr de l'action et de la Pr cumulée précédente. V du scénario = Pr cumulée de la dernière action.",
+     "Feuille 4"
     ],
     [
      "<b>Mesure d'écosystème (ME)</b>",
