@@ -24,6 +24,39 @@ const CHK={"iter": 200000, "salt": "7qELIQe+XYEaUc28ql+KaA==", "iv": "slrtqdjQyQ
 const SC=[{"k": "FERROMEUSE", "n": "FERROMEUSE", "o": "FERROMEUSE Aciers Spéciaux"}, {"k": "VAL_DARGONNE", "n": "VAL-D'ARGONNE", "o": "Centre Hospitalier Val-d'Argonne"}, {"k": "METROPOLE", "n": "MÉTROPOLE", "o": "MÉTROPOLE"}, {"k": "MUTUELLE", "n": "MUTUELLE", "o": "Mutuelle Orion"}, {"k": "SAAS", "n": "SAAS", "o": "Skalia"}, {"k": "ECOMMERCE", "n": "ECOMMERCE", "o": "Marenco Distribution"}, {"k": "ECOLE", "n": "ÉCOLE", "o": "École d'ingénieurs Vauban"}, {"k": "BANQUE", "n": "BANQUE", "o": "Banque Verdon"}, {"k": "AEROPORT", "n": "AÉROPORT", "o": "Aéroport de Corvelle"}, {"k": "PRESTATAIRE", "n": "PRESTATAIRE", "o": "Synaptis Services"}];
 const ATL=[['a1','Atelier 1',50],['a2','Atelier 2',40],['a3','Atelier 3',55],['a4','Atelier 4',55],['a5','Atelier 5',40],['deb','Débrief',30]];
 const qs=new URLSearchParams(location.search),RELAY=qs.get('relay')||'https://ntfy.sh';
+// ---------- relais : Cloudflare (WebSocket, voie principale) + ntfy (secours) — convention JeuxLive
+const XR_WS=(qs.get('ws')==='0')?'':(qs.get('ws')||'wss://cpro-relay.belmdeveloppement.workers.dev/ps');
+const XR={rooms:{},seen:new Set(),up:false};
+const xrid=()=>Math.random().toString(36).slice(2,12);
+const xTopic=t=>String(t).replace(/[^\w-]/g,'-').slice(0,56)+'-m';   // jamais « …h » ni « …s » (sujets spéciaux du relais)
+const xRoom=t=>'ebios'+String(t).split('-').pop().toLowerCase().replace(/[^a-z0-9]/g,'');
+function xRoomOf(t){const r=xRoom(t);if(!XR.rooms[r])XR.rooms[r]={subs:{},acks:{},ws:null,up:false,fails:0,name:r};return XR.rooms[r]}
+function xOpen(R){if(!XR_WS||R.ws||R.dead)return;let w;try{w=new WebSocket(XR_WS+'?room='+encodeURIComponent(R.name))}catch(e){return xRetry(R)}
+  R.ws=w;let ping=null,closed=false;
+  w.onopen=()=>{R.up=true;R.fails=0;Object.keys(R.subs).forEach(t=>w.send(JSON.stringify({a:'sub',t:xTopic(t),since:0})));ping=setInterval(()=>{try{w.send('ping')}catch(e){}},25000);xStat()};
+  w.onmessage=e=>{if(e.data==='pong')return;let m;try{m=JSON.parse(e.data)}catch(x){return}
+    if(m.a==='ack'){const k=R.acks[m.u];if(k){clearTimeout(k.t);delete R.acks[m.u];if(m.n===0)k.fb();k.ok&&k.ok(true)}return}
+    if(m.a!=='msg')return;let o;try{o=JSON.parse(m.m)}catch(x){return}
+    Object.keys(R.subs).forEach(t=>{if(xTopic(t)===m.t)R.subs[t].forEach(s=>xDeliver(s,o))})};
+  const end=()=>{if(closed)return;closed=true;clearInterval(ping);R.ws=null;R.up=false;R.fails++;xStat();xRetry(R)};w.onclose=end;w.onerror=end}
+function xRetry(R){if(R.dead)return;setTimeout(()=>xOpen(R),Math.min(15000,1000*Math.pow(2,Math.min(R.fails,4))))}
+function xStat(){XR.up=Object.values(XR.rooms).some(r=>r.up);Object.values(XR.rooms).forEach(r=>Object.keys(r.subs).forEach(t=>r.subs[t].forEach(s=>s.upd&&s.upd())))}
+function xDeliver(s,o){if(o&&o._u){if(XR.seen.has(o._u))return;XR.seen.add(o._u);if(XR.seen.size>20000)XR.seen.clear()}s.cb(o)}
+async function xNtfy(topic,body){for(let i=0;i<4;i++){try{const r=await fetch(RELAY+'/'+topic,{method:'POST',body,mode:'cors'});if(r.ok)return true;if(r.status===429)await new Promise(r=>setTimeout(r,3000))}catch(e){}await new Promise(r=>setTimeout(r,500*(i+1)))}return false}
+// publie : relais d'abord (accusé ; sans abonné ou sans réponse en 2,5 s : copie sur ntfy), sinon ntfy
+function xPost(topic,o){o._u=o._u||xrid();const body=JSON.stringify(o),R=xRoomOf(topic);
+  if(XR_WS&&R.up){return new Promise(res=>{const t=setTimeout(()=>{delete R.acks[o._u];xNtfy(topic,body).then(res)},2500);
+    R.acks[o._u]={t,fb:()=>{xNtfy(topic,body)},ok:res};
+    try{R.ws.send(JSON.stringify({a:'pub',t:xTopic(topic),m:body,u:o._u}))}catch(e){clearTimeout(t);delete R.acks[o._u];xNtfy(topic,body).then(res)}})}
+  return xNtfy(topic,body)}
+// s'abonne : renvoie {close}
+function xSub(topic,onmsg,onstatus){const R=xRoomOf(topic);let es=null,dead=false,esOk=false;
+  const s={cb:onmsg,upd:()=>onstatus&&onstatus(esOk||R.up?'ok':'retry')};(R.subs[topic]=R.subs[topic]||[]).push(s);
+  const open=()=>{if(dead||typeof EventSource==='undefined')return;try{es=new EventSource(RELAY+'/'+topic+'/sse?since=12h')}catch(e){return}
+    es.onopen=()=>{esOk=true;s.upd()};es.onerror=()=>{esOk=false;s.upd();try{es.close()}catch(e){}setTimeout(open,R.up?15000:2500)};
+    es.onmessage=ev=>{try{const m=JSON.parse(ev.data);if(m.event==='message'&&m.message)xDeliver(s,JSON.parse(m.message))}catch(x){}}};
+  open();if(XR_WS){if(R.up)R.ws.send(JSON.stringify({a:'sub',t:xTopic(topic),since:0}));else xOpen(R)}
+  return {close:()=>{dead=true;try{es&&es.close()}catch(e){}R.subs[topic]=(R.subs[topic]||[]).filter(x=>x!==s)}}}
 const BASE=location.origin+location.pathname.replace(/prof\/[^\/]*$/,'');
 const MAXT=10,MAXJ=5;const RQ=qs.get('relay')?'&relay='+encodeURIComponent(qs.get('relay')):'';
 const $=s=>document.querySelector(s),esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -37,12 +70,12 @@ function saveP(){try{localStorage.setItem(LS,JSON.stringify(P))}catch(e){}}
 function loadP(){try{return JSON.parse(localStorage.getItem(LS)||'null')}catch(e){return null}}
 const topicOf=(k,code)=>'ebiosrm-'+k.toLowerCase()+'-'+code.toLowerCase();
 const topicSess=code=>'ebiosrm-sess-'+code.toLowerCase();
-function post(topic,o){o.ts=Date.now();return fetch(RELAY+'/'+topic,{method:'POST',body:JSON.stringify(o),mode:'cors'}).catch(()=>{})}
+function post(topic,o){o.ts=Date.now();return xPost(topic,o)}
 async function unlock(code){try{const b=x=>Uint8Array.from(atob(x),c=>c.charCodeAt(0));
  const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveKey']);
  const key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b(CHK.salt),iterations:CHK.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b(CHK.iv)},key,b(CHK.ct));return new TextDecoder().decode(pt)==='EBIOS-PROF-OK'}catch(e){return false}}
-async function restore(code){try{const r=await fetch(RELAY+'/'+topicSess(code)+'/json?poll=1&since=48h',{cache:'no-store'});const t=await r.text();let last=null;
+async function restore(code){const viaRelay=await new Promise(res=>{let last=null;const c=xSub(topicSess(code),o=>{if(o&&o.k==='sess')last=o});setTimeout(()=>{c.close();res(last)},1800)});if(viaRelay)return viaRelay;try{const r=await fetch(RELAY+'/'+topicSess(code)+'/json?poll=1&since=48h',{cache:'no-store'});const t=await r.text();let last=null;
  t.split('\n').forEach(l=>{try{const m=JSON.parse(l);if(m.event==='message'){const o=JSON.parse(m.message);if(o.k==='sess')last=o}}catch(e){}});return last}catch(e){return null}}
 // ---------- vues
 function view(){const a=$('#app');
@@ -106,7 +139,7 @@ function onMsg(m){if(!m||!m.k||!m.tb&&m.k!=='timer')return;const t=m.tb?tb(m.tb)
  else if(m.k==='tow'){t.tow={vid:m.vid,ts:m.ts}}
  else if(m.k==='st'){if(!t.st||m.ts>=t.st.ts)t.st=m}
  clearTimeout(onMsg.t);onMsg.t=setTimeout(dash,300)}
-function live(){closeLive();retained().forEach(s=>{try{const e=new EventSource(RELAY+'/'+topicOf(s.k,P.code)+'/sse?since=12h');e.onmessage=ev=>{try{const m=JSON.parse(ev.data);if(m.event==='message'&&m.message)onMsg(JSON.parse(m.message))}catch(x){}};es.push(e)}catch(x){}});
+function live(){closeLive();retained().forEach(s=>{try{es.push(xSub(topicOf(s.k,P.code),onMsg))}catch(x){}});
  timerInt=setInterval(()=>{tick();dash()},1000);tick()}
 function tick(){const el=$('#tmr');if(!el)return;if(!NETt||NETt.stop){el.textContent='--:--';return}const r=NETt.start+NETt.dur-Date.now();const a=Math.abs(Math.round(r/1000)),mm=String(Math.floor(a/60)).padStart(2,'0'),ss=String(a%60).padStart(2,'0');el.textContent=(r<0?'−':'')+mm+':'+ss;el.style.color=r<0?'var(--ko)':''}
 function ago(t){if(!t)return '—';const m=Math.floor((Date.now()-t)/60000);return m<1?'à l\'instant':'il y a '+m+' min'}
